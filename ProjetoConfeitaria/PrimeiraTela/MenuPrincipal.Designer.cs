@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             panel1 = new Panel();
+            pictureBox8 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -57,8 +58,8 @@
             label6 = new Label();
             label7 = new Label();
             pictureBox4 = new PictureBox();
-            pictureBox8 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -70,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,6 +91,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(260, 720);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox8.Image = Properties.Resources._3_removebg_preview;
+            pictureBox8.Location = new Point(25, 648);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(33, 32);
+            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 8;
+            pictureBox8.TabStop = false;
             // 
             // pictureBox7
             // 
@@ -407,17 +418,6 @@
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 
-            // pictureBox8
-            // 
-            pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox8.Image = Properties.Resources._3_removebg_preview;
-            pictureBox8.Location = new Point(25, 648);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(33, 32);
-            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 8;
-            pictureBox8.TabStop = false;
-            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -436,6 +436,7 @@
             Text = "MenuPrincipal";
             TransparencyKey = Color.Transparent;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -447,7 +448,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
         }
 
