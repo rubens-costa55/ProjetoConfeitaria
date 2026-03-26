@@ -6,5 +6,10 @@ namespace PrimeiraTela
         {
             InitializeComponent();
         }
+
+        private void TelaLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
