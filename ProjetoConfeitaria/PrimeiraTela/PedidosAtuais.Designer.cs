@@ -430,7 +430,7 @@
             button11.FlatStyle = FlatStyle.Flat;
             button11.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button11.ForeColor = Color.White;
-            button11.Location = new Point(1484, 797);
+            button11.Location = new Point(1379, 804);
             button11.Name = "button11";
             button11.Size = new Size(180, 45);
             button11.TabIndex = 1;
