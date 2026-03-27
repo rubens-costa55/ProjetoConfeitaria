@@ -430,7 +430,6 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";

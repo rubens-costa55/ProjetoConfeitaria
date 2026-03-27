@@ -41,12 +41,39 @@
             button1 = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
+            panel3 = new Panel();
+            lbltitulonovoagendamento = new Label();
+            textBox3 = new TextBox();
+            panel4 = new Panel();
+            pictureBox3 = new PictureBox();
+            textBox6 = new TextBox();
+            label5 = new Label();
+            textBox5 = new TextBox();
+            label4 = new Label();
+            textBox4 = new TextBox();
+            label3 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
+            panel5 = new Panel();
+            pictureBox4 = new PictureBox();
+            panel6 = new Panel();
+            label6 = new Label();
+            pictureBox5 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -201,12 +228,244 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(232, 174, 184);
+            panel3.Controls.Add(lbltitulonovoagendamento);
+            panel3.Controls.Add(textBox3);
+            panel3.Location = new Point(337, 91);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(500, 70);
+            panel3.TabIndex = 1;
+            // 
+            // lbltitulonovoagendamento
+            // 
+            lbltitulonovoagendamento.BackColor = Color.Transparent;
+            lbltitulonovoagendamento.Dock = DockStyle.Fill;
+            lbltitulonovoagendamento.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbltitulonovoagendamento.ForeColor = Color.White;
+            lbltitulonovoagendamento.Location = new Point(0, 0);
+            lbltitulonovoagendamento.Name = "lbltitulonovoagendamento";
+            lbltitulonovoagendamento.Size = new Size(500, 70);
+            lbltitulonovoagendamento.TabIndex = 2;
+            lbltitulonovoagendamento.Text = "NOVO AGENDAMENTO";
+            lbltitulonovoagendamento.TextAlign = ContentAlignment.MiddleCenter;
+            lbltitulonovoagendamento.Click += label1_Click;
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = Color.FromArgb(255, 253, 252);
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox3.Location = new Point(279, 51);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(250, 16);
+            textBox3.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(252, 250, 249);
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(pictureBox3);
+            panel4.Controls.Add(textBox6);
+            panel4.Controls.Add(label5);
+            panel4.Controls.Add(textBox5);
+            panel4.Controls.Add(label4);
+            panel4.Controls.Add(textBox4);
+            panel4.Controls.Add(label3);
+            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(label1);
+            panel4.Location = new Point(350, 250);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(760, 500);
+            panel4.TabIndex = 2;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(255, 253, 252);
+            pictureBox3.Image = Properties.Resources._1_removebg_preview;
+            pictureBox3.Location = new Point(226, 343);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(34, 29);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
+            // 
+            // textBox6
+            // 
+            textBox6.BackColor = Color.FromArgb(255, 253, 252);
+            textBox6.BorderStyle = BorderStyle.FixedSingle;
+            textBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox6.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox6.Location = new Point(40, 376);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(640, 29);
+            textBox6.TabIndex = 11;
+            textBox6.Text = "15/04/2026 - 16:30";
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(185, 120, 103);
+            label5.Location = new Point(40, 345);
+            label5.Name = "label5";
+            label5.Size = new Size(220, 28);
+            label5.TabIndex = 10;
+            label5.Text = "Data e Hora da entrega:";
+            // 
+            // textBox5
+            // 
+            textBox5.BackColor = Color.FromArgb(255, 253, 252);
+            textBox5.BorderStyle = BorderStyle.FixedSingle;
+            textBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox5.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox5.Location = new Point(370, 271);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(310, 29);
+            textBox5.TabIndex = 9;
+            textBox5.Text = "R$ 320,00";
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(185, 120, 103);
+            label4.Location = new Point(370, 240);
+            label4.Name = "label4";
+            label4.Size = new Size(220, 28);
+            label4.TabIndex = 8;
+            label4.Text = "Valor:";
+            // 
+            // textBox4
+            // 
+            textBox4.BackColor = Color.FromArgb(255, 253, 252);
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox4.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox4.Location = new Point(40, 271);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(310, 29);
+            textBox4.TabIndex = 7;
+            textBox4.Text = "50 unidades...";
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(185, 120, 103);
+            label3.Location = new Point(40, 240);
+            label3.Name = "label3";
+            label3.Size = new Size(220, 28);
+            label3.TabIndex = 4;
+            label3.Text = "Quantidade:";
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.FromArgb(255, 253, 252);
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox2.Location = new Point(40, 162);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(640, 29);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "Selecione ou digite o item principal";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(255, 253, 252);
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = Color.FromArgb(191, 167, 157);
+            textBox1.Location = new Point(40, 66);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(640, 29);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "Ex.: Ana Paula Oliveira";
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(185, 120, 103);
+            label2.Location = new Point(40, 134);
+            label2.Name = "label2";
+            label2.Size = new Size(140, 28);
+            label2.TabIndex = 2;
+            label2.Text = "Produto:";
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(185, 120, 103);
+            label1.Location = new Point(40, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(220, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Nome do Cliente:";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(252, 250, 249);
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(pictureBox4);
+            panel5.Location = new Point(1150, 250);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(290, 240);
+            panel5.TabIndex = 3;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.LOGO__1__removebg_preview;
+            pictureBox4.Location = new Point(61, 54);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(173, 127);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 13;
+            pictureBox4.TabStop = false;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(252, 250, 249);
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(label6);
+            panel6.Controls.Add(pictureBox5);
+            panel6.Location = new Point(1150, 515);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(290, 235);
+            panel6.TabIndex = 14;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(111, 84, 75);
+            label6.Location = new Point(85, 28);
+            label6.Name = "label6";
+            label6.Size = new Size(171, 35);
+            label6.TabIndex = 14;
+            label6.Text = "Resumo rápido";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(35, 28);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(36, 36);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 13;
+            pictureBox5.TabStop = false;
+            // 
             // NovoAgendamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1584, 861);
+            Controls.Add(panel6);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -219,6 +478,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -236,5 +504,25 @@
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private PictureBox pictureBox2;
+        private Panel panel3;
+        private Label lbltitulonovoagendamento;
+        private Panel panel4;
+        private Label label1;
+        private Label label2;
+        private TextBox textBox1;
+        private TextBox textBox3;
+        private Label label3;
+        private TextBox textBox2;
+        private TextBox textBox4;
+        private Label label5;
+        private TextBox textBox5;
+        private Label label4;
+        private PictureBox pictureBox3;
+        private TextBox textBox6;
+        private Panel panel5;
+        private PictureBox pictureBox4;
+        private Panel panel6;
+        private Label label6;
+        private PictureBox pictureBox5;
     }
 }
