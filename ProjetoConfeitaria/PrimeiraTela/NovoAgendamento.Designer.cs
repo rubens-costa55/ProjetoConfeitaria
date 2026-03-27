@@ -59,8 +59,17 @@
             panel5 = new Panel();
             pictureBox4 = new PictureBox();
             panel6 = new Panel();
+            panel7 = new Panel();
+            label7 = new Label();
             label6 = new Label();
             pictureBox5 = new PictureBox();
+            panel8 = new Panel();
+            label8 = new Label();
+            panel9 = new Panel();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -73,7 +82,10 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel6.SuspendLayout();
+            panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panel8.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -428,12 +440,41 @@
             // 
             panel6.BackColor = Color.FromArgb(252, 250, 249);
             panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(label12);
+            panel6.Controls.Add(label11);
+            panel6.Controls.Add(label10);
+            panel6.Controls.Add(panel9);
+            panel6.Controls.Add(panel8);
+            panel6.Controls.Add(panel7);
             panel6.Controls.Add(label6);
             panel6.Controls.Add(pictureBox5);
             panel6.Location = new Point(1150, 515);
             panel6.Name = "panel6";
             panel6.Size = new Size(290, 235);
             panel6.TabIndex = 14;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(label7);
+            panel7.Location = new Point(30, 90);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(95, 38);
+            panel7.TabIndex = 15;
+            panel7.Paint += panel7_Paint;
+            // 
+            // label7
+            // 
+            label7.AllowDrop = true;
+            label7.BackColor = Color.FromArgb(241, 229, 225);
+            label7.Dock = DockStyle.Fill;
+            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(201, 142, 124);
+            label7.Location = new Point(0, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(95, 38);
+            label7.TabIndex = 0;
+            label7.Text = "Cliente";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -455,6 +496,83 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(label8);
+            panel8.Location = new Point(30, 134);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(95, 38);
+            panel8.TabIndex = 16;
+            panel8.Tag = "";
+            // 
+            // label8
+            // 
+            label8.AllowDrop = true;
+            label8.BackColor = Color.FromArgb(239, 228, 216);
+            label8.Dock = DockStyle.Fill;
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(201, 142, 124);
+            label8.Location = new Point(0, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(95, 38);
+            label8.TabIndex = 0;
+            label8.Text = "Entrega";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(242, 221, 219);
+            panel9.Controls.Add(label9);
+            panel9.Location = new Point(30, 180);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(95, 38);
+            panel9.TabIndex = 17;
+            panel9.Tag = "";
+            // 
+            // label9
+            // 
+            label9.AllowDrop = true;
+            label9.BackColor = Color.FromArgb(239, 228, 216);
+            label9.Dock = DockStyle.Fill;
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(201, 142, 124);
+            label9.Location = new Point(0, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(95, 38);
+            label9.TabIndex = 0;
+            label9.Text = "Valor";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(126, 99, 92);
+            label10.Location = new Point(131, 101);
+            label10.Name = "label10";
+            label10.Size = new Size(125, 28);
+            label10.TabIndex = 15;
+            label10.Text = "Ana Paula Oliveira";
+            // 
+            // label11
+            // 
+            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(126, 99, 92);
+            label11.Location = new Point(131, 145);
+            label11.Name = "label11";
+            label11.Size = new Size(125, 28);
+            label11.TabIndex = 18;
+            label11.Text = "15/04/2026 16:30";
+            // 
+            // label12
+            // 
+            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(126, 99, 92);
+            label12.Location = new Point(131, 190);
+            label12.Name = "label12";
+            label12.Size = new Size(125, 28);
+            label12.TabIndex = 19;
+            label12.Text = "R$ 320,00";
             // 
             // NovoAgendamento
             // 
@@ -486,7 +604,10 @@
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel6.ResumeLayout(false);
+            panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panel8.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -524,5 +645,14 @@
         private Panel panel6;
         private Label label6;
         private PictureBox pictureBox5;
+        private Panel panel7;
+        private Label label7;
+        private Panel panel8;
+        private Label label8;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Panel panel9;
+        private Label label9;
     }
 }
