@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosAtuais));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -54,13 +56,13 @@
             PanelBuscar = new Panel();
             textBox1 = new TextBox();
             panel5 = new Panel();
-            dataGridView1 = new DataGridView();
-            Cliente = new DataGridViewTextBoxColumn();
-            Pedido = new DataGridViewTextBoxColumn();
-            Entrega = new DataGridViewTextBoxColumn();
-            Valor = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewComboBoxColumn();
-            button11 = new Button();
+            dgvPedidos = new DataGridView();
+            colcliente = new DataGridViewTextBoxColumn();
+            colpedido = new DataGridViewTextBoxColumn();
+            colentrega = new DataGridViewTextBoxColumn();
+            colvalor = new DataGridViewTextBoxColumn();
+            colstatus = new DataGridViewComboBoxColumn();
+            acao = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -70,7 +72,7 @@
             panel3.SuspendLayout();
             PanelBuscar.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -353,89 +355,103 @@
             // 
             panel5.BackColor = Color.FromArgb(252, 250, 249);
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(dataGridView1);
+            panel5.Controls.Add(dgvPedidos);
             panel5.Location = new Point(355, 300);
             panel5.Name = "panel5";
             panel5.Size = new Size(1204, 470);
             panel5.TabIndex = 11;
             // 
-            // dataGridView1
+            // dgvPedidos
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.FromArgb(252, 250, 249);
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPedidos.AllowUserToDeleteRows = false;
+            dgvPedidos.AllowUserToResizeColumns = false;
+            dgvPedidos.AllowUserToResizeRows = false;
+            dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPedidos.BackgroundColor = Color.FromArgb(252, 250, 249);
+            dgvPedidos.BorderStyle = BorderStyle.None;
+            dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Cliente, Pedido, Entrega, Valor, Status });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvPedidos.ColumnHeadersHeight = 42;
+            dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor, colstatus, acao });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(126, 99, 92);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvPedidos.EnableHeadersVisualStyles = false;
+            dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
+            dgvPedidos.Location = new Point(47, 21);
+            dgvPedidos.MultiSelect = false;
+            dgvPedidos.Name = "dgvPedidos";
+            dgvPedidos.RowHeadersVisible = false;
+            dgvPedidos.RowTemplate.Height = 45;
+            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPedidos.Size = new Size(1138, 417);
+            dgvPedidos.TabIndex = 0;
+            dgvPedidos.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // colcliente
+            // 
+            colcliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colcliente.FillWeight = 22F;
+            colcliente.HeaderText = "Cliente";
+            colcliente.Name = "colcliente";
+            // 
+            // colpedido
+            // 
+            colpedido.FillWeight = 28F;
+            colpedido.HeaderText = "Pedido";
+            colpedido.Name = "colpedido";
+            // 
+            // colentrega
+            // 
+            colentrega.FillWeight = 20F;
+            colentrega.HeaderText = "Entrega";
+            colentrega.Name = "colentrega";
+            // 
+            // colvalor
+            // 
+            colvalor.FillWeight = 12F;
+            colvalor.HeaderText = "Valor";
+            colvalor.Name = "colvalor";
+            // 
+            // colstatus
+            // 
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 242, 241);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(126, 99, 92);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.GridColor = Color.FromArgb(231, 211, 204);
-            dataGridView1.Location = new Point(56, 37);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 45;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1105, 390);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            colstatus.DefaultCellStyle = dataGridViewCellStyle2;
+            colstatus.FillWeight = 22F;
+            colstatus.HeaderText = "Status";
+            colstatus.Items.AddRange(new object[] { "Em produção", "Confirmado", "Separando", "Agendado", "Concluído" });
+            colstatus.Name = "colstatus";
             // 
-            // Cliente
+            // acao
             // 
-            Cliente.HeaderText = "Cliente";
-            Cliente.Name = "Cliente";
-            // 
-            // Pedido
-            // 
-            Pedido.HeaderText = "Pedido";
-            Pedido.Name = "Pedido";
-            // 
-            // Entrega
-            // 
-            Entrega.HeaderText = "Entrega";
-            Entrega.Name = "Entrega";
-            // 
-            // Valor
-            // 
-            Valor.HeaderText = "Valor";
-            Valor.Name = "Valor";
-            // 
-            // Status
-            // 
-            Status.HeaderText = "Status";
-            Status.Name = "Status";
-            // 
-            // button11
-            // 
-            button11.BackColor = Color.FromArgb(201, 142, 124);
-            button11.FlatAppearance.BorderSize = 0;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button11.ForeColor = Color.White;
-            button11.Location = new Point(1379, 804);
-            button11.Name = "button11";
-            button11.Size = new Size(180, 45);
-            button11.TabIndex = 1;
-            button11.Text = "Salvar Alterações";
-            button11.UseVisualStyleBackColor = false;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(220, 238, 219);
+            acao.DefaultCellStyle = dataGridViewCellStyle3;
+            acao.FillWeight = 14F;
+            acao.HeaderText = "Ação";
+            acao.Name = "acao";
+            acao.Resizable = DataGridViewTriState.True;
+            acao.SortMode = DataGridViewColumnSortMode.Automatic;
+            acao.Text = "Pedido concluído";
+            acao.UseColumnTextForButtonValue = true;
             // 
             // PedidosAtuais
             // 
@@ -443,7 +459,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1584, 861);
-            Controls.Add(button11);
             Controls.Add(PanelBuscar);
             Controls.Add(button10);
             Controls.Add(button9);
@@ -468,7 +483,7 @@
             PanelBuscar.ResumeLayout(false);
             PanelBuscar.PerformLayout();
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
             ResumeLayout(false);
         }
 
@@ -497,12 +512,12 @@
         private Panel PanelBuscar;
         private TextBox textBox1;
         private Panel panel5;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn Pedido;
-        private DataGridViewTextBoxColumn Entrega;
-        private DataGridViewTextBoxColumn Valor;
-        private DataGridViewComboBoxColumn Status;
-        private Button button11;
+        private DataGridView dgvPedidos;
+        private DataGridViewTextBoxColumn colcliente;
+        private DataGridViewTextBoxColumn colpedido;
+        private DataGridViewTextBoxColumn colentrega;
+        private DataGridViewTextBoxColumn colvalor;
+        private DataGridViewComboBoxColumn colstatus;
+        private DataGridViewButtonColumn acao;
     }
 }
