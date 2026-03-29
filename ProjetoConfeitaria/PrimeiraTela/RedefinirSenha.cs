@@ -44,16 +44,24 @@ namespace PrimeiraTela
                 MessageBox.Show("Preencha os dois campos.");
                 return;
             }
-            if (txtNovaSenha.Text != txtConfirmarSenha.Text)
+            else if (txtNovaSenha.Text != txtConfirmarSenha.Text)
             {
                 MessageBox.Show("As senhas não coincidem.");
                 return;
             }
-            MessageBox.Show("Senha atualizada com sucesso!");
-            TelaLogin tela = new TelaLogin ();
-            tela.Show();
-
-            this.Hide();
+            else if (txtNovaSenha.Text.Length < 8 || txtConfirmarSenha.Text.Length < 8)
+            {
+               
+                MessageBox.Show("A senha está com menos de 8 digitos");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Senha atualizada com sucesso!");
+                TelaLogin tela = new TelaLogin();
+                tela.Show();
+                this.Hide();
+            }
         }
         
     }

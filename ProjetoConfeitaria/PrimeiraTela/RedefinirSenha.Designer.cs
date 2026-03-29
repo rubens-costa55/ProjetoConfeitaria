@@ -293,6 +293,7 @@
             txtNovaSenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNovaSenha.ForeColor = Color.FromArgb(191, 167, 157);
             txtNovaSenha.Location = new Point(12, 127);
+            txtNovaSenha.MaxLength = 12;
             txtNovaSenha.Name = "txtNovaSenha";
             txtNovaSenha.Size = new Size(485, 29);
             txtNovaSenha.TabIndex = 5;
