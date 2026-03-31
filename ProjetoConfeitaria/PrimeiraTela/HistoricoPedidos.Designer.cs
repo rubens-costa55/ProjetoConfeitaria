@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistoricoPedidos));
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelSidebar = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -51,12 +51,12 @@
             btnClienteRecorrente = new Button();
             panelHistorico = new Panel();
             dgvPedidos = new DataGridView();
-            panel1 = new Panel();
-            button1 = new Button();
             colcliente = new DataGridViewTextBoxColumn();
             colpedido = new DataGridViewTextBoxColumn();
             colentrega = new DataGridViewTextBoxColumn();
             colvalor = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            button1 = new Button();
             button10 = new Button();
             PanelBuscar = new Panel();
             textBox1 = new TextBox();
@@ -315,25 +315,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle13.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPedidos.ColumnHeadersHeight = 42;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor });
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle14.ForeColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle14.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(30, 27);
@@ -344,33 +344,6 @@
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.Size = new Size(1092, 417);
             dgvPedidos.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(248, 241, 239);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(btnUltimos30Dias);
-            panel1.Controls.Add(btnClienteRecorrente);
-            panel1.Location = new Point(355, 220);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1145, 74);
-            panel1.TabIndex = 6;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(241, 220, 221);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(201, 142, 124);
-            button1.Location = new Point(985, 16);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 42);
-            button1.TabIndex = 5;
-            button1.Text = "Exportar Relatório\r\n";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // colcliente
             // 
@@ -396,6 +369,33 @@
             colvalor.FillWeight = 12F;
             colvalor.HeaderText = "Valor";
             colvalor.Name = "colvalor";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(248, 241, 239);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnUltimos30Dias);
+            panel1.Controls.Add(btnClienteRecorrente);
+            panel1.Location = new Point(355, 220);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1145, 74);
+            panel1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(241, 220, 221);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(201, 142, 124);
+            button1.Location = new Point(985, 16);
+            button1.Name = "button1";
+            button1.Size = new Size(152, 42);
+            button1.TabIndex = 5;
+            button1.Text = "Exportar Relatório:\r\n";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button10
             // 
