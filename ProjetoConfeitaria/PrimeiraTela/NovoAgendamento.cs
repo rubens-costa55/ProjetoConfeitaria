@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls;
 
 namespace PrimeiraTela
 {
@@ -16,6 +17,7 @@ namespace PrimeiraTela
         public NovoAgendamento()
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,6 +27,7 @@ namespace PrimeiraTela
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
 
         }
 
@@ -78,24 +81,49 @@ namespace PrimeiraTela
             lbentregaResumo.Text = txtDataeHora.Text;
             lbValorResumo.Text = txtValor.Text;
 
-            /*string conexao = "server=localhost; user=root; password=; database=confeitaria";
+            string conexao = "server=localhost; user=root; password=; database=confeitaria";
             MySqlConnection conn = new MySqlConnection(conexao);
 
-            string sql = "INSERT INTO agendamentos (nomecliente, dataehora, produto, quantidade, valor) " +
-             "VALUES (@nome, @dataehora, @produto, @quantidade, @valor)";
+            string sql = "INSERT INTO agendamento (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +
+             "VALUES (@NomeCliente, @DataeHoraEntrega, @Produto, @Quantidade, @Valor)";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@nome", txtNomeCliente.Text);
-            cmd.Parameters.AddWithValue("@dataehora", txtDataeHora.Text);
-            cmd.Parameters.AddWithValue("@produto", txtProduto.Text);
-            cmd.Parameters.AddWithValue("@quantidade", txtQuantidade.Text);
-            cmd.Parameters.AddWithValue("@valor", txtValor.Text);
+            cmd.Parameters.AddWithValue("@NomeCliente", txtNomeCliente.Text);
+            cmd.Parameters.AddWithValue("@DataeHoraEntrega", txtDataeHora.Text);
+            cmd.Parameters.AddWithValue("@Produto", txtProduto.Text);
+            cmd.Parameters.AddWithValue("@Quantidade", txtQuantidade.Text);
+            cmd.Parameters.AddWithValue("@Valor", txtValor.Text);
 
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
-            */
+            
+        }
+
+        private void txtNomeCliente_Click(object sender, EventArgs e)
+        {
+            txtNomeCliente.Clear();
+        }
+
+        private void txtProduto_Click(object sender, EventArgs e)
+        {
+            txtProduto.Clear();
+        }
+
+        private void txtQuantidade_Click(object sender, EventArgs e)
+        {
+            txtQuantidade.Clear();
+        }
+
+        private void txtValor_Click(object sender, EventArgs e)
+        {
+            txtValor.Clear();
+        }
+
+        private void txtDataeHora_Click(object sender, EventArgs e)
+        {
+            txtDataeHora.Clear();
         }
     }
 }
