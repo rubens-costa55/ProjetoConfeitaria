@@ -19,7 +19,12 @@ namespace PrimeiraTela
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
+        }
+
+        private void PedidosAtuais_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

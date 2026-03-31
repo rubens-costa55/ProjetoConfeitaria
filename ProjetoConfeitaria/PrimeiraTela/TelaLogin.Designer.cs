@@ -205,7 +205,8 @@
             BackColor = Color.FromArgb(246, 239, 237);
             ClientSize = new Size(1664, 911);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
             Name = "TelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

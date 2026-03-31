@@ -41,8 +41,6 @@
             btnMenuPrincipal = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            panel3 = new Panel();
-            label1 = new Label();
             panel4 = new Panel();
             btnFormularioAgendamento = new Button();
             label3 = new Label();
@@ -58,19 +56,21 @@
             label6 = new Label();
             label7 = new Label();
             pictureBox4 = new PictureBox();
+            panel3 = new Panel();
+            label1 = new Label();
             panelConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panelConteudo
@@ -229,28 +229,6 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(232, 174, 184);
-            panel3.Controls.Add(label1);
-            panel3.Location = new Point(350, 100);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(480, 70);
-            panel3.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.FromArgb(201, 142, 124);
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(480, 70);
-            label1.TabIndex = 0;
-            label1.Text = "MENU PRINCIPAL";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -426,16 +404,38 @@
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(232, 174, 184);
+            panel3.Controls.Add(label1);
+            panel3.Location = new Point(350, 90);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(450, 70);
+            panel3.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(450, 70);
+            label1.TabIndex = 0;
+            label1.Text = "MENU PRINCIPAL";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1600, 900);
+            Controls.Add(panel3);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel4);
-            Controls.Add(panel3);
             Controls.Add(panelConteudo);
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.None;
@@ -449,13 +449,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -474,8 +474,6 @@
         private Button btnPedidosAtuais;
         private Button btnNovoAgendamento;
         private Button btnSair;
-        private Panel panel3;
-        private Label label1;
         private Panel panel4;
         private Label label2;
         private PictureBox pictureBox2;
@@ -495,5 +493,7 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private PictureBox pictureBox8;
+        private Panel panel3;
+        private Label label1;
     }
 }
