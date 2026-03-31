@@ -19,7 +19,9 @@ namespace PrimeiraTela
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Show();
+            this.Hide();
         }
 
         private void lblTagConcluido1_Click(object sender, EventArgs e)
@@ -28,6 +30,37 @@ namespace PrimeiraTela
         }
 
         private void lblTagConcluido2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNovoAgendamento_Click(object sender, EventArgs e)
+        {
+            NovoAgendamento tela = new NovoAgendamento();
+            tela.Show();
+            this.Hide();
+        }
+
+        private void btnPedidosAtuais_Click(object sender, EventArgs e)
+        {
+            PedidosAtuais tela = new PedidosAtuais();
+            tela.Show();
+            this.Hide();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
+        }
+
+        private void btnClienteRecorrente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
