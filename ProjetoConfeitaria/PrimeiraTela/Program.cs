@@ -11,7 +11,11 @@ namespace PrimeiraTela
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+<<<<<<< HEAD
             Application.Run(new FrmRedefinirSenha());
+=======
+            Application.Run(new PedidosAtuais());
+>>>>>>> 9be19fba69c061693abbe1642146fb6243884bca
         }
     }
 }
