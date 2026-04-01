@@ -57,11 +57,8 @@
             label7 = new Label();
             pictureBox4 = new PictureBox();
             panel3 = new Panel();
-<<<<<<< HEAD
             button1 = new Button();
-=======
             label1 = new Label();
->>>>>>> 5698e7f6c34b11c01d79d306c663b26004fa535b
             panelConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -411,7 +408,6 @@
             // 
             // panel3
             // 
-<<<<<<< HEAD
             panel3.ImeMode = ImeMode.NoControl;
             panel3.Location = new Point(1195, 250);
             panel3.Name = "panel3";
@@ -431,9 +427,8 @@
             button1.TabIndex = 10;
             button1.Text = "MENU PRINCIPAL";
             button1.UseVisualStyleBackColor = false;
-=======
+
             panel3.BackColor = Color.FromArgb(232, 174, 184);
-            panel3.Controls.Add(label1);
             panel3.Location = new Point(350, 90);
             panel3.Name = "panel3";
             panel3.Size = new Size(450, 70);
@@ -451,7 +446,6 @@
             label1.TabIndex = 0;
             label1.Text = "MENU PRINCIPAL";
             label1.TextAlign = ContentAlignment.MiddleCenter;
->>>>>>> 5698e7f6c34b11c01d79d306c663b26004fa535b
             // 
             // MenuPrincipal
             // 
@@ -459,11 +453,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1600, 900);
-<<<<<<< HEAD
             Controls.Add(button1);
-=======
             Controls.Add(panel3);
->>>>>>> 5698e7f6c34b11c01d79d306c663b26004fa535b
             Controls.Add(panel6);
             Controls.Add(panel3);
             Controls.Add(panel5);
@@ -489,6 +480,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel3.ResumeLayout(false);
             ResumeLayout(false);
+
+          
         }
 
         private void NewMethod()
@@ -524,17 +517,9 @@
         private Label label6;
         private Label label7;
         private PictureBox pictureBox4;
-<<<<<<< HEAD
         private Panel panel3;
         private Button btnMenuPrincipal1;
         private Button button1;
-=======
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox8;
-        private Panel panel3;
         private Label label1;
->>>>>>> 5698e7f6c34b11c01d79d306c663b26004fa535b
     }
 }
