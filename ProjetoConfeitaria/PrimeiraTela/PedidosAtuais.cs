@@ -26,5 +26,25 @@ namespace PrimeiraTela
         {
 
         }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            new MenuPrincipal().Show();
+        }
+
+        private void btnNovoAgendamento_Click(object sender, EventArgs e)
+        {
+            new NovoAgendamento().Show();
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            new FrmHistoricoPedidos().Show();
+        }
+
+        private void btnsair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
