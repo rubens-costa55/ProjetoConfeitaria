@@ -29,18 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            panelConteudo = new Panel();
-            btnMenuPrincipal1 = new Button();
-            pictureBox8 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            btnSair = new Button();
             btnHistórico = new Button();
             btnPedidosAtuais = new Button();
             btnNovoAgendamento = new Button();
-            panel2 = new Panel();
-            pictureBox1 = new PictureBox();
             panel4 = new Panel();
             btnFormularioAgendamento = new Button();
             label3 = new Label();
@@ -56,117 +47,30 @@
             label6 = new Label();
             label7 = new Label();
             pictureBox4 = new PictureBox();
-            panel3 = new Panel();
             button1 = new Button();
             label1 = new Label();
-            panelConteudo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox14 = new PictureBox();
+            panel3 = new Panel();
+            button2 = new Button();
+            pictureBox13 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            btnMenuPrincipal1 = new Button();
+            panel1 = new Panel();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
-            // 
-            // panelConteudo
-            // 
-            panelConteudo.BackColor = Color.FromArgb(239, 229, 226);
-            panelConteudo.Controls.Add(btnMenuPrincipal1);
-            panelConteudo.Controls.Add(pictureBox8);
-            panelConteudo.Controls.Add(pictureBox7);
-            panelConteudo.Controls.Add(pictureBox6);
-            panelConteudo.Controls.Add(pictureBox5);
-            panelConteudo.Controls.Add(btnSair);
-            panelConteudo.Controls.Add(btnHistórico);
-            panelConteudo.Controls.Add(btnPedidosAtuais);
-            panelConteudo.Controls.Add(btnNovoAgendamento);
-            panelConteudo.Controls.Add(panel2);
-            panelConteudo.Controls.Add(pictureBox1);
-            panelConteudo.Location = new Point(30, 90);
-            panelConteudo.Name = "panelConteudo";
-            panelConteudo.Size = new Size(260, 685);
-            panelConteudo.TabIndex = 0;
-            // 
-            // btnMenuPrincipal1
-            // 
-            btnMenuPrincipal1.BackColor = Color.FromArgb(201, 142, 124);
-            btnMenuPrincipal1.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            btnMenuPrincipal1.FlatStyle = FlatStyle.Flat;
-            btnMenuPrincipal1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMenuPrincipal1.ForeColor = Color.Snow;
-            btnMenuPrincipal1.Location = new Point(20, 170);
-            btnMenuPrincipal1.Name = "btnMenuPrincipal1";
-            btnMenuPrincipal1.Size = new Size(220, 70);
-            btnMenuPrincipal1.TabIndex = 9;
-            btnMenuPrincipal1.Text = "Menu Principal";
-            btnMenuPrincipal1.UseVisualStyleBackColor = false;
-            btnMenuPrincipal1.Click += btnMenuPrincipal1_Click;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox8.Image = Properties.Resources._3_removebg_preview;
-            pictureBox8.Location = new Point(25, 601);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(33, 32);
-            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 8;
-            pictureBox8.TabStop = false;
-            pictureBox8.Click += pictureBox8_Click;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(25, 496);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(33, 32);
-            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 4;
-            pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(25, 398);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(33, 32);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 4;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox5.Image = Properties.Resources._1_removebg_preview;
-            pictureBox5.Location = new Point(25, 294);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(33, 32);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 4;
-            pictureBox5.TabStop = false;
-            // 
-            // btnSair
-            // 
-            btnSair.BackColor = Color.FromArgb(247, 242, 241);
-            btnSair.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            btnSair.FlatStyle = FlatStyle.Flat;
-            btnSair.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSair.ForeColor = Color.FromArgb(123, 97, 88);
-            btnSair.Location = new Point(20, 583);
-            btnSair.Name = "btnSair";
-            btnSair.Size = new Size(220, 75);
-            btnSair.TabIndex = 7;
-            btnSair.Text = "Sair";
-            btnSair.UseVisualStyleBackColor = false;
-            btnSair.Click += btnSair_Click;
             // 
             // btnHistórico
             // 
@@ -175,7 +79,7 @@
             btnHistórico.FlatStyle = FlatStyle.Flat;
             btnHistórico.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistórico.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistórico.Location = new Point(20, 480);
+            btnHistórico.Location = new Point(20, 484);
             btnHistórico.Name = "btnHistórico";
             btnHistórico.Size = new Size(220, 70);
             btnHistórico.TabIndex = 6;
@@ -190,7 +94,7 @@
             btnPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuais.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPedidosAtuais.ForeColor = Color.FromArgb(123, 97, 88);
-            btnPedidosAtuais.Location = new Point(20, 380);
+            btnPedidosAtuais.Location = new Point(20, 375);
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 5;
@@ -212,25 +116,6 @@
             btnNovoAgendamento.Text = "Novo Agendamento";
             btnNovoAgendamento.UseVisualStyleBackColor = false;
             btnNovoAgendamento.Click += btnNovoAgendamento_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(216, 194, 187);
-            panel2.Location = new Point(25, 145);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(205, 2);
-            panel2.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pictureBox1.Location = new Point(52, 10);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(150, 110);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel4
             // 
@@ -314,7 +199,7 @@
             btnListPedidosAtuais.Name = "btnListPedidosAtuais";
             btnListPedidosAtuais.Size = new Size(270, 48);
             btnListPedidosAtuais.TabIndex = 3;
-            btnListPedidosAtuais.Text = "Ver lista";
+            btnListPedidosAtuais.Text = "Consultar lista";
             btnListPedidosAtuais.UseVisualStyleBackColor = false;
             btnListPedidosAtuais.Click += btnListPedidosAtuais_Click;
             // 
@@ -406,17 +291,9 @@
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 
-            // panel3
-            // 
-            panel3.ImeMode = ImeMode.NoControl;
-            panel3.Location = new Point(1195, 250);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(350, 430);
-            panel3.TabIndex = 7;
-            // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(201, 142, 124);
+            button1.BackColor = Color.FromArgb(232, 174, 184);
             button1.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -427,12 +304,6 @@
             button1.TabIndex = 10;
             button1.Text = "MENU PRINCIPAL";
             button1.UseVisualStyleBackColor = false;
-
-            panel3.BackColor = Color.FromArgb(232, 174, 184);
-            panel3.Location = new Point(350, 90);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(450, 70);
-            panel3.TabIndex = 4;
             // 
             // label1
             // 
@@ -447,41 +318,150 @@
             label1.Text = "MENU PRINCIPAL";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = Properties.Resources.LOGO__1__removebg_preview;
+            pictureBox14.Location = new Point(52, 10);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(150, 110);
+            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 0;
+            pictureBox14.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(216, 194, 187);
+            panel3.Location = new Point(25, 158);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(205, 2);
+            panel3.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(247, 242, 241);
+            button2.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(123, 97, 88);
+            button2.Location = new Point(20, 628);
+            button2.Name = "button2";
+            button2.Size = new Size(220, 70);
+            button2.TabIndex = 8;
+            button2.Text = "Sair";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(25, 499);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(33, 32);
+            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox13.TabIndex = 10;
+            pictureBox13.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox12.Image = Properties.Resources._3_removebg_preview;
+            pictureBox12.Location = new Point(25, 647);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(33, 32);
+            pictureBox12.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox12.TabIndex = 11;
+            pictureBox12.TabStop = false;
+            // 
+            // btnMenuPrincipal1
+            // 
+            btnMenuPrincipal1.BackColor = Color.FromArgb(201, 142, 124);
+            btnMenuPrincipal1.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            btnMenuPrincipal1.FlatStyle = FlatStyle.Flat;
+            btnMenuPrincipal1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMenuPrincipal1.ForeColor = Color.Snow;
+            btnMenuPrincipal1.Location = new Point(20, 185);
+            btnMenuPrincipal1.Name = "btnMenuPrincipal1";
+            btnMenuPrincipal1.Size = new Size(220, 70);
+            btnMenuPrincipal1.TabIndex = 9;
+            btnMenuPrincipal1.Text = "Menu Principal";
+            btnMenuPrincipal1.UseVisualStyleBackColor = false;
+            btnMenuPrincipal1.Click += btnMenuPrincipal1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(239, 229, 226);
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnMenuPrincipal1);
+            panel1.Controls.Add(pictureBox9);
+            panel1.Controls.Add(pictureBox10);
+            panel1.Controls.Add(pictureBox12);
+            panel1.Controls.Add(pictureBox13);
+            panel1.Controls.Add(btnHistórico);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnPedidosAtuais);
+            panel1.Controls.Add(btnNovoAgendamento);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(pictureBox14);
+            panel1.Location = new Point(30, 90);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(260, 720);
+            panel1.TabIndex = 10;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.Transparent;
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(25, 398);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(33, 32);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 5;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox10.Image = Properties.Resources._1_removebg_preview;
+            pictureBox10.Location = new Point(25, 302);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(33, 32);
+            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 13;
+            pictureBox10.TabStop = false;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1600, 900);
+            Controls.Add(panel1);
             Controls.Add(button1);
-            Controls.Add(panel3);
             Controls.Add(panel6);
-            Controls.Add(panel3);
             Controls.Add(panel5);
             Controls.Add(panel4);
-            Controls.Add(panelConteudo);
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.None;
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";
             TransparencyKey = Color.Transparent;
-            panelConteudo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
 
-          
+
         }
 
         private void NewMethod()
@@ -490,14 +470,9 @@
         }
 
         #endregion
-
-        private Panel panelConteudo;
-        private PictureBox pictureBox1;
-        private Panel panel2;
         private Button btnHistórico;
         private Button btnPedidosAtuais;
         private Button btnNovoAgendamento;
-        private Button btnSair;
         private Panel panel4;
         private Label label2;
         private PictureBox pictureBox2;
@@ -508,18 +483,21 @@
         private Label label4;
         private Label label5;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox8;
         private Panel panel6;
         private Button btnConsultarHistorico;
         private Label label6;
         private Label label7;
         private PictureBox pictureBox4;
-        private Panel panel3;
-        private Button btnMenuPrincipal1;
         private Button button1;
         private Label label1;
+        private PictureBox pictureBox14;
+        private Panel panel3;
+        private Button button2;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox12;
+        private Button btnMenuPrincipal1;
+        private Panel panel1;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
     }
 }

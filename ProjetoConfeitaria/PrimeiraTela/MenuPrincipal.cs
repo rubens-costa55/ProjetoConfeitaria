@@ -48,7 +48,7 @@ namespace PrimeiraTela
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+         
         }
 
         private void btnFormularioAgendamento_Click(object sender, EventArgs e)
@@ -84,6 +84,11 @@ namespace PrimeiraTela
         private void pictureBox8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
