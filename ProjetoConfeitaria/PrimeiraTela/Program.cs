@@ -12,7 +12,7 @@ namespace PrimeiraTela
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
            
-            Application.Run(new MenuPrincipal());
+            Application.Run(new FrmHistoricoPedidos());
 
         }
     }

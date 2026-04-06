@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelSidebar = new Panel();
+            pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox8 = new PictureBox();
@@ -61,6 +62,7 @@
             PanelBuscar = new Panel();
             textBox1 = new TextBox();
             panelSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -79,6 +81,7 @@
             // 
             panelSidebar.BackColor = Color.FromArgb(239, 229, 226);
             panelSidebar.BorderStyle = BorderStyle.FixedSingle;
+            panelSidebar.Controls.Add(pictureBox7);
             panelSidebar.Controls.Add(pictureBox6);
             panelSidebar.Controls.Add(pictureBox1);
             panelSidebar.Controls.Add(pictureBox8);
@@ -95,6 +98,17 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(260, 720);
             panelSidebar.TabIndex = 0;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(25, 499);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(33, 32);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 18;
+            pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -169,7 +183,8 @@
             // 
             btnHistorico.BackColor = Color.FromArgb(201, 142, 124);
             btnHistorico.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0, 0);
-            btnHistorico.Font = new Font("Segoe UI", 11.25F);
+            btnHistorico.FlatStyle = FlatStyle.Flat;
+            btnHistorico.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnHistorico.ForeColor = Color.White;
             btnHistorico.Location = new Point(20, 480);
             btnHistorico.Name = "btnHistorico";
@@ -451,6 +466,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Histórico de pedidos";
             panelSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
@@ -498,5 +514,6 @@
         private Button button10;
         private Panel PanelBuscar;
         private TextBox textBox1;
+        private PictureBox pictureBox7;
     }
 }
