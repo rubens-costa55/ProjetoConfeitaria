@@ -28,101 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblLogin = new Label();
             panel3 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            label5 = new Label();
+            btnEsqueciSenha = new Button();
+            btnAcessar = new Button();
+            txtSenha = new TextBox();
+            lblSenha = new Label();
             txtcpf = new TextBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
+            lblCPF = new Label();
+            lblDescricao = new Label();
+            lblTitulo = new Label();
             panel4 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            lblSair = new Label();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblLogin
             // 
-            label1.BackColor = Color.FromArgb(249, 245, 243);
-            label1.Font = new Font("Segoe UI Black", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(94, 74, 68);
-            label1.Location = new Point(58, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(120, 28);
-            label1.TabIndex = 2;
-            label1.Text = "Login";
+            lblLogin.BackColor = Color.FromArgb(249, 245, 243);
+            lblLogin.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLogin.ForeColor = Color.FromArgb(94, 74, 68);
+            lblLogin.Location = new Point(55, 26);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(113, 44);
+            lblLogin.TabIndex = 2;
+            lblLogin.Text = "Login";
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(235, 221, 218);
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(label5);
+            panel3.Controls.Add(btnEsqueciSenha);
+            panel3.Controls.Add(btnAcessar);
+            panel3.Controls.Add(txtSenha);
+            panel3.Controls.Add(lblSenha);
             panel3.Controls.Add(txtcpf);
-            panel3.Controls.Add(label4);
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(label2);
+            panel3.Controls.Add(lblCPF);
+            panel3.Controls.Add(lblDescricao);
+            panel3.Controls.Add(lblTitulo);
             panel3.Location = new Point(55, 90);
             panel3.Name = "panel3";
             panel3.Size = new Size(725, 615);
             panel3.TabIndex = 3;
             // 
-            // button2
+            // btnEsqueciSenha
             // 
-            button2.BackColor = Color.White;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(221, 201, 194);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.FromArgb(201, 142, 124);
-            button2.Location = new Point(45, 487);
-            button2.Name = "button2";
-            button2.Size = new Size(485, 46);
-            button2.TabIndex = 8;
-            button2.Text = "Esqueci minha senha";
-            button2.UseVisualStyleBackColor = false;
+            btnEsqueciSenha.BackColor = Color.White;
+            btnEsqueciSenha.FlatAppearance.BorderColor = Color.FromArgb(221, 201, 194);
+            btnEsqueciSenha.FlatStyle = FlatStyle.Flat;
+            btnEsqueciSenha.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEsqueciSenha.ForeColor = Color.FromArgb(201, 142, 124);
+            btnEsqueciSenha.Location = new Point(45, 487);
+            btnEsqueciSenha.Name = "btnEsqueciSenha";
+            btnEsqueciSenha.Size = new Size(485, 46);
+            btnEsqueciSenha.TabIndex = 8;
+            btnEsqueciSenha.Text = "Esqueci minha senha";
+            btnEsqueciSenha.UseVisualStyleBackColor = false;
+            btnEsqueciSenha.Click += btnEsqueciSenha_Click;
             // 
-            // button1
+            // btnAcessar
             // 
-            button1.BackColor = Color.FromArgb(201, 142, 124);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(45, 430);
-            button1.Name = "button1";
-            button1.Size = new Size(485, 52);
-            button1.TabIndex = 7;
-            button1.Text = "Acessar";
-            button1.UseVisualStyleBackColor = false;
+            btnAcessar.BackColor = Color.FromArgb(201, 142, 124);
+            btnAcessar.FlatAppearance.BorderSize = 0;
+            btnAcessar.FlatStyle = FlatStyle.Flat;
+            btnAcessar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAcessar.ForeColor = Color.White;
+            btnAcessar.Location = new Point(45, 430);
+            btnAcessar.Name = "btnAcessar";
+            btnAcessar.Size = new Size(485, 52);
+            btnAcessar.TabIndex = 7;
+            btnAcessar.Text = "Acessar";
+            btnAcessar.UseVisualStyleBackColor = false;
+            btnAcessar.Click += btnAcessar_Click;
             // 
-            // textBox1
+            // txtSenha
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.FromArgb(126, 99, 92);
-            textBox1.Location = new Point(55, 314);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(430, 22);
-            textBox1.TabIndex = 6;
-            textBox1.Text = "12345678";
-            textBox1.UseSystemPasswordChar = true;
+            txtSenha.BorderStyle = BorderStyle.None;
+            txtSenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSenha.ForeColor = Color.FromArgb(126, 99, 92);
+            txtSenha.Location = new Point(55, 314);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(430, 22);
+            txtSenha.TabIndex = 6;
+            txtSenha.UseSystemPasswordChar = true;
+            txtSenha.Click += txtSenha_TextChanged;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
-            // label5
+            // lblSenha
             // 
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(185, 120, 103);
-            label5.Location = new Point(55, 283);
-            label5.Name = "label5";
-            label5.Size = new Size(100, 28);
-            label5.TabIndex = 5;
-            label5.Text = "Senha:";
+            lblSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSenha.ForeColor = Color.FromArgb(185, 120, 103);
+            lblSenha.Location = new Point(55, 283);
+            lblSenha.Name = "lblSenha";
+            lblSenha.Size = new Size(100, 28);
+            lblSenha.TabIndex = 5;
+            lblSenha.Text = "Senha:";
             // 
             // txtcpf
             // 
@@ -133,38 +137,39 @@
             txtcpf.Name = "txtcpf";
             txtcpf.Size = new Size(430, 22);
             txtcpf.TabIndex = 4;
-            txtcpf.Text = "000.000.000-00";
+            txtcpf.Click += txtcpf_TextChanged;
+            txtcpf.TextChanged += txtcpf_TextChanged;
             // 
-            // label4
+            // lblCPF
             // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(185, 120, 103);
-            label4.Location = new Point(55, 176);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 28);
-            label4.TabIndex = 2;
-            label4.Text = "CPF:";
+            lblCPF.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCPF.ForeColor = Color.FromArgb(185, 120, 103);
+            lblCPF.Location = new Point(55, 176);
+            lblCPF.Name = "lblCPF";
+            lblCPF.Size = new Size(100, 28);
+            lblCPF.TabIndex = 2;
+            lblCPF.Text = "CPF:";
             // 
-            // label3
+            // lblDescricao
             // 
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(126, 99, 92);
-            label3.Location = new Point(55, 120);
-            label3.Name = "label3";
-            label3.Size = new Size(520, 42);
-            label3.TabIndex = 1;
-            label3.Text = "Digite seus dados no campo abaixo para acessar o sistema:";
+            lblDescricao.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDescricao.ForeColor = Color.FromArgb(126, 99, 92);
+            lblDescricao.Location = new Point(55, 120);
+            lblDescricao.Name = "lblDescricao";
+            lblDescricao.Size = new Size(520, 42);
+            lblDescricao.TabIndex = 1;
+            lblDescricao.Text = "Digite seus dados no campo abaixo para acessar o sistema:";
             // 
-            // label2
+            // lblTitulo
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(201, 137, 120);
-            label2.Location = new Point(55, 58);
-            label2.Name = "label2";
-            label2.Size = new Size(323, 45);
-            label2.TabIndex = 0;
-            label2.Text = "Realize o seu login:";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(201, 137, 120);
+            lblTitulo.Location = new Point(55, 58);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(323, 45);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Realize o seu login:";
             // 
             // panel4
             // 
@@ -190,13 +195,26 @@
             // 
             panel1.BackColor = Color.FromArgb(249, 245, 243);
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblSair);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblLogin);
             panel1.Location = new Point(49, 86);
             panel1.Name = "panel1";
             panel1.Size = new Size(1553, 730);
             panel1.TabIndex = 0;
+            // 
+            // lblSair
+            // 
+            lblSair.AutoSize = true;
+            lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSair.ForeColor = Color.FromArgb(201, 137, 120);
+            lblSair.Location = new Point(1505, 0);
+            lblSair.Name = "lblSair";
+            lblSair.Size = new Size(43, 47);
+            lblSair.TabIndex = 1;
+            lblSair.Text = "X";
+            lblSair.Click += lblSair_Click;
             // 
             // TelaLogin
             // 
@@ -211,28 +229,31 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += TelaLogin_Load;
+            Click += txtcpf_TextChanged;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblLogin;
         private Panel panel3;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox1;
-        private Label label5;
+        private Button btnEsqueciSenha;
+        private Button btnAcessar;
+        private Label lblSenha;
         private TextBox txtcpf;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private Label lblCPF;
+        private Label lblDescricao;
+        private Label lblTitulo;
         private Panel panel4;
         private PictureBox pictureBox1;
         private Panel panel1;
+        private Label lblSair;
+        private TextBox txtSenha;
     }
 }
