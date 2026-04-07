@@ -278,7 +278,7 @@
             btnUltimos30Dias.Name = "btnUltimos30Dias";
             btnUltimos30Dias.Size = new Size(165, 42);
             btnUltimos30Dias.TabIndex = 2;
-            btnUltimos30Dias.Text = "Últimos 30 dias";
+            btnUltimos30Dias.Text = "Atualizar Tabela";
             btnUltimos30Dias.UseVisualStyleBackColor = false;
             // 
             // btnClienteRecorrente
