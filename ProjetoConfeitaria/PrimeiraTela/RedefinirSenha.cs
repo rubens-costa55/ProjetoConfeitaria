@@ -90,7 +90,7 @@ namespace PrimeiraTela
 
         private void txtCpf_Click(object sender, EventArgs e)
         {
-            txtCpf.Clear();
+          
         }
 
         private void txtNovaSenha_Click(object sender, EventArgs e)
