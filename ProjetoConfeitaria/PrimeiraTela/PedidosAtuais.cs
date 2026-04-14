@@ -13,7 +13,7 @@ namespace PrimeiraTela
 {
     public partial class PedidosAtuais : Form
     {
-        string conexao = "server=localhost;user=root;pwd =; database = confeitaria";
+        string conexao = "server=localhost;user=root;pwd =; database = sistemaconfeitaria";
         public PedidosAtuais()
         {
             InitializeComponent();

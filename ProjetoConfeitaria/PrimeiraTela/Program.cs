@@ -16,11 +16,7 @@ namespace PrimeiraTela
             Application.Run(new PedidosAtuais());
 
 
-            Application.Run(new TelaLogin());
-            Application.Run(new TelaLogin());
-
-           
-            Application.Run(new FrmHistoricoPedidos());
+         
 
 
 

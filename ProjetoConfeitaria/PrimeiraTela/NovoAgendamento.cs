@@ -81,7 +81,7 @@ namespace PrimeiraTela
             lbentregaResumo.Text = txtDataeHora.Text;
             lbValorResumo.Text = txtValor.Text;
 
-            string conexao = "server=localhost; user=root; password=; database=confeitaria";
+            string conexao = "server=localhost; user=root; password=; database=sistemaconfeitaria";
             MySqlConnection conn = new MySqlConnection(conexao);
 
             string sql = "INSERT INTO agendamento (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +

@@ -359,6 +359,7 @@
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.Size = new Size(1092, 417);
             dgvPedidos.TabIndex = 7;
+            dgvPedidos.CellContentClick += dgvPedidos_CellContentClick;
             // 
             // colcliente
             // 
@@ -465,6 +466,7 @@
             Name = "FrmHistoricoPedidos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Histórico de pedidos";
+            Load += FrmHistoricoPedidos_Load;
             panelSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
