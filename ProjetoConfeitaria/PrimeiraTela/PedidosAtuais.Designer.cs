@@ -367,6 +367,7 @@
             // 
             // dgvPedidos
             // 
+            dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
             dgvPedidos.AllowUserToResizeColumns = false;
             dgvPedidos.AllowUserToResizeRows = false;
@@ -383,7 +384,7 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvPedidos.ColumnHeadersHeight = 42;
+            dgvPedidos.ColumnHeadersHeight = 35;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor, colstatus, btacao });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -400,7 +401,6 @@
             dgvPedidos.MultiSelect = false;
             dgvPedidos.Name = "dgvPedidos";
             dgvPedidos.RowHeadersVisible = false;
-            dgvPedidos.RowTemplate.Height = 45;
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.Size = new Size(1163, 469);
             dgvPedidos.TabIndex = 0;

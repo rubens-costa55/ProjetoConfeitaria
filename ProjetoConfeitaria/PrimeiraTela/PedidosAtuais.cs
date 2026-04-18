@@ -13,7 +13,7 @@ namespace PrimeiraTela
 {
     public partial class PedidosAtuais : Form
     {
-        string conexao = "server=localhost;user=root;pwd =; database = sistemaconfeitaria";
+        
         public PedidosAtuais()
         {
             InitializeComponent();
@@ -25,25 +25,39 @@ namespace PrimeiraTela
         }
 
 
-
         private void PedidosAtuais_Load(object sender, EventArgs e)
         {
             dgvPedidos.AutoGenerateColumns = false;
-            MySqlConnection conf = new MySqlConnection(conexao);
+            if (dgvPedidos.Columns["btacao"] is DataGridViewButtonColumn btn)
+            {
+                btn.Text = "Concluir";
+                btn.UseColumnTextForButtonValue = true;
+            }
+
+            CarregarPedidos();
+        }
+
+        private void CarregarPedidos()
+        {
+            conexao conexao = new conexao();
+            MySqlConnection con = conexao.Conectar();
+
             try
             {
-                conf.Open();
-                string sql = "SELECT NomeCliente,Produto,Quantidade,Valor,DataeHoraEntrega FROM clientes;";
-                MySqlDataAdapter cmd = new MySqlDataAdapter(sql, conf);
+                con.Open();
+                
+                string sql = "SELECT id_cliente,NomeCliente,Produto,Quantidade,Valor,DataeHoraEntrega FROM clientes;";
+                MySqlDataAdapter cmd = new MySqlDataAdapter(sql, con);
                 //datatable: tabela virtual
                 DataTable dt = new DataTable();
                 cmd.Fill(dt);
 
                 dgvPedidos.DataSource = dt;
             }
-            catch (Exception ex) { }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar pedidos: " + ex.Message);
+            }
 
             dgvPedidos.Columns["colcliente"].DataPropertyName = "NomeCliente";
             dgvPedidos.Columns["colpedido"].DataPropertyName = "Produto";
@@ -51,9 +65,7 @@ namespace PrimeiraTela
             dgvPedidos.Columns["colentrega"].DataPropertyName = "DataeHoraEntrega";
             dgvPedidos.Columns["colstatus"].DataPropertyName = "Status";
 
-
-
-        }
+        }   
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
@@ -80,7 +92,74 @@ namespace PrimeiraTela
 
         private void dgvPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btacao
+            if (e.RowIndex < 0)
+                return;
+
+            if (dgvPedidos.Columns[e.ColumnIndex].Name != "btacao")
+                return;
+
+            DataRowView linha = dgvPedidos.Rows[e.RowIndex].DataBoundItem as DataRowView;
+
+            if (linha == null)
+            {
+                MessageBox.Show("Não foi possível obter os dados da linha.");
+                return;
+            }
+
+            int idCliente = Convert.ToInt32(linha["id_cliente"]);
+
+            DialogResult resposta = MessageBox.Show(
+                "Deseja concluir este pedido?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resposta != DialogResult.Yes)
+                return;
+
+            conexao conexao = new conexao();
+            MySqlConnection con = conexao.Conectar();
+
+            try
+            {
+                con.Open();
+                MySqlTransaction transacao = con.BeginTransaction();
+
+                string inserirHistorico = @"
+            INSERT INTO historico
+            (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor)
+            SELECT NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor
+            FROM clientes
+            WHERE id_cliente = @id_cliente";
+
+                using (MySqlCommand cmdInsert = new MySqlCommand(inserirHistorico, con, transacao))
+                {
+                    cmdInsert.Parameters.AddWithValue("@id_cliente", idCliente);
+                    cmdInsert.ExecuteNonQuery();
+                }
+
+                string excluirCliente = "DELETE FROM clientes WHERE id_cliente = @id_cliente";
+
+                using (MySqlCommand cmdDelete = new MySqlCommand(excluirCliente, con, transacao))
+                {
+                    cmdDelete.Parameters.AddWithValue("@id_cliente", idCliente);
+                    cmdDelete.ExecuteNonQuery();
+                }
+
+                transacao.Commit();
+                MessageBox.Show("Pedido concluído com sucesso.");
+                CarregarPedidos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao concluir pedido: " + ex.Message);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+
         }
     }
 }

@@ -81,24 +81,32 @@ namespace PrimeiraTela
             lbentregaResumo.Text = txtDataeHora.Text;
             lbValorResumo.Text = txtValor.Text;
 
-            string conexao = "server=localhost; user=root; password=; database=sistemaconfeitaria";
-            MySqlConnection conn = new MySqlConnection(conexao);
+            conexao conect = new conexao();
+            MySqlConnection conn = conect.Conectar();
 
-            string sql = "INSERT INTO clientes (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +
-             "VALUES (@NomeCliente, @DataeHoraEntrega, @Produto, @Quantidade, @Valor)";
+            try
+            {
+                conn.Open();
+                string sql = "INSERT INTO clientes (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +
+                 "VALUES (@NomeCliente, @DataeHoraEntrega, @Produto, @Quantidade, @Valor)";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@NomeCliente", txtNomeCliente.Text);
-            cmd.Parameters.AddWithValue("@DataeHoraEntrega", txtDataeHora.Text);
-            cmd.Parameters.AddWithValue("@Produto", txtProduto.Text);
-            cmd.Parameters.AddWithValue("@Quantidade", txtQuantidade.Text);
-            cmd.Parameters.AddWithValue("@Valor", txtValor.Text);
+                cmd.Parameters.AddWithValue("@NomeCliente", txtNomeCliente.Text);
+                cmd.Parameters.AddWithValue("@DataeHoraEntrega", txtDataeHora.Text);
+                cmd.Parameters.AddWithValue("@Produto", txtProduto.Text);
+                cmd.Parameters.AddWithValue("@Quantidade", txtQuantidade.Text);
+                cmd.Parameters.AddWithValue("@Valor", txtValor.Text);
+                cmd.ExecuteNonQuery();
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+                MessageBox.Show("Pedido cadastrado com sucesso.");
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar pedido: " + ex.Message);
+
+            }
         }
 
         private void txtNomeCliente_Click(object sender, EventArgs e)

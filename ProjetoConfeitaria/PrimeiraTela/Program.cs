@@ -13,7 +13,7 @@ namespace PrimeiraTela
             ApplicationConfiguration.Initialize();
 
            
-            Application.Run(new PedidosAtuais());
+            Application.Run(new TelaLogin());
 
 
          
