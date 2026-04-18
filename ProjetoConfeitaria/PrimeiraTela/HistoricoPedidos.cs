@@ -75,7 +75,7 @@ namespace PrimeiraTela
             try
             {
                 conf.Open();
-                string sql = "SELECT NomeCliente,Produto,Quantidade,Valor,DataeHoraEntrega FROM agendamento;";
+                string sql = "SELECT NomeCliente,Produto,Quantidade,Valor,DataeHoraEntrega FROM clientes;";
                 MySqlDataAdapter cmd = new MySqlDataAdapter(sql, conf);
                 //datatable: tabela virtual
                 DataTable dt = new DataTable();

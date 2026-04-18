@@ -193,6 +193,7 @@
             btnHistoricoNA.TabIndex = 7;
             btnHistoricoNA.Text = "Histórico\r\nPedidos";
             btnHistoricoNA.UseVisualStyleBackColor = false;
+            btnHistoricoNA.Click += btnHistoricoNA_Click;
             // 
             // btnPedidosAtuaisNA
             // 

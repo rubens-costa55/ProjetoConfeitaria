@@ -84,7 +84,7 @@ namespace PrimeiraTela
             string conexao = "server=localhost; user=root; password=; database=sistemaconfeitaria";
             MySqlConnection conn = new MySqlConnection(conexao);
 
-            string sql = "INSERT INTO agendamento (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +
+            string sql = "INSERT INTO clientes (NomeCliente, DataeHoraEntrega, Produto, Quantidade, Valor) " +
              "VALUES (@NomeCliente, @DataeHoraEntrega, @Produto, @Quantidade, @Valor)";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -98,7 +98,7 @@ namespace PrimeiraTela
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
-            
+
         }
 
         private void txtNomeCliente_Click(object sender, EventArgs e)
@@ -124,6 +124,11 @@ namespace PrimeiraTela
         private void txtDataeHora_Click(object sender, EventArgs e)
         {
             txtDataeHora.Clear();
+        }
+
+        private void btnHistoricoNA_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
