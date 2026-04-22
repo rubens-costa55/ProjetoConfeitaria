@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             PanelJanela = new Panel();
+            lblSair = new Label();
+            label2 = new Label();
             PanelDireito = new Panel();
             label5 = new Label();
             PicBola2 = new Label();
@@ -49,6 +51,7 @@
             lbNovaSenha = new Label();
             lbTitulo = new Label();
             lbDescricao = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             PanelJanela.SuspendLayout();
             PanelDireito.SuspendLayout();
             PanelRegras.SuspendLayout();
@@ -60,12 +63,34 @@
             // 
             PanelJanela.BackColor = Color.FromArgb(249, 245, 243);
             PanelJanela.BorderStyle = BorderStyle.FixedSingle;
+            PanelJanela.Controls.Add(lblSair);
+            PanelJanela.Controls.Add(label2);
             PanelJanela.Controls.Add(PanelDireito);
             PanelJanela.Controls.Add(PanelEsquerdo);
             PanelJanela.Location = new Point(12, 12);
             PanelJanela.Name = "PanelJanela";
             PanelJanela.Size = new Size(1570, 845);
             PanelJanela.TabIndex = 0;
+            // 
+            // lblSair
+            // 
+            lblSair.AutoSize = true;
+            lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSair.ForeColor = Color.FromArgb(201, 137, 120);
+            lblSair.Location = new Point(1511, 14);
+            lblSair.Name = "lblSair";
+            lblSair.Size = new Size(43, 47);
+            lblSair.TabIndex = 4;
+            lblSair.Text = "X";
+            lblSair.Click += lblSair_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(716, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 3;
             // 
             // PanelDireito
             // 
@@ -211,9 +236,9 @@
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(430, 29);
             txtCpf.TabIndex = 9;
-            txtCpf.Text = "Nova Senha";
-            txtCpf.UseSystemPasswordChar = true;
+            txtCpf.Text = "Digite seu CPF";
             txtCpf.Click += txtCpf_Click;
+            txtCpf.Enter += txtCpf_Enter;
             // 
             // label1
             // 
@@ -329,6 +354,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RedefinirSenha";
             PanelJanela.ResumeLayout(false);
+            PanelJanela.PerformLayout();
             PanelDireito.ResumeLayout(false);
             PanelDireito.PerformLayout();
             PanelRegras.ResumeLayout(false);
@@ -361,5 +387,8 @@
         private Label PicBola2;
         private TextBox txtCpf;
         private Label label1;
+        private Label label2;
+        private Label lblSair;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
+using MySql.Data.MySqlClient;
 namespace PrimeiraTela
 {
     public partial class FrmRedefinirSenha : Form
@@ -40,42 +40,34 @@ namespace PrimeiraTela
 
         private void btnAtualizarSenha_Click(object sender, EventArgs e)
         {
-            if (txtCpf.Text == "00000000000")
+            conexao conexao = new conexao();
+            MySqlConnection con = conexao.Conectar();
+
+            try
             {
-
-
-                if (txtNovaSenha.Text == "" || txtConfirmarSenha.Text == "")
+                con.Open();
+                string sql = "UPDATE login SET senha = @senha WHERE cpf = @cpf";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@senha", txtNovaSenha);
+                int linhas = cmd.ExecuteNonQuery();
+                if (linhas > 0)
                 {
-                    MessageBox.Show("Preencha os dois campos.");
-                    return;
-                }
-                else if (txtNovaSenha.Text != txtConfirmarSenha.Text)
-                {
-                    MessageBox.Show("As senhas não coincidem.");
-                    return;
-                }
-                else if (txtNovaSenha.Text.Length < 8 || txtConfirmarSenha.Text.Length < 8)
-                {
+                    MessageBox.Show("Senha atualizada!");
+                    this.Close();
 
-                    MessageBox.Show("A senha está com menos de 8 digitos");
-                    return;
-                }
-                else if (!Regex.IsMatch(txtNovaSenha.Text, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$"))
-                {
-
-                    MessageBox.Show("A senha deve ter pelo menos 8 caracteres,1 letra,1 número e caractere especial");
                 }
                 else
                 {
-                    MessageBox.Show("Senha atualizada com sucesso!");
-                    TelaLogin tela = new TelaLogin();
-                    tela.Show();
-                    this.Hide();
-                }
+                    MessageBox.Show("CPF incorreto");
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("erro: " + ex.Message);
             }
 
-            else MessageBox.Show("CPF incorreto"); return;
         }
 
         private void lbRegrasTitulo_Click(object sender, EventArgs e)
@@ -90,7 +82,7 @@ namespace PrimeiraTela
 
         private void txtCpf_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtNovaSenha_Click(object sender, EventArgs e)
@@ -101,6 +93,28 @@ namespace PrimeiraTela
         private void txtConfirmarSenha_Click(object sender, EventArgs e)
         {
             txtConfirmarSenha.Clear();
+        }
+
+        private void lblSair_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
+
+        private void txtCpf_Enter(object sender, EventArgs e)
+        {
+            txtCpf.Clear();
+        }
+
+        private void btnVerSenha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 
