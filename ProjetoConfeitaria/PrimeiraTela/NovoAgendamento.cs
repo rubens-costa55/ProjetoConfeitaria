@@ -27,7 +27,7 @@ namespace PrimeiraTela
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            lbClienteResumo.Text = txtNomeCliente.Text;
 
         }
 
@@ -94,7 +94,7 @@ namespace PrimeiraTela
 
                 cmd.Parameters.AddWithValue("@NomeCliente", txtNomeCliente.Text);
                 cmd.Parameters.AddWithValue("@DataeHoraEntrega", txtDataeHora.Text);
-                cmd.Parameters.AddWithValue("@Produto", txtProduto.Text);
+                cmd.Parameters.AddWithValue("@Produto", cbProduto.Text);
                 cmd.Parameters.AddWithValue("@Quantidade", txtQuantidade.Text);
                 cmd.Parameters.AddWithValue("@Valor", txtValor.Text);
                 cmd.ExecuteNonQuery();
@@ -116,7 +116,7 @@ namespace PrimeiraTela
 
         private void txtProduto_Click(object sender, EventArgs e)
         {
-            txtProduto.Clear();
+
         }
 
         private void txtQuantidade_Click(object sender, EventArgs e)
@@ -135,6 +135,34 @@ namespace PrimeiraTela
         }
 
         private void btnHistoricoNA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbClienteResumo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            double valor;
+            valor = Convert.ToDouble(txtQuantidade.Text) * Convert.ToDouble(txtValor.Text);
+            lbValorResumo.Text = valor.ToString();
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
