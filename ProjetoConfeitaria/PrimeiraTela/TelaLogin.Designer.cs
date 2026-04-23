@@ -41,7 +41,6 @@
             panel4 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            lblSair = new Label();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -183,7 +182,7 @@
             panel4.Controls.Add(pictureBox1);
             panel4.Location = new Point(780, 90);
             panel4.Name = "panel4";
-            panel4.Size = new Size(793, 738);
+            panel4.Size = new Size(813, 738);
             panel4.TabIndex = 4;
             // 
             // pictureBox1
@@ -202,34 +201,20 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(249, 245, 243);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(lblSair);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(lblLogin);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1621, 853);
+            panel1.Size = new Size(1641, 853);
             panel1.TabIndex = 0;
-            // 
-            // lblSair
-            // 
-            lblSair.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblSair.AutoSize = true;
-            lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSair.ForeColor = Color.FromArgb(201, 137, 120);
-            lblSair.Location = new Point(1573, 0);
-            lblSair.Name = "lblSair";
-            lblSair.Size = new Size(43, 47);
-            lblSair.TabIndex = 1;
-            lblSair.Text = "X";
-            lblSair.Click += lblSair_Click;
             // 
             // TelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 239, 237);
-            ClientSize = new Size(1664, 911);
+            ClientSize = new Size(1684, 911);
             Controls.Add(panel1);
             Name = "TelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
@@ -242,7 +227,6 @@
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -260,7 +244,6 @@
         private Panel panel4;
         private PictureBox pictureBox1;
         private Panel panel1;
-        private Label lblSair;
         private TextBox txtSenha;
     }
 }

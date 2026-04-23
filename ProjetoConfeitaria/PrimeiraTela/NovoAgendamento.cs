@@ -79,7 +79,7 @@ namespace PrimeiraTela
         {
             lbClienteResumo.Text = txtNomeCliente.Text;
             lbentregaResumo.Text = txtDataeHora.Text;
-            lbValorResumo.Text = txtValor.Text;
+            
 
             conexao conect = new conexao();
             MySqlConnection conn = conect.Conectar();
@@ -96,7 +96,7 @@ namespace PrimeiraTela
                 cmd.Parameters.AddWithValue("@DataeHoraEntrega", txtDataeHora.Text);
                 cmd.Parameters.AddWithValue("@Produto", cbProduto.Text);
                 cmd.Parameters.AddWithValue("@Quantidade", txtQuantidade.Text);
-                cmd.Parameters.AddWithValue("@Valor", txtValor.Text);
+                
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Pedido cadastrado com sucesso.");
@@ -126,7 +126,7 @@ namespace PrimeiraTela
 
         private void txtValor_Click(object sender, EventArgs e)
         {
-            txtValor.Clear();
+            
         }
 
         private void txtDataeHora_Click(object sender, EventArgs e)
@@ -156,9 +156,7 @@ namespace PrimeiraTela
 
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
-            double valor;
-            valor = Convert.ToDouble(txtQuantidade.Text) * Convert.ToDouble(txtValor.Text);
-            lbValorResumo.Text = valor.ToString();
+            
 
         }
 

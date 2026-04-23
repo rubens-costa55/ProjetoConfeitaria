@@ -21,7 +21,7 @@ namespace PrimeiraTela
 
         private void lblSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void btnEsqueciSenha_Click(object sender, EventArgs e)

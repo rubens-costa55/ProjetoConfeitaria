@@ -55,13 +55,13 @@
             textBox1 = new TextBox();
             label3 = new Label();
             panelprodutoslateral = new Panel();
+            label7 = new Label();
+            label8 = new Label();
+            cbFiltroCategoria = new ComboBox();
+            btnfiltrarprodutos = new Button();
             btnremover = new Button();
             dgvprodutos = new DataGridView();
-            btnfiltrarprodutos = new Button();
-            cbFiltroCategoria = new ComboBox();
-            label8 = new Label();
             txtpesquisarprod = new TextBox();
-            label7 = new Label();
             label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -386,10 +386,56 @@
             panelprodutoslateral.Controls.Add(dgvprodutos);
             panelprodutoslateral.Controls.Add(txtpesquisarprod);
             panelprodutoslateral.Controls.Add(label6);
-            panelprodutoslateral.Location = new Point(1150, 250);
+            panelprodutoslateral.Location = new Point(1130, 250);
             panelprodutoslateral.Name = "panelprodutoslateral";
             panelprodutoslateral.Size = new Size(404, 500);
             panelprodutoslateral.TabIndex = 4;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(142, 111, 101);
+            label7.Location = new Point(20, 57);
+            label7.Name = "label7";
+            label7.Size = new Size(200, 30);
+            label7.TabIndex = 4;
+            label7.Text = "Pesquisar produto:";
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(142, 111, 101);
+            label8.Location = new Point(20, 130);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 20);
+            label8.TabIndex = 6;
+            label8.Text = "Categoria:";
+            // 
+            // cbFiltroCategoria
+            // 
+            cbFiltroCategoria.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbFiltroCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFiltroCategoria.FlatStyle = FlatStyle.Flat;
+            cbFiltroCategoria.FormattingEnabled = true;
+            cbFiltroCategoria.Location = new Point(20, 155);
+            cbFiltroCategoria.Name = "cbFiltroCategoria";
+            cbFiltroCategoria.Size = new Size(280, 23);
+            cbFiltroCategoria.TabIndex = 7;
+            // 
+            // btnfiltrarprodutos
+            // 
+            btnfiltrarprodutos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnfiltrarprodutos.BackColor = Color.FromArgb(239, 229, 226);
+            btnfiltrarprodutos.FlatStyle = FlatStyle.Flat;
+            btnfiltrarprodutos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnfiltrarprodutos.ForeColor = Color.FromArgb(111, 84, 75);
+            btnfiltrarprodutos.Location = new Point(20, 195);
+            btnfiltrarprodutos.Name = "btnfiltrarprodutos";
+            btnfiltrarprodutos.Size = new Size(200, 35);
+            btnfiltrarprodutos.TabIndex = 8;
+            btnfiltrarprodutos.Text = "Filtrar";
+            btnfiltrarprodutos.UseVisualStyleBackColor = false;
             // 
             // btnremover
             // 
@@ -421,41 +467,6 @@
             dgvprodutos.Size = new Size(352, 194);
             dgvprodutos.TabIndex = 9;
             // 
-            // btnfiltrarprodutos
-            // 
-            btnfiltrarprodutos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnfiltrarprodutos.BackColor = Color.FromArgb(239, 229, 226);
-            btnfiltrarprodutos.FlatStyle = FlatStyle.Flat;
-            btnfiltrarprodutos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnfiltrarprodutos.ForeColor = Color.FromArgb(111, 84, 75);
-            btnfiltrarprodutos.Location = new Point(20, 195);
-            btnfiltrarprodutos.Name = "btnfiltrarprodutos";
-            btnfiltrarprodutos.Size = new Size(200, 35);
-            btnfiltrarprodutos.TabIndex = 8;
-            btnfiltrarprodutos.Text = "Filtrar";
-            btnfiltrarprodutos.UseVisualStyleBackColor = false;
-            // 
-            // cbFiltroCategoria
-            // 
-            cbFiltroCategoria.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbFiltroCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbFiltroCategoria.FlatStyle = FlatStyle.Flat;
-            cbFiltroCategoria.FormattingEnabled = true;
-            cbFiltroCategoria.Location = new Point(20, 155);
-            cbFiltroCategoria.Name = "cbFiltroCategoria";
-            cbFiltroCategoria.Size = new Size(280, 23);
-            cbFiltroCategoria.TabIndex = 7;
-            // 
-            // label8
-            // 
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(142, 111, 101);
-            label8.Location = new Point(20, 130);
-            label8.Name = "label8";
-            label8.Size = new Size(100, 20);
-            label8.TabIndex = 6;
-            label8.Text = "Categoria:";
-            // 
             // txtpesquisarprod
             // 
             txtpesquisarprod.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -464,17 +475,6 @@
             txtpesquisarprod.Name = "txtpesquisarprod";
             txtpesquisarprod.Size = new Size(280, 29);
             txtpesquisarprod.TabIndex = 5;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(142, 111, 101);
-            label7.Location = new Point(20, 57);
-            label7.Name = "label7";
-            label7.Size = new Size(200, 30);
-            label7.TabIndex = 4;
-            label7.Text = "Pesquisar produto:";
             // 
             // label6
             // 
