@@ -52,8 +52,6 @@
             cbProduto = new ComboBox();
             txtDataeHora = new TextBox();
             label5 = new Label();
-            txtValor = new TextBox();
-            label4 = new Label();
             txtQuantidade = new TextBox();
             label3 = new Label();
             txtNomeCliente = new TextBox();
@@ -75,6 +73,7 @@
             label7 = new Label();
             label6 = new Label();
             pictureBox5 = new PictureBox();
+            button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -96,6 +95,7 @@
             // 
             panel1.BackColor = Color.FromArgb(239, 229, 226);
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox8);
@@ -304,8 +304,6 @@
             panel4.Controls.Add(cbProduto);
             panel4.Controls.Add(txtDataeHora);
             panel4.Controls.Add(label5);
-            panel4.Controls.Add(txtValor);
-            panel4.Controls.Add(label4);
             panel4.Controls.Add(txtQuantidade);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(txtNomeCliente);
@@ -321,10 +319,10 @@
             button2.BackColor = Color.FromArgb(201, 142, 124);
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(467, 442);
+            button2.Location = new Point(47, 480);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(220, 34);
+            button2.Size = new Size(268, 51);
             button2.TabIndex = 19;
             button2.Text = "Incluir item";
             button2.UseVisualStyleBackColor = false;
@@ -337,7 +335,7 @@
             textBox1.ForeColor = Color.FromArgb(191, 167, 157);
             textBox1.Location = new Point(47, 155);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(640, 29);
+            textBox1.Size = new Size(439, 29);
             textBox1.TabIndex = 18;
             textBox1.Text = "Digite o telefone";
             // 
@@ -345,7 +343,7 @@
             // 
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(185, 120, 103);
-            label10.Location = new Point(47, 121);
+            label10.Location = new Point(47, 110);
             label10.Name = "label10";
             label10.Size = new Size(220, 28);
             label10.TabIndex = 17;
@@ -354,14 +352,15 @@
             // cbProduto
             // 
             cbProduto.BackColor = Color.FromArgb(255, 253, 252);
+            cbProduto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProduto.FlatStyle = FlatStyle.Flat;
             cbProduto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbProduto.ForeColor = Color.FromArgb(191, 167, 157);
             cbProduto.FormattingEnabled = true;
-            cbProduto.Location = new Point(47, 348);
+            cbProduto.Location = new Point(47, 362);
             cbProduto.Name = "cbProduto";
-            cbProduto.Size = new Size(468, 29);
+            cbProduto.Size = new Size(439, 29);
             cbProduto.TabIndex = 16;
-            cbProduto.Text = "Selecione o item...";
             // 
             // txtDataeHora
             // 
@@ -369,9 +368,9 @@
             txtDataeHora.BorderStyle = BorderStyle.FixedSingle;
             txtDataeHora.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDataeHora.ForeColor = Color.FromArgb(191, 167, 157);
-            txtDataeHora.Location = new Point(47, 241);
+            txtDataeHora.Location = new Point(47, 253);
             txtDataeHora.Name = "txtDataeHora";
-            txtDataeHora.Size = new Size(640, 29);
+            txtDataeHora.Size = new Size(439, 29);
             txtDataeHora.TabIndex = 11;
             txtDataeHora.Text = "15/04/2026 - 16:30";
             txtDataeHora.Click += txtDataeHora_Click;
@@ -380,34 +379,11 @@
             // 
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(185, 120, 103);
-            label5.Location = new Point(47, 210);
+            label5.Location = new Point(47, 222);
             label5.Name = "label5";
             label5.Size = new Size(220, 28);
             label5.TabIndex = 10;
             label5.Text = "Data e Hora da entrega:";
-            // 
-            // txtValor
-            // 
-            txtValor.BackColor = Color.FromArgb(255, 253, 252);
-            txtValor.BorderStyle = BorderStyle.FixedSingle;
-            txtValor.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtValor.ForeColor = Color.FromArgb(191, 167, 157);
-            txtValor.Location = new Point(47, 447);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(140, 29);
-            txtValor.TabIndex = 9;
-            txtValor.Click += txtValor_Click;
-            txtValor.TextChanged += txtValor_TextChanged;
-            // 
-            // label4
-            // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(185, 120, 103);
-            label4.Location = new Point(47, 412);
-            label4.Name = "label4";
-            label4.Size = new Size(220, 28);
-            label4.TabIndex = 8;
-            label4.Text = "Valor unitário:";
             // 
             // txtQuantidade
             // 
@@ -415,7 +391,7 @@
             txtQuantidade.BorderStyle = BorderStyle.FixedSingle;
             txtQuantidade.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtQuantidade.ForeColor = Color.FromArgb(191, 167, 157);
-            txtQuantidade.Location = new Point(551, 348);
+            txtQuantidade.Location = new Point(551, 359);
             txtQuantidade.Name = "txtQuantidade";
             txtQuantidade.Size = new Size(136, 29);
             txtQuantidade.TabIndex = 7;
@@ -426,7 +402,7 @@
             // 
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(185, 120, 103);
-            label3.Location = new Point(551, 310);
+            label3.Location = new Point(551, 321);
             label3.Name = "label3";
             label3.Size = new Size(119, 28);
             label3.TabIndex = 4;
@@ -451,7 +427,7 @@
             // 
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(185, 120, 103);
-            label2.Location = new Point(47, 310);
+            label2.Location = new Point(47, 324);
             label2.Name = "label2";
             label2.Size = new Size(140, 28);
             label2.TabIndex = 2;
@@ -472,10 +448,10 @@
             btnSalvarNA.BackColor = Color.FromArgb(201, 142, 124);
             btnSalvarNA.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSalvarNA.ForeColor = Color.White;
-            btnSalvarNA.Location = new Point(41, 507);
+            btnSalvarNA.Location = new Point(35, 480);
             btnSalvarNA.Margin = new Padding(3, 2, 3, 2);
             btnSalvarNA.Name = "btnSalvarNA";
-            btnSalvarNA.Size = new Size(220, 34);
+            btnSalvarNA.Size = new Size(220, 51);
             btnSalvarNA.TabIndex = 15;
             btnSalvarNA.Text = "Salvar pedido";
             btnSalvarNA.UseVisualStyleBackColor = false;
@@ -498,7 +474,7 @@
             panel6.Controls.Add(pictureBox5);
             panel6.Location = new Point(1150, 250);
             panel6.Name = "panel6";
-            panel6.Size = new Size(290, 560);
+            panel6.Size = new Size(325, 560);
             panel6.TabIndex = 14;
             // 
             // lblprodutoscarrinho
@@ -539,7 +515,7 @@
             // 
             lbValorResumo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbValorResumo.ForeColor = Color.FromArgb(126, 99, 92);
-            lbValorResumo.Location = new Point(136, 430);
+            lbValorResumo.Location = new Point(131, 415);
             lbValorResumo.Name = "lbValorResumo";
             lbValorResumo.Size = new Size(125, 28);
             lbValorResumo.TabIndex = 19;
@@ -549,7 +525,7 @@
             // 
             lbentregaResumo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbentregaResumo.ForeColor = Color.FromArgb(126, 99, 92);
-            lbentregaResumo.Location = new Point(136, 385);
+            lbentregaResumo.Location = new Point(131, 370);
             lbentregaResumo.Name = "lbentregaResumo";
             lbentregaResumo.Size = new Size(125, 28);
             lbentregaResumo.TabIndex = 18;
@@ -570,7 +546,7 @@
             // 
             panel9.BackColor = Color.FromArgb(242, 221, 219);
             panel9.Controls.Add(label9);
-            panel9.Location = new Point(35, 420);
+            panel9.Location = new Point(30, 405);
             panel9.Name = "panel9";
             panel9.Size = new Size(95, 38);
             panel9.TabIndex = 17;
@@ -593,7 +569,7 @@
             // panel8
             // 
             panel8.Controls.Add(label8);
-            panel8.Location = new Point(35, 374);
+            panel8.Location = new Point(30, 359);
             panel8.Name = "panel8";
             panel8.Size = new Size(95, 38);
             panel8.TabIndex = 16;
@@ -657,6 +633,20 @@
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(247, 242, 241);
+            button3.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(123, 97, 88);
+            button3.Location = new Point(20, 554);
+            button3.Name = "button3";
+            button3.Size = new Size(220, 70);
+            button3.TabIndex = 20;
+            button3.Text = "Histórico\r\nPedidos";
+            button3.UseVisualStyleBackColor = false;
+            // 
             // NovoAgendamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -716,8 +706,6 @@
         private Label label3;
         private TextBox txtQuantidade;
         private Label label5;
-        private TextBox txtValor;
-        private Label label4;
         private PictureBox pictureBox3;
         private TextBox txtDataeHora;
         private Panel panel6;
@@ -740,5 +728,6 @@
         private Panel panel5;
         private Label label11;
         private Button button2;
+        private Button button3;
     }
 }
