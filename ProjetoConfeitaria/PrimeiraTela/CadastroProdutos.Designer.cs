@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroProdutos));
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             pictureBox8 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -64,6 +65,7 @@
             txtpesquisarprod = new TextBox();
             label6 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -79,6 +81,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(239, 229, 226);
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox8);
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(pictureBox6);
@@ -96,6 +99,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(260, 720);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(33, 551);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(33, 32);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 22;
+            pictureBox4.TabStop = false;
             // 
             // pictureBox8
             // 
@@ -179,6 +193,7 @@
             button2.TabIndex = 16;
             button2.Text = "Novo\r\nAgendamento";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // btnSairNA
             // 
@@ -193,6 +208,7 @@
             btnSairNA.TabIndex = 15;
             btnSairNA.Text = "Sair";
             btnSairNA.UseVisualStyleBackColor = false;
+            btnSairNA.Click += btnSairNA_Click;
             // 
             // pictureBox1
             // 
@@ -217,6 +233,7 @@
             btnHistoricoNA.TabIndex = 14;
             btnHistoricoNA.Text = "Histórico\r\nPedidos";
             btnHistoricoNA.UseVisualStyleBackColor = false;
+            btnHistoricoNA.Click += btnHistoricoNA_Click;
             // 
             // panel4
             // 
@@ -239,6 +256,7 @@
             btnPedidosAtuaisNA.TabIndex = 13;
             btnPedidosAtuaisNA.Text = "Pedidos Atuais";
             btnPedidosAtuaisNA.UseVisualStyleBackColor = false;
+            btnPedidosAtuaisNA.Click += btnPedidosAtuaisNA_Click;
             // 
             // btnMenuNA
             // 
@@ -253,6 +271,7 @@
             btnMenuNA.TabIndex = 12;
             btnMenuNA.Text = "Menu Principal";
             btnMenuNA.UseVisualStyleBackColor = false;
+            btnMenuNA.Click += btnMenuNA_Click;
             // 
             // panel2
             // 
@@ -296,9 +315,9 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(350, 250);
+            panel3.Location = new Point(336, 250);
             panel3.Name = "panel3";
-            panel3.Size = new Size(760, 500);
+            panel3.Size = new Size(774, 560);
             panel3.TabIndex = 3;
             // 
             // button1
@@ -306,7 +325,7 @@
             button1.BackColor = Color.FromArgb(201, 142, 124);
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(123, 390);
+            button1.Location = new Point(152, 477);
             button1.Name = "button1";
             button1.Size = new Size(464, 53);
             button1.TabIndex = 6;
@@ -378,6 +397,7 @@
             // 
             panelprodutoslateral.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panelprodutoslateral.BackColor = Color.FromArgb(252, 250, 249);
+            panelprodutoslateral.BorderStyle = BorderStyle.FixedSingle;
             panelprodutoslateral.Controls.Add(label7);
             panelprodutoslateral.Controls.Add(label8);
             panelprodutoslateral.Controls.Add(cbFiltroCategoria);
@@ -388,7 +408,7 @@
             panelprodutoslateral.Controls.Add(label6);
             panelprodutoslateral.Location = new Point(1130, 250);
             panelprodutoslateral.Name = "panelprodutoslateral";
-            panelprodutoslateral.Size = new Size(404, 500);
+            panelprodutoslateral.Size = new Size(398, 560);
             panelprodutoslateral.TabIndex = 4;
             // 
             // label7
@@ -398,7 +418,7 @@
             label7.ForeColor = Color.FromArgb(142, 111, 101);
             label7.Location = new Point(20, 57);
             label7.Name = "label7";
-            label7.Size = new Size(200, 30);
+            label7.Size = new Size(192, 30);
             label7.TabIndex = 4;
             label7.Text = "Pesquisar produto:";
             // 
@@ -420,7 +440,7 @@
             cbFiltroCategoria.FormattingEnabled = true;
             cbFiltroCategoria.Location = new Point(20, 155);
             cbFiltroCategoria.Name = "cbFiltroCategoria";
-            cbFiltroCategoria.Size = new Size(280, 23);
+            cbFiltroCategoria.Size = new Size(272, 23);
             cbFiltroCategoria.TabIndex = 7;
             // 
             // btnfiltrarprodutos
@@ -432,7 +452,7 @@
             btnfiltrarprodutos.ForeColor = Color.FromArgb(111, 84, 75);
             btnfiltrarprodutos.Location = new Point(20, 195);
             btnfiltrarprodutos.Name = "btnfiltrarprodutos";
-            btnfiltrarprodutos.Size = new Size(200, 35);
+            btnfiltrarprodutos.Size = new Size(192, 35);
             btnfiltrarprodutos.TabIndex = 8;
             btnfiltrarprodutos.Text = "Filtrar";
             btnfiltrarprodutos.UseVisualStyleBackColor = false;
@@ -444,9 +464,9 @@
             btnremover.FlatStyle = FlatStyle.Flat;
             btnremover.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnremover.ForeColor = Color.White;
-            btnremover.Location = new Point(249, 459);
+            btnremover.Location = new Point(240, 517);
             btnremover.Name = "btnremover";
-            btnremover.Size = new Size(123, 28);
+            btnremover.Size = new Size(124, 28);
             btnremover.TabIndex = 10;
             btnremover.Text = "Remover produto ";
             btnremover.UseVisualStyleBackColor = false;
@@ -464,7 +484,7 @@
             dgvprodutos.ReadOnly = true;
             dgvprodutos.RowHeadersVisible = false;
             dgvprodutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvprodutos.Size = new Size(352, 194);
+            dgvprodutos.Size = new Size(344, 252);
             dgvprodutos.TabIndex = 9;
             // 
             // txtpesquisarprod
@@ -502,6 +522,7 @@
             Text = "Cadastro Produtos";
             WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -553,5 +574,6 @@
         private ComboBox cbFiltroCategoria;
         private DataGridView dgvprodutos;
         private Button btnremover;
+        private PictureBox pictureBox4;
     }
 }

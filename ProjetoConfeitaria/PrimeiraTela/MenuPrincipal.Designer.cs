@@ -58,6 +58,13 @@
             panel1 = new Panel();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
+            panel2 = new Panel();
+            btnAbrirCadastroProdutos = new Button();
+            label8 = new Label();
+            label9 = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            button3 = new Button();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
@@ -70,6 +77,9 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // btnHistórico
@@ -79,7 +89,7 @@
             btnHistórico.FlatStyle = FlatStyle.Flat;
             btnHistórico.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistórico.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistórico.Location = new Point(20, 484);
+            btnHistórico.Location = new Point(20, 470);
             btnHistórico.Name = "btnHistórico";
             btnHistórico.Size = new Size(220, 70);
             btnHistórico.TabIndex = 6;
@@ -94,7 +104,7 @@
             btnPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuais.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPedidosAtuais.ForeColor = Color.FromArgb(123, 97, 88);
-            btnPedidosAtuais.Location = new Point(20, 375);
+            btnPedidosAtuais.Location = new Point(20, 370);
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 5;
@@ -109,7 +119,7 @@
             btnNovoAgendamento.FlatStyle = FlatStyle.Flat;
             btnNovoAgendamento.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnNovoAgendamento.ForeColor = Color.FromArgb(123, 97, 88);
-            btnNovoAgendamento.Location = new Point(20, 280);
+            btnNovoAgendamento.Location = new Point(20, 270);
             btnNovoAgendamento.Name = "btnNovoAgendamento";
             btnNovoAgendamento.Size = new Size(220, 70);
             btnNovoAgendamento.TabIndex = 4;
@@ -125,9 +135,9 @@
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(350, 250);
+            panel4.Location = new Point(308, 261);
             panel4.Name = "panel4";
-            panel4.Size = new Size(350, 430);
+            panel4.Size = new Size(282, 451);
             panel4.TabIndex = 2;
             // 
             // btnFormularioAgendamento
@@ -137,7 +147,7 @@
             btnFormularioAgendamento.FlatStyle = FlatStyle.Flat;
             btnFormularioAgendamento.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnFormularioAgendamento.ForeColor = Color.FromArgb(201, 142, 124);
-            btnFormularioAgendamento.Location = new Point(35, 335);
+            btnFormularioAgendamento.Location = new Point(7, 366);
             btnFormularioAgendamento.Name = "btnFormularioAgendamento";
             btnFormularioAgendamento.Size = new Size(270, 48);
             btnFormularioAgendamento.TabIndex = 3;
@@ -149,7 +159,7 @@
             // 
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(142, 111, 101);
-            label3.Location = new Point(35, 205);
+            label3.Location = new Point(7, 215);
             label3.Name = "label3";
             label3.Size = new Size(270, 80);
             label3.TabIndex = 2;
@@ -159,16 +169,16 @@
             // 
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(111, 84, 75);
-            label2.Location = new Point(35, 120);
+            label2.Location = new Point(15, 129);
             label2.Name = "label2";
-            label2.Size = new Size(250, 45);
+            label2.Size = new Size(248, 45);
             label2.TabIndex = 1;
             label2.Text = "Novo Agendamento";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._1_removebg_preview;
-            pictureBox2.Location = new Point(35, 25);
+            pictureBox2.Location = new Point(15, 25);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(65, 65);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -183,9 +193,9 @@
             panel5.Controls.Add(label4);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox3);
-            panel5.Location = new Point(775, 250);
+            panel5.Location = new Point(617, 262);
             panel5.Name = "panel5";
-            panel5.Size = new Size(350, 430);
+            panel5.Size = new Size(300, 451);
             panel5.TabIndex = 4;
             // 
             // btnListPedidosAtuais
@@ -195,7 +205,7 @@
             btnListPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnListPedidosAtuais.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnListPedidosAtuais.ForeColor = Color.FromArgb(201, 142, 124);
-            btnListPedidosAtuais.Location = new Point(35, 335);
+            btnListPedidosAtuais.Location = new Point(15, 365);
             btnListPedidosAtuais.Name = "btnListPedidosAtuais";
             btnListPedidosAtuais.Size = new Size(270, 48);
             btnListPedidosAtuais.TabIndex = 3;
@@ -207,7 +217,7 @@
             // 
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(142, 111, 101);
-            label4.Location = new Point(35, 205);
+            label4.Location = new Point(15, 215);
             label4.Name = "label4";
             label4.Size = new Size(270, 80);
             label4.TabIndex = 2;
@@ -217,7 +227,7 @@
             // 
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(111, 84, 75);
-            label5.Location = new Point(35, 120);
+            label5.Location = new Point(15, 129);
             label5.Name = "label5";
             label5.Size = new Size(250, 45);
             label5.TabIndex = 1;
@@ -226,7 +236,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(35, 25);
+            pictureBox3.Location = new Point(15, 26);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(65, 65);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -241,9 +251,9 @@
             panel6.Controls.Add(label6);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox4);
-            panel6.Location = new Point(1195, 250);
+            panel6.Location = new Point(945, 262);
             panel6.Name = "panel6";
-            panel6.Size = new Size(350, 430);
+            panel6.Size = new Size(300, 452);
             panel6.TabIndex = 5;
             // 
             // btnConsultarHistorico
@@ -253,7 +263,7 @@
             btnConsultarHistorico.FlatStyle = FlatStyle.Flat;
             btnConsultarHistorico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnConsultarHistorico.ForeColor = Color.FromArgb(201, 142, 124);
-            btnConsultarHistorico.Location = new Point(35, 335);
+            btnConsultarHistorico.Location = new Point(15, 365);
             btnConsultarHistorico.Name = "btnConsultarHistorico";
             btnConsultarHistorico.Size = new Size(270, 48);
             btnConsultarHistorico.TabIndex = 3;
@@ -265,7 +275,7 @@
             // 
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(142, 111, 101);
-            label6.Location = new Point(35, 205);
+            label6.Location = new Point(15, 205);
             label6.Name = "label6";
             label6.Size = new Size(270, 80);
             label6.TabIndex = 2;
@@ -275,7 +285,7 @@
             // 
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(111, 84, 75);
-            label7.Location = new Point(35, 120);
+            label7.Location = new Point(15, 128);
             label7.Name = "label7";
             label7.Size = new Size(270, 45);
             label7.TabIndex = 1;
@@ -298,7 +308,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Snow;
-            button1.Location = new Point(350, 90);
+            button1.Location = new Point(330, 90);
             button1.Name = "button1";
             button1.Size = new Size(560, 70);
             button1.TabIndex = 10;
@@ -343,7 +353,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(123, 97, 88);
-            button2.Location = new Point(20, 628);
+            button2.Location = new Point(20, 670);
             button2.Name = "button2";
             button2.Size = new Size(220, 70);
             button2.TabIndex = 8;
@@ -355,7 +365,7 @@
             // 
             pictureBox13.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
-            pictureBox13.Location = new Point(25, 499);
+            pictureBox13.Location = new Point(25, 488);
             pictureBox13.Name = "pictureBox13";
             pictureBox13.Size = new Size(33, 32);
             pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
@@ -366,7 +376,7 @@
             // 
             pictureBox12.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox12.Image = Properties.Resources._3_removebg_preview;
-            pictureBox12.Location = new Point(25, 647);
+            pictureBox12.Location = new Point(25, 685);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(33, 32);
             pictureBox12.SizeMode = PictureBoxSizeMode.Zoom;
@@ -380,7 +390,7 @@
             btnMenuPrincipal1.FlatStyle = FlatStyle.Flat;
             btnMenuPrincipal1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMenuPrincipal1.ForeColor = Color.Snow;
-            btnMenuPrincipal1.Location = new Point(20, 185);
+            btnMenuPrincipal1.Location = new Point(20, 170);
             btnMenuPrincipal1.Name = "btnMenuPrincipal1";
             btnMenuPrincipal1.Size = new Size(220, 70);
             btnMenuPrincipal1.TabIndex = 9;
@@ -392,7 +402,9 @@
             // 
             panel1.BackColor = Color.FromArgb(239, 229, 226);
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(btnMenuPrincipal1);
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(pictureBox9);
             panel1.Controls.Add(pictureBox10);
             panel1.Controls.Add(pictureBox12);
@@ -405,14 +417,14 @@
             panel1.Controls.Add(pictureBox14);
             panel1.Location = new Point(30, 90);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 720);
+            panel1.Size = new Size(260, 775);
             panel1.TabIndex = 10;
             // 
             // pictureBox9
             // 
             pictureBox9.BackColor = Color.Transparent;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(25, 398);
+            pictureBox9.Location = new Point(25, 388);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(33, 32);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
@@ -423,12 +435,95 @@
             // 
             pictureBox10.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox10.Image = Properties.Resources._1_removebg_preview;
-            pictureBox10.Location = new Point(25, 302);
+            pictureBox10.Location = new Point(25, 289);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(33, 32);
             pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox10.TabIndex = 13;
             pictureBox10.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(252, 250, 249);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btnAbrirCadastroProdutos);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(1268, 261);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(300, 452);
+            panel2.TabIndex = 6;
+            // 
+            // btnAbrirCadastroProdutos
+            // 
+            btnAbrirCadastroProdutos.BackColor = Color.FromArgb(243, 232, 228);
+            btnAbrirCadastroProdutos.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            btnAbrirCadastroProdutos.FlatStyle = FlatStyle.Flat;
+            btnAbrirCadastroProdutos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAbrirCadastroProdutos.ForeColor = Color.FromArgb(201, 142, 124);
+            btnAbrirCadastroProdutos.Location = new Point(15, 366);
+            btnAbrirCadastroProdutos.Name = "btnAbrirCadastroProdutos";
+            btnAbrirCadastroProdutos.Size = new Size(270, 48);
+            btnAbrirCadastroProdutos.TabIndex = 3;
+            btnAbrirCadastroProdutos.Text = "Cadastrar Produtos";
+            btnAbrirCadastroProdutos.UseVisualStyleBackColor = false;
+            btnAbrirCadastroProdutos.Click += btnAbrirCadastroProdutos_Click;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(142, 111, 101);
+            label8.Location = new Point(15, 206);
+            label8.Name = "label8";
+            label8.Size = new Size(270, 80);
+            label8.TabIndex = 2;
+            label8.Text = "Cadastro de novos produtos e categorias para os pedidos.";
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(111, 84, 75);
+            label9.Location = new Point(15, 129);
+            label9.Name = "label9";
+            label9.Size = new Size(270, 45);
+            label9.TabIndex = 1;
+            label9.Text = "Cadastro de produtos";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(35, 25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(65, 65);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(25, 589);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(33, 32);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 25;
+            pictureBox5.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(247, 242, 241);
+            button3.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(123, 97, 88);
+            button3.Location = new Point(20, 570);
+            button3.Name = "button3";
+            button3.Size = new Size(220, 70);
+            button3.TabIndex = 24;
+            button3.Text = "Cadastrar\r\nProdutos";
+            button3.UseVisualStyleBackColor = false;
             // 
             // MenuPrincipal
             // 
@@ -436,6 +531,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1600, 900);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(panel6);
@@ -459,6 +555,9 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
 
 
@@ -499,5 +598,12 @@
         private Panel panel1;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
+        private Panel panel2;
+        private Button btnAbrirCadastroProdutos;
+        private Label label8;
+        private Label label9;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox5;
+        private Button button3;
     }
 }

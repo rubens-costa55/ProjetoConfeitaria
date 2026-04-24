@@ -72,7 +72,7 @@
             panel3.Controls.Add(lblTitulo);
             panel3.Location = new Point(55, 90);
             panel3.Name = "panel3";
-            panel3.Size = new Size(725, 738);
+            panel3.Size = new Size(783, 740);
             panel3.TabIndex = 3;
             // 
             // btnEsqueciSenha
@@ -85,7 +85,7 @@
             btnEsqueciSenha.ForeColor = Color.FromArgb(201, 142, 124);
             btnEsqueciSenha.Location = new Point(45, 629);
             btnEsqueciSenha.Name = "btnEsqueciSenha";
-            btnEsqueciSenha.Size = new Size(485, 46);
+            btnEsqueciSenha.Size = new Size(543, 46);
             btnEsqueciSenha.TabIndex = 8;
             btnEsqueciSenha.Text = "Esqueci minha senha";
             btnEsqueciSenha.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             btnAcessar.ForeColor = Color.White;
             btnAcessar.Location = new Point(45, 532);
             btnAcessar.Name = "btnAcessar";
-            btnAcessar.Size = new Size(485, 52);
+            btnAcessar.Size = new Size(543, 52);
             btnAcessar.TabIndex = 7;
             btnAcessar.Text = "Acessar";
             btnAcessar.UseVisualStyleBackColor = false;
@@ -113,9 +113,9 @@
             txtSenha.BorderStyle = BorderStyle.None;
             txtSenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSenha.ForeColor = Color.FromArgb(126, 99, 92);
-            txtSenha.Location = new Point(55, 402);
+            txtSenha.Location = new Point(55, 360);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(430, 22);
+            txtSenha.Size = new Size(488, 22);
             txtSenha.TabIndex = 6;
             txtSenha.UseSystemPasswordChar = true;
             txtSenha.Click += txtSenha_TextChanged;
@@ -125,7 +125,7 @@
             // 
             lblSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSenha.ForeColor = Color.FromArgb(185, 120, 103);
-            lblSenha.Location = new Point(55, 371);
+            lblSenha.Location = new Point(55, 329);
             lblSenha.Name = "lblSenha";
             lblSenha.Size = new Size(100, 28);
             lblSenha.TabIndex = 5;
@@ -139,7 +139,7 @@
             txtcpf.ForeColor = Color.FromArgb(126, 99, 92);
             txtcpf.Location = new Point(55, 253);
             txtcpf.Name = "txtcpf";
-            txtcpf.Size = new Size(430, 22);
+            txtcpf.Size = new Size(488, 22);
             txtcpf.TabIndex = 4;
             txtcpf.Click += txtcpf_TextChanged;
             txtcpf.TextChanged += txtcpf_TextChanged;
@@ -180,16 +180,17 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.FromArgb(244, 240, 239);
             panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(780, 90);
+            panel4.Location = new Point(811, 90);
             panel4.Name = "panel4";
-            panel4.Size = new Size(813, 738);
-            panel4.TabIndex = 4;
+            panel4.Size = new Size(750, 740);
+            panel4.TabIndex = 3;
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pictureBox1.Location = new Point(264, 120);
+            pictureBox1.Location = new Point(228, 181);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(346, 319);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -200,9 +201,8 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(249, 245, 243);
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel4);
             panel1.Controls.Add(lblLogin);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
@@ -236,6 +236,7 @@
         private Panel panel3;
         private Button btnEsqueciSenha;
         private Button btnAcessar;
+        private TextBox txtSenha;
         private Label lblSenha;
         private TextBox txtcpf;
         private Label lblCPF;
@@ -244,6 +245,5 @@
         private Panel panel4;
         private PictureBox pictureBox1;
         private Panel panel1;
-        private TextBox txtSenha;
     }
 }

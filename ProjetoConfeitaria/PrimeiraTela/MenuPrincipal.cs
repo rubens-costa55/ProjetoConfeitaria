@@ -48,7 +48,7 @@ namespace PrimeiraTela
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void btnFormularioAgendamento_Click(object sender, EventArgs e)
@@ -89,6 +89,13 @@ namespace PrimeiraTela
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnAbrirCadastroProdutos_Click(object sender, EventArgs e)
+        {
+            CadastroProdutos telaprodutos = new CadastroProdutos();
+            telaprodutos.Show();
+            this.Hide();
         }
     }
 }
