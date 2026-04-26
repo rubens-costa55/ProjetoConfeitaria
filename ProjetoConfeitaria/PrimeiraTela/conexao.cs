@@ -9,7 +9,7 @@ namespace PrimeiraTela
 {
     internal class conexao
     {
-        private static string conect = "server=localhost;user=root;pwd=;database=sistemaconfeitaria";
+        private static string conect = "server=localhost;user=root;pwd=;database=confeitariasistema";
 
         public MySqlConnection Conectar()
         {
