@@ -63,7 +63,7 @@ namespace PrimeiraTela
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void FrmHistoricoPedidos_Load(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace PrimeiraTela
             try
             {
                 conf.Open();
-                string sql = "SELECT NomeCliente,Produto,Quantidade,Valor,DataeHoraEntrega FROM clientes;";
+                string sql = "SELECT NomeCliente, Produto, Quantidade, Valor, DataHoraEntrega FROM historico;";
                 MySqlDataAdapter cmd = new MySqlDataAdapter(sql, conf);
                 //datatable: tabela virtual
                 DataTable dt = new DataTable();
