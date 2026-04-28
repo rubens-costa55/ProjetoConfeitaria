@@ -30,6 +30,7 @@
         {
             lblLogin = new Label();
             panel3 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             btnEsqueciSenha = new Button();
             btnAcessar = new Button();
             txtSenha = new TextBox();
@@ -62,6 +63,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel3.BackColor = Color.FromArgb(235, 221, 218);
+            panel3.Controls.Add(flowLayoutPanel1);
             panel3.Controls.Add(btnEsqueciSenha);
             panel3.Controls.Add(btnAcessar);
             panel3.Controls.Add(txtSenha);
@@ -74,6 +76,13 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(783, 740);
             panel3.TabIndex = 3;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(789, 372);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(186, 100);
+            flowLayoutPanel1.TabIndex = 9;
             // 
             // btnEsqueciSenha
             // 
@@ -99,13 +108,17 @@
             btnAcessar.FlatStyle = FlatStyle.Flat;
             btnAcessar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAcessar.ForeColor = Color.White;
-            btnAcessar.Location = new Point(45, 532);
+            btnAcessar.Location = new Point(45, 535);
             btnAcessar.Name = "btnAcessar";
             btnAcessar.Size = new Size(543, 52);
             btnAcessar.TabIndex = 7;
             btnAcessar.Text = "Acessar";
             btnAcessar.UseVisualStyleBackColor = false;
             btnAcessar.Click += btnAcessar_Click;
+            btnAcessar.MouseDown += btnAcessar_MouseDown;
+            btnAcessar.MouseEnter += btnAcessar_MouseEnter;
+            btnAcessar.MouseLeave += btnAcessar_MouseLeave;
+            btnAcessar.MouseUp += btnAcessar_MouseUp;
             // 
             // txtSenha
             // 
@@ -208,6 +221,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1641, 853);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // TelaLogin
             // 
@@ -245,5 +259,6 @@
         private Panel panel4;
         private PictureBox pictureBox1;
         private Panel panel1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
