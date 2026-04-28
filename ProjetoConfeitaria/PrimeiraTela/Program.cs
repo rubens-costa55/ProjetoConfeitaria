@@ -13,7 +13,11 @@ namespace PrimeiraTela
             ApplicationConfiguration.Initialize();
 
            
+<<<<<<< HEAD
             Application.Run(new FrmRedefinirSenha());
+=======
+            Application.Run(new TelaLogin());
+>>>>>>> 62c40f5dd3d4abce0540cec963fb0ffc6c2691ec
 
 
          
