@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosAtuais));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            pictureBox13 = new PictureBox();
             pictureBox6 = new PictureBox();
+            btncadastroprodutos = new Button();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox8 = new PictureBox();
@@ -64,9 +66,8 @@
             colstatus = new DataGridViewComboBoxColumn();
             btacao = new DataGridViewButtonColumn();
             btnbuscarpedido = new Button();
-            pictureBox13 = new PictureBox();
-            btnHistórico = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -77,7 +78,6 @@
             PanelBuscar.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -86,7 +86,7 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(pictureBox13);
             panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(btnHistórico);
+            panel1.Controls.Add(btncadastroprodutos);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox8);
@@ -103,6 +103,17 @@
             panel1.Size = new Size(260, 720);
             panel1.TabIndex = 1;
             // 
+            // pictureBox13
+            // 
+            pictureBox13.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(25, 566);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(33, 32);
+            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox13.TabIndex = 13;
+            pictureBox13.TabStop = false;
+            // 
             // pictureBox6
             // 
             pictureBox6.BackColor = Color.Transparent;
@@ -113,6 +124,20 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 5;
             pictureBox6.TabStop = false;
+            // 
+            // btncadastroprodutos
+            // 
+            btncadastroprodutos.BackColor = Color.FromArgb(247, 242, 241);
+            btncadastroprodutos.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            btncadastroprodutos.FlatStyle = FlatStyle.Flat;
+            btncadastroprodutos.Font = new Font("Segoe UI", 11.25F);
+            btncadastroprodutos.ForeColor = Color.FromArgb(123, 97, 88);
+            btncadastroprodutos.Location = new Point(20, 547);
+            btncadastroprodutos.Name = "btncadastroprodutos";
+            btncadastroprodutos.Size = new Size(220, 70);
+            btncadastroprodutos.TabIndex = 12;
+            btncadastroprodutos.Text = "Cadastrar\r\nProdutos";
+            btncadastroprodutos.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
             // 
@@ -180,7 +205,7 @@
             btnHistorico.FlatStyle = FlatStyle.Flat;
             btnHistorico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistorico.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistorico.Location = new Point(20, 480);
+            btnHistorico.Location = new Point(20, 461);
             btnHistorico.Name = "btnHistorico";
             btnHistorico.Size = new Size(220, 70);
             btnHistorico.TabIndex = 7;
@@ -381,25 +406,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPedidos.ColumnHeadersHeight = 35;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor, colstatus, btacao });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(126, 99, 92);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(126, 99, 92);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(22, 21);
@@ -439,10 +464,10 @@
             // colstatus
             // 
             colstatus.AutoComplete = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(247, 242, 241);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(126, 99, 92);
-            colstatus.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 242, 241);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(126, 99, 92);
+            colstatus.DefaultCellStyle = dataGridViewCellStyle2;
             colstatus.FillWeight = 22F;
             colstatus.HeaderText = "Status";
             colstatus.Items.AddRange(new object[] { "Em produção", "Agendado", "Atrasado" });
@@ -450,11 +475,11 @@
             // 
             // btacao
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(220, 238, 219);
-            btacao.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(220, 238, 219);
+            btacao.DefaultCellStyle = dataGridViewCellStyle3;
             btacao.FillWeight = 14F;
             btacao.HeaderText = "Ação";
             btacao.Name = "btacao";
@@ -476,31 +501,6 @@
             btnbuscarpedido.TabIndex = 8;
             btnbuscarpedido.Text = "Buscar";
             btnbuscarpedido.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox13
-            // 
-            pictureBox13.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
-            pictureBox13.Location = new Point(25, 574);
-            pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(33, 32);
-            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox13.TabIndex = 13;
-            pictureBox13.TabStop = false;
-            // 
-            // btnHistórico
-            // 
-            btnHistórico.BackColor = Color.FromArgb(247, 242, 241);
-            btnHistórico.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            btnHistórico.FlatStyle = FlatStyle.Flat;
-            btnHistórico.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHistórico.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistórico.Location = new Point(20, 556);
-            btnHistórico.Name = "btnHistórico";
-            btnHistórico.Size = new Size(220, 70);
-            btnHistórico.TabIndex = 12;
-            btnHistórico.Text = "Histórico de Pedidos";
-            btnHistórico.UseVisualStyleBackColor = false;
             // 
             // PedidosAtuais
             // 
@@ -524,6 +524,7 @@
             Text = "Pedidos Atuais";
             Load += PedidosAtuais_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -535,7 +536,6 @@
             PanelBuscar.PerformLayout();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ResumeLayout(false);
         }
 
@@ -573,6 +573,6 @@
         private DataGridViewComboBoxColumn colstatus;
         private DataGridViewButtonColumn btacao;
         private PictureBox pictureBox13;
-        private Button btnHistórico;
+        private Button btncadastroprodutos;
     }
 }

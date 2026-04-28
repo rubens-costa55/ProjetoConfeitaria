@@ -12,17 +12,10 @@ namespace PrimeiraTela
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-           
-<<<<<<< HEAD
-            Application.Run(new MenuPrincipal());
-=======
-<<<<<<< HEAD
-            Application.Run(new FrmRedefinirSenha());
-=======
-            Application.Run(new TelaLogin());
->>>>>>> 62c40f5dd3d4abce0540cec963fb0ffc6c2691ec
->>>>>>> cfee5b3657c2689a02584e631ec33df096eb2457
 
+            Application.Run(new TelaLogin());
+
+            
 
          
 

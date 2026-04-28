@@ -74,7 +74,7 @@
             panel3.Controls.Add(lblTitulo);
             panel3.Location = new Point(55, 90);
             panel3.Name = "panel3";
-            panel3.Size = new Size(783, 740);
+            panel3.Size = new Size(783, 690);
             panel3.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -195,7 +195,7 @@
             panel4.Controls.Add(pictureBox1);
             panel4.Location = new Point(811, 90);
             panel4.Name = "panel4";
-            panel4.Size = new Size(750, 740);
+            panel4.Size = new Size(650, 690);
             panel4.TabIndex = 3;
             // 
             // pictureBox1
@@ -203,9 +203,9 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pictureBox1.Location = new Point(228, 181);
+            pictureBox1.Location = new Point(225, 207);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(346, 319);
+            pictureBox1.Size = new Size(246, 201);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -219,7 +219,7 @@
             panel1.Controls.Add(lblLogin);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1641, 853);
+            panel1.Size = new Size(1541, 803);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -228,12 +228,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 239, 237);
-            ClientSize = new Size(1684, 911);
+            ClientSize = new Size(1584, 861);
             Controls.Add(panel1);
+            MaximizeBox = false;
             Name = "TelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            WindowState = FormWindowState.Maximized;
             Load += TelaLogin_Load;
             Click += txtcpf_TextChanged;
             panel3.ResumeLayout(false);

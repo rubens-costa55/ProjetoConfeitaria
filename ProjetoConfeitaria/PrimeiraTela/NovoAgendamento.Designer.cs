@@ -665,6 +665,7 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "NovoAgendamento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Novo Agendamento";

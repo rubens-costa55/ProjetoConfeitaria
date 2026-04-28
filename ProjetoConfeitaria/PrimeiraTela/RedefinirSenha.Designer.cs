@@ -67,7 +67,7 @@
             PanelJanela.Controls.Add(label2);
             PanelJanela.Controls.Add(PanelDireito);
             PanelJanela.Controls.Add(PanelEsquerdo);
-            PanelJanela.Location = new Point(12, 12);
+            PanelJanela.Location = new Point(53, 30);
             PanelJanela.Name = "PanelJanela";
             PanelJanela.Size = new Size(1570, 845);
             PanelJanela.TabIndex = 0;
@@ -348,10 +348,10 @@
             BackColor = Color.FromArgb(246, 239, 237);
             ClientSize = new Size(1664, 911);
             Controls.Add(PanelJanela);
+            MaximizeBox = false;
             Name = "FrmRedefinirSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RedefinirSenha";
-            WindowState = FormWindowState.Maximized;
             PanelJanela.ResumeLayout(false);
             PanelJanela.PerformLayout();
             PanelDireito.ResumeLayout(false);

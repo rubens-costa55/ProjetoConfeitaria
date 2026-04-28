@@ -542,11 +542,11 @@
             Controls.Add(panel4);
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.None;
+            MinimizeBox = false;
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";
             TransparencyKey = Color.Transparent;
-            WindowState = FormWindowState.Maximized;
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);

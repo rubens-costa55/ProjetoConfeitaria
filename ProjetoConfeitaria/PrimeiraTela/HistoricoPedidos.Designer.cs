@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistoricoPedidos));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelSidebar = new Panel();
+            pictureBox3 = new PictureBox();
+            button2 = new Button();
+            pictureBox4 = new PictureBox();
+            button3 = new Button();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox8 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             btnSair = new Button();
             btnHistorico = new Button();
@@ -47,8 +50,6 @@
             panelTitulo = new Panel();
             lblTitulo = new Label();
             fileSystemWatcher1 = new FileSystemWatcher();
-            btnUltimos30Dias = new Button();
-            btnClienteRecorrente = new Button();
             panelHistorico = new Panel();
             dgvPedidos = new DataGridView();
             colcliente = new DataGridViewTextBoxColumn();
@@ -56,20 +57,19 @@
             colentrega = new DataGridViewTextBoxColumn();
             colvalor = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            cbFiltrosHistorico = new ComboBox();
             button1 = new Button();
-            button10 = new Button();
             PanelBuscar = new Panel();
             textBox1 = new TextBox();
             btnremover = new Button();
-            button3 = new Button();
-            pictureBox4 = new PictureBox();
-            button2 = new Button();
+            btnPesquisarHistorico = new Button();
             panelSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogoSidebar).BeginInit();
             panelTitulo.SuspendLayout();
@@ -78,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             panel1.SuspendLayout();
             PanelBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panelSidebar
@@ -104,6 +103,56 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(260, 720);
             panelSidebar.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox3.Image = Properties.Resources._1_removebg_preview;
+            pictureBox3.Location = new Point(32, 280);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(33, 32);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(247, 242, 241);
+            button2.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(123, 97, 88);
+            button2.Location = new Point(16, 259);
+            button2.Name = "button2";
+            button2.Size = new Size(220, 70);
+            button2.TabIndex = 17;
+            button2.Text = "Novo\r\nAgendamento";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(33, 551);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(33, 32);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 23;
+            pictureBox4.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(247, 242, 241);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11.25F);
+            button3.ForeColor = Color.FromArgb(123, 97, 88);
+            button3.Location = new Point(16, 529);
+            button3.Name = "button3";
+            button3.Size = new Size(220, 70);
+            button3.TabIndex = 19;
+            button3.Text = "Cadastro \r\nProdutos";
+            button3.UseVisualStyleBackColor = false;
             // 
             // pictureBox7
             // 
@@ -147,17 +196,6 @@
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 15;
             pictureBox8.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox3.Image = Properties.Resources._1_removebg_preview;
-            pictureBox3.Location = new Point(32, 280);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(33, 32);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 14;
-            pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -273,34 +311,6 @@
             fileSystemWatcher1.EnableRaisingEvents = true;
             fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // btnUltimos30Dias
-            // 
-            btnUltimos30Dias.BackColor = Color.FromArgb(239, 229, 226);
-            btnUltimos30Dias.FlatAppearance.BorderSize = 0;
-            btnUltimos30Dias.FlatStyle = FlatStyle.Flat;
-            btnUltimos30Dias.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnUltimos30Dias.ForeColor = Color.FromArgb(201, 142, 124);
-            btnUltimos30Dias.Location = new Point(31, 16);
-            btnUltimos30Dias.Name = "btnUltimos30Dias";
-            btnUltimos30Dias.Size = new Size(165, 42);
-            btnUltimos30Dias.TabIndex = 2;
-            btnUltimos30Dias.Text = "Atualizar Tabela";
-            btnUltimos30Dias.UseVisualStyleBackColor = false;
-            // 
-            // btnClienteRecorrente
-            // 
-            btnClienteRecorrente.BackColor = Color.FromArgb(241, 220, 221);
-            btnClienteRecorrente.FlatAppearance.BorderSize = 0;
-            btnClienteRecorrente.FlatStyle = FlatStyle.Flat;
-            btnClienteRecorrente.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnClienteRecorrente.ForeColor = Color.FromArgb(201, 142, 124);
-            btnClienteRecorrente.Location = new Point(225, 16);
-            btnClienteRecorrente.Name = "btnClienteRecorrente";
-            btnClienteRecorrente.Size = new Size(175, 42);
-            btnClienteRecorrente.TabIndex = 3;
-            btnClienteRecorrente.Text = "Cliente recorrente";
-            btnClienteRecorrente.UseVisualStyleBackColor = false;
-            // 
             // panelHistorico
             // 
             panelHistorico.BorderStyle = BorderStyle.FixedSingle;
@@ -321,25 +331,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle17.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPedidos.ColumnHeadersHeight = 42;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor });
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle18.ForeColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle18.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(30, 27);
@@ -380,13 +390,27 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(248, 241, 239);
+            panel1.Controls.Add(cbFiltrosHistorico);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(btnUltimos30Dias);
-            panel1.Controls.Add(btnClienteRecorrente);
             panel1.Location = new Point(355, 220);
             panel1.Name = "panel1";
             panel1.Size = new Size(1145, 74);
             panel1.TabIndex = 6;
+            // 
+            // cbFiltrosHistorico
+            // 
+            cbFiltrosHistorico.BackColor = Color.FromArgb(239, 229, 226);
+            cbFiltrosHistorico.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFiltrosHistorico.FlatStyle = FlatStyle.Flat;
+            cbFiltrosHistorico.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbFiltrosHistorico.ForeColor = Color.FromArgb(123, 97, 88);
+            cbFiltrosHistorico.FormattingEnabled = true;
+            cbFiltrosHistorico.Items.AddRange(new object[] { "Todos", "", "Últimos 30 dias", "", "Este mês", "", "Cliente recorrente", "", "Maior valor" });
+            cbFiltrosHistorico.Location = new Point(16, 23);
+            cbFiltrosHistorico.Name = "cbFiltrosHistorico";
+            cbFiltrosHistorico.Size = new Size(288, 25);
+            cbFiltrosHistorico.TabIndex = 22;
+            cbFiltrosHistorico.SelectedIndexChanged += cbFiltrosHistorico_SelectedIndexChanged_1;
             // 
             // button1
             // 
@@ -403,20 +427,6 @@
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // button10
-            // 
-            button10.BackColor = Color.FromArgb(243, 232, 228);
-            button10.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.ForeColor = Color.FromArgb(201, 142, 124);
-            button10.Location = new Point(1185, 110);
-            button10.Name = "button10";
-            button10.Size = new Size(140, 42);
-            button10.TabIndex = 9;
-            button10.Text = "Filtros";
-            button10.UseVisualStyleBackColor = false;
             // 
             // PanelBuscar
             // 
@@ -454,44 +464,19 @@
             btnremover.Text = "Remover cliente";
             btnremover.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnPesquisarHistorico
             // 
-            button3.BackColor = Color.FromArgb(247, 242, 241);
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 11.25F);
-            button3.ForeColor = Color.FromArgb(123, 97, 88);
-            button3.Location = new Point(16, 529);
-            button3.Name = "button3";
-            button3.Size = new Size(220, 70);
-            button3.TabIndex = 19;
-            button3.Text = "Cadastro \r\nProdutos";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(33, 551);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(33, 32);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 23;
-            pictureBox4.TabStop = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(247, 242, 241);
-            button2.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.FromArgb(123, 97, 88);
-            button2.Location = new Point(16, 259);
-            button2.Name = "button2";
-            button2.Size = new Size(220, 70);
-            button2.TabIndex = 17;
-            button2.Text = "Novo\r\nAgendamento";
-            button2.UseVisualStyleBackColor = false;
+            btnPesquisarHistorico.BackColor = Color.FromArgb(243, 232, 228);
+            btnPesquisarHistorico.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            btnPesquisarHistorico.FlatStyle = FlatStyle.Flat;
+            btnPesquisarHistorico.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPesquisarHistorico.ForeColor = Color.FromArgb(201, 142, 124);
+            btnPesquisarHistorico.Location = new Point(1178, 110);
+            btnPesquisarHistorico.Name = "btnPesquisarHistorico";
+            btnPesquisarHistorico.Size = new Size(140, 42);
+            btnPesquisarHistorico.TabIndex = 12;
+            btnPesquisarHistorico.Text = "Pesquisar";
+            btnPesquisarHistorico.UseVisualStyleBackColor = false;
             // 
             // FrmHistoricoPedidos
             // 
@@ -499,9 +484,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1584, 861);
+            Controls.Add(btnPesquisarHistorico);
             Controls.Add(btnremover);
             Controls.Add(PanelBuscar);
-            Controls.Add(button10);
             Controls.Add(panel1);
             Controls.Add(panelHistorico);
             Controls.Add(panelTitulo);
@@ -513,11 +498,12 @@
             Text = "Histórico de pedidos";
             Load += FrmHistoricoPedidos_Load;
             panelSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogoSidebar).EndInit();
             panelTitulo.ResumeLayout(false);
@@ -527,7 +513,6 @@
             panel1.ResumeLayout(false);
             PanelBuscar.ResumeLayout(false);
             PanelBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -547,8 +532,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox8;
         private PictureBox pictureBox1;
-        private Button btnClienteRecorrente;
-        private Button btnUltimos30Dias;
         private Panel panelHistorico;
         private PictureBox pictureBox6;
         private Panel panel1;
@@ -558,7 +541,6 @@
         private DataGridViewTextBoxColumn colpedido;
         private DataGridViewTextBoxColumn colentrega;
         private DataGridViewTextBoxColumn colvalor;
-        private Button button10;
         private Panel PanelBuscar;
         private TextBox textBox1;
         private PictureBox pictureBox7;
@@ -566,5 +548,7 @@
         private Button button3;
         private PictureBox pictureBox4;
         private Button button2;
+        private ComboBox cbFiltrosHistorico;
+        private Button btnPesquisarHistorico;
     }
 }

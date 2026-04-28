@@ -520,7 +520,6 @@
             Name = "CadastroProdutos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro Produtos";
-            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
