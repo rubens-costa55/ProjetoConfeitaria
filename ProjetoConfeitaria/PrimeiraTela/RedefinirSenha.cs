@@ -40,35 +40,66 @@ namespace PrimeiraTela
 
         private void btnAtualizarSenha_Click(object sender, EventArgs e)
         {
-            conexao conexao = new conexao();
-            MySqlConnection con = conexao.Conectar();
+
+            if (txtCpf.Text == "" || txtNovaSenha.Text == "" || txtConfirmarSenha.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos.");
+                return;
+            }
+
+            if (txtNovaSenha.Text != txtConfirmarSenha.Text)
+            {
+                MessageBox.Show("As senhas não coincidem.");
+                return;
+            }
+
+            if (txtNovaSenha.Text.Length < 8)
+            {
+                MessageBox.Show("A senha deve ter no mínimo 8 caracteres.");
+                return;
+            }
+
+            if (!Regex.IsMatch(txtNovaSenha.Text, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$"))
+            {
+                MessageBox.Show("A senha deve conter letra, número e caractere especial.");
+                return;
+            }
 
             try
             {
-                con.Open();
-                string sql = "UPDATE login SET senha = @senha WHERE cpf = @cpf";
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
-                cmd.Parameters.AddWithValue("@senha", txtNovaSenha);
-                int linhas = cmd.ExecuteNonQuery();
-                if (linhas > 0)
+                conexao conexao = new conexao();
+                using (MySqlConnection con = conexao.Conectar())
                 {
-                    MessageBox.Show("Senha atualizada!");
-                    this.Close();
+                    con.Open();
 
-                }
-                else
-                {
-                    MessageBox.Show("CPF incorreto");
+                    string sql = "UPDATE login SET senha = @senha WHERE cpf = @cpf";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                    cmd.Parameters.AddWithValue("@senha", txtNovaSenha.Text);
 
+                    int linhas = cmd.ExecuteNonQuery();
+
+                    if (linhas > 0)
+                    {
+                        MessageBox.Show("Senha atualizada com sucesso!");
+                        TelaLogin tela = new TelaLogin();
+                        tela.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF não encontrado.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("erro: " + ex.Message);
+                MessageBox.Show("Erro: " + ex.Message);
             }
-
         }
+
+
+        
 
         private void lbRegrasTitulo_Click(object sender, EventArgs e)
         {
