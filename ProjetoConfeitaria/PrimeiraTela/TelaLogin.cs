@@ -133,10 +133,10 @@ namespace PrimeiraTela
 
         private void ArredondarBotao_Load(object sender, EventArgs e)
         {
-    
+
 
         }
-      
+
         private void ArredondarBotao(Button botao)
         {
             GraphicsPath path = new GraphicsPath();
@@ -151,9 +151,10 @@ namespace PrimeiraTela
             botao.Region = new Region(path);
         }
 
-
-
-
+        private void lblSair_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
 

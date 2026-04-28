@@ -42,6 +42,7 @@
             panel4 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            lblSair = new Label();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -214,6 +215,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(249, 245, 243);
+            panel1.Controls.Add(lblSair);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(lblLogin);
@@ -223,6 +225,18 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // lblSair
+            // 
+            lblSair.AutoSize = true;
+            lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSair.ForeColor = Color.FromArgb(201, 137, 120);
+            lblSair.Location = new Point(1486, 9);
+            lblSair.Name = "lblSair";
+            lblSair.Size = new Size(43, 47);
+            lblSair.TabIndex = 5;
+            lblSair.Text = "X";
+            lblSair.Click += lblSair_Click_1;
+            // 
             // TelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -230,6 +244,7 @@
             BackColor = Color.FromArgb(246, 239, 237);
             ClientSize = new Size(1584, 861);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "TelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
@@ -241,6 +256,7 @@
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -260,5 +276,6 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblSair;
     }
 }

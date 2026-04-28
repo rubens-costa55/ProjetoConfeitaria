@@ -67,9 +67,9 @@
             PanelJanela.Controls.Add(label2);
             PanelJanela.Controls.Add(PanelDireito);
             PanelJanela.Controls.Add(PanelEsquerdo);
-            PanelJanela.Location = new Point(53, 30);
+            PanelJanela.Location = new Point(34, 21);
             PanelJanela.Name = "PanelJanela";
-            PanelJanela.Size = new Size(1570, 845);
+            PanelJanela.Size = new Size(1522, 807);
             PanelJanela.TabIndex = 0;
             // 
             // lblSair
@@ -77,7 +77,7 @@
             lblSair.AutoSize = true;
             lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSair.ForeColor = Color.FromArgb(201, 137, 120);
-            lblSair.Location = new Point(1511, 14);
+            lblSair.Location = new Point(1462, 15);
             lblSair.Name = "lblSair";
             lblSair.Size = new Size(43, 47);
             lblSair.TabIndex = 4;
@@ -245,7 +245,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(185, 120, 103);
-            label1.Location = new Point(45, 162);
+            label1.Location = new Point(45, 161);
             label1.Name = "label1";
             label1.Size = new Size(244, 21);
             label1.TabIndex = 8;
@@ -272,7 +272,7 @@
             lbConfirmarSenha.BackColor = Color.FromArgb(235, 221, 218);
             lbConfirmarSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbConfirmarSenha.ForeColor = Color.FromArgb(185, 120, 103);
-            lbConfirmarSenha.Location = new Point(55, 381);
+            lbConfirmarSenha.Location = new Point(45, 381);
             lbConfirmarSenha.Name = "lbConfirmarSenha";
             lbConfirmarSenha.Size = new Size(138, 21);
             lbConfirmarSenha.TabIndex = 7;
@@ -312,7 +312,7 @@
             lbNovaSenha.AutoSize = true;
             lbNovaSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbNovaSenha.ForeColor = Color.FromArgb(185, 120, 103);
-            lbNovaSenha.Location = new Point(55, 266);
+            lbNovaSenha.Location = new Point(45, 264);
             lbNovaSenha.Name = "lbNovaSenha";
             lbNovaSenha.Size = new Size(102, 21);
             lbNovaSenha.TabIndex = 4;
@@ -323,7 +323,7 @@
             lbTitulo.AutoSize = true;
             lbTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitulo.ForeColor = Color.FromArgb(201, 137, 120);
-            lbTitulo.Location = new Point(55, 58);
+            lbTitulo.Location = new Point(45, 55);
             lbTitulo.Name = "lbTitulo";
             lbTitulo.Size = new Size(255, 45);
             lbTitulo.TabIndex = 0;
@@ -335,7 +335,7 @@
             lbDescricao.AutoSize = true;
             lbDescricao.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbDescricao.ForeColor = Color.FromArgb(126, 99, 92);
-            lbDescricao.Location = new Point(55, 120);
+            lbDescricao.Location = new Point(45, 110);
             lbDescricao.Name = "lbDescricao";
             lbDescricao.Size = new Size(454, 20);
             lbDescricao.TabIndex = 3;
@@ -346,8 +346,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 239, 237);
-            ClientSize = new Size(1664, 911);
+            ClientSize = new Size(1584, 861);
             Controls.Add(PanelJanela);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "FrmRedefinirSenha";
             StartPosition = FormStartPosition.CenterScreen;
