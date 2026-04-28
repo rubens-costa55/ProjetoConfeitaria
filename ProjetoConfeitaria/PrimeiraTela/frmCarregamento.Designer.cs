@@ -34,8 +34,6 @@
             panelbarrafundo = new Panel();
             panel2 = new Panel();
             lbcarregando = new Label();
-            lblsubtitulo = new Label();
-            lbtitulo = new Label();
             pblogo = new PictureBox();
             tCarregar = new System.Windows.Forms.Timer(components);
             tPontos = new System.Windows.Forms.Timer(components);
@@ -50,8 +48,6 @@
             panel1.Controls.Add(lblrodape);
             panel1.Controls.Add(panelbarrafundo);
             panel1.Controls.Add(lbcarregando);
-            panel1.Controls.Add(lblsubtitulo);
-            panel1.Controls.Add(lbtitulo);
             panel1.Controls.Add(pblogo);
             panel1.Location = new Point(33, 12);
             panel1.Name = "panel1";
@@ -98,36 +94,12 @@
             lbcarregando.Text = "Carregando sistema...";
             lbcarregando.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblsubtitulo
-            // 
-            lblsubtitulo.BackColor = Color.Transparent;
-            lblsubtitulo.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblsubtitulo.ForeColor = Color.FromArgb(201, 142, 124);
-            lblsubtitulo.Location = new Point(20, 198);
-            lblsubtitulo.Name = "lblsubtitulo";
-            lblsubtitulo.Size = new Size(500, 30);
-            lblsubtitulo.TabIndex = 2;
-            lblsubtitulo.Text = "Confeitaria Artesanal";
-            lblsubtitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lbtitulo
-            // 
-            lbtitulo.BackColor = Color.Transparent;
-            lbtitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbtitulo.ForeColor = Color.FromArgb(111, 84, 75);
-            lbtitulo.Location = new Point(20, 160);
-            lbtitulo.Name = "lbtitulo";
-            lbtitulo.Size = new Size(500, 40);
-            lbtitulo.TabIndex = 1;
-            lbtitulo.Text = "THAYARA POLIZEL";
-            lbtitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pblogo
             // 
             pblogo.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pblogo.Location = new Point(175, 27);
+            pblogo.Location = new Point(60, 27);
             pblogo.Name = "pblogo";
-            pblogo.Size = new Size(190, 130);
+            pblogo.Size = new Size(420, 215);
             pblogo.SizeMode = PictureBoxSizeMode.Zoom;
             pblogo.TabIndex = 0;
             pblogo.TabStop = false;
@@ -163,8 +135,6 @@
 
         private Panel panel1;
         private PictureBox pblogo;
-        private Label lblsubtitulo;
-        private Label lbtitulo;
         private Panel panelbarrafundo;
         private Label lbcarregando;
         private Panel panel2;
