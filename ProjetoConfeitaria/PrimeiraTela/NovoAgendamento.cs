@@ -18,7 +18,7 @@ namespace PrimeiraTela
         public NovoAgendamento()
         {
             InitializeComponent();
-            
+
             List<string> listaCategorias = new List<string>();
 
             conexao conect = new conexao();
@@ -186,7 +186,7 @@ namespace PrimeiraTela
                 {
                     string nomeProduto = row.Cells["ColProduto"].Value.ToString();
                     int quantidade = Convert.ToInt32(row.Cells["ColQuantidade"].Value);
-                    decimal valorUnit = Convert.ToDecimal(row.Cells["ColValor"].Value)/quantidade;
+                    decimal valorUnit = Convert.ToDecimal(row.Cells["ColValor"].Value) / quantidade;
                     decimal subtotal = Convert.ToDecimal(row.Cells["ColValor"].Value);
 
                     // Buscar ID do produto
@@ -313,7 +313,7 @@ namespace PrimeiraTela
             }
 
             decimal subtotal = quantidade * valorUnitario;
-            
+
             dgvCarrinho.Rows.Add(produto, quantidade, subtotal);
 
             decimal total = 0;
@@ -330,5 +330,52 @@ namespace PrimeiraTela
         {
 
         }
+
+        private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDataeHora_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefone_Click(object sender, EventArgs e)
+        {
+            txtTelefone.Clear();
+        }
+
+        private void RemoverItem_Click(object sender, EventArgs e)
+        {
+
+            if (dgvCarrinho.SelectedRows.Count > 0)
+            {
+                dgvCarrinho.Rows.RemoveAt(
+                    dgvCarrinho.SelectedRows[0].Index
+                );
+
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um item para remover.");
+            }
+
+        }
+
+        private void AtualizarTotal()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                if (row.Cells["colValor"].Value != null)
+                    total += Convert.ToDecimal(row.Cells["colValor"].Value);
+            }
+
+            lbValorTotal.Text = total.ToString("C");
+        }
+
     }
 }

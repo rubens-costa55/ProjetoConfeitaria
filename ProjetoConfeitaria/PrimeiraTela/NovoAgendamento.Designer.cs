@@ -74,6 +74,7 @@
             label9 = new Label();
             label6 = new Label();
             pictureBox5 = new PictureBox();
+            RemoverItem = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -397,6 +398,8 @@
             txtTelefone.Size = new Size(439, 29);
             txtTelefone.TabIndex = 18;
             txtTelefone.Text = "Digite o telefone";
+            txtTelefone.Click += txtTelefone_Click;
+            txtTelefone.TextChanged += txtTelefone_TextChanged;
             // 
             // label10
             // 
@@ -433,6 +436,7 @@
             txtDataeHora.TabIndex = 11;
             txtDataeHora.Text = "15/04/2026 - 16:30";
             txtDataeHora.Click += txtDataeHora_Click;
+            txtDataeHora.TextChanged += txtDataeHora_TextChanged;
             // 
             // label5
             // 
@@ -520,6 +524,7 @@
             // 
             panel6.BackColor = Color.FromArgb(252, 250, 249);
             panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(RemoverItem);
             panel6.Controls.Add(dgvCarrinho);
             panel6.Controls.Add(btnSalvarNA);
             panel6.Controls.Add(lbValorTotal);
@@ -570,7 +575,7 @@
             dgvCarrinho.RowHeadersVisible = false;
             dgvCarrinho.RowHeadersWidth = 51;
             dgvCarrinho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarrinho.Size = new Size(318, 356);
+            dgvCarrinho.Size = new Size(318, 294);
             dgvCarrinho.TabIndex = 20;
             dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
@@ -654,6 +659,19 @@
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
             // 
+            // RemoverItem
+            // 
+            RemoverItem.BackColor = Color.Brown;
+            RemoverItem.FlatStyle = FlatStyle.Flat;
+            RemoverItem.ForeColor = Color.White;
+            RemoverItem.Location = new Point(112, 427);
+            RemoverItem.Name = "RemoverItem";
+            RemoverItem.Size = new Size(100, 23);
+            RemoverItem.TabIndex = 22;
+            RemoverItem.Text = "Remover Item";
+            RemoverItem.UseVisualStyleBackColor = false;
+            RemoverItem.Click += RemoverItem_Click;
+            // 
             // NovoAgendamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -733,5 +751,7 @@
         private DataGridViewTextBoxColumn ColProduto;
         private DataGridViewTextBoxColumn ColQuantidade;
         private DataGridViewTextBoxColumn ColValor;
+        private Button btnRemoverItem;
+        private Button RemoverItem;
     }
 }
