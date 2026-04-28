@@ -56,6 +56,8 @@
             pictureBox12 = new PictureBox();
             btnMenuPrincipal1 = new Button();
             panel1 = new Panel();
+            pictureBox5 = new PictureBox();
+            button3 = new Button();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             panel2 = new Panel();
@@ -63,8 +65,6 @@
             label8 = new Label();
             label9 = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            button3 = new Button();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
@@ -75,11 +75,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // btnHistórico
@@ -187,6 +187,7 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel5.BackColor = Color.FromArgb(252, 250, 249);
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(btnListPedidosAtuais);
@@ -245,6 +246,7 @@
             // 
             // panel6
             // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel6.BackColor = Color.FromArgb(252, 250, 249);
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(btnConsultarHistorico);
@@ -420,6 +422,31 @@
             panel1.Size = new Size(260, 775);
             panel1.TabIndex = 10;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(25, 589);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(33, 32);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 25;
+            pictureBox5.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(247, 242, 241);
+            button3.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(123, 97, 88);
+            button3.Location = new Point(20, 570);
+            button3.Name = "button3";
+            button3.Size = new Size(220, 70);
+            button3.TabIndex = 24;
+            button3.Text = "Cadastrar\r\nProdutos";
+            button3.UseVisualStyleBackColor = false;
+            // 
             // pictureBox9
             // 
             pictureBox9.BackColor = Color.Transparent;
@@ -444,6 +471,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(252, 250, 249);
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(btnAbrirCadastroProdutos);
@@ -500,31 +528,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(25, 589);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(33, 32);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 25;
-            pictureBox5.TabStop = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(247, 242, 241);
-            button3.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.FromArgb(123, 97, 88);
-            button3.Location = new Point(20, 570);
-            button3.Name = "button3";
-            button3.Size = new Size(220, 70);
-            button3.TabIndex = 24;
-            button3.Text = "Cadastrar\r\nProdutos";
-            button3.UseVisualStyleBackColor = false;
-            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -543,6 +546,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";
             TransparencyKey = Color.Transparent;
+            WindowState = FormWindowState.Maximized;
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);
@@ -553,11 +557,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
 
 
