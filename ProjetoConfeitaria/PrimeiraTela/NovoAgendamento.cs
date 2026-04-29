@@ -281,8 +281,39 @@ namespace PrimeiraTela
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            if (cbProdutoAgendamento.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um produto antes de incluir no carrinho.");
+                cbProdutoAgendamento.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtQuantidade.Text))
+            {
+                MessageBox.Show("Preencha a quantidade do produto.");
+                txtQuantidade.Focus();
+                return;
+            }
+
+            int quantidade;
+
+            if (!int.TryParse(txtQuantidade.Text.Trim(), out quantidade))
+            {
+                MessageBox.Show("Digite uma quantidade válida. Exemplo: 1, 2, 3...");
+                txtQuantidade.Clear();
+                txtQuantidade.Focus();
+                return;
+            }
+
+            if (quantidade <= 0)
+            {
+                MessageBox.Show("A quantidade precisa ser maior que zero.");
+                txtQuantidade.Clear();
+                txtQuantidade.Focus();
+                return;
+            }
+
             string produto = cbProdutoAgendamento.SelectedItem.ToString();
-            int quantidade = int.Parse(txtQuantidade.Text);
             decimal valorUnitario = 0;
 
             conexao conect = new conexao();

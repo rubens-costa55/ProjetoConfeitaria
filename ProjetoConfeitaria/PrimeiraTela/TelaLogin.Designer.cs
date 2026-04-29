@@ -30,6 +30,7 @@
         {
             lblLogin = new Label();
             panel3 = new Panel();
+            picOlhoSenha = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnEsqueciSenha = new Button();
             btnAcessar = new Button();
@@ -43,12 +44,11 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             lblSair = new Label();
-            picOlhoSenha = new PictureBox();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).BeginInit();
             SuspendLayout();
             // 
             // lblLogin
@@ -81,6 +81,19 @@
             panel3.Size = new Size(783, 690);
             panel3.TabIndex = 3;
             // 
+            // picOlhoSenha
+            // 
+            picOlhoSenha.BackColor = Color.White;
+            picOlhoSenha.Cursor = Cursors.Hand;
+            picOlhoSenha.Image = Properties.Resources.olho_fechado;
+            picOlhoSenha.Location = new Point(520, 360);
+            picOlhoSenha.Name = "picOlhoSenha";
+            picOlhoSenha.Size = new Size(23, 22);
+            picOlhoSenha.SizeMode = PictureBoxSizeMode.Zoom;
+            picOlhoSenha.TabIndex = 10;
+            picOlhoSenha.TabStop = false;
+            picOlhoSenha.Click += picOlhoSenha_Click;
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Location = new Point(789, 372);
@@ -92,6 +105,7 @@
             // 
             btnEsqueciSenha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnEsqueciSenha.BackColor = Color.White;
+            btnEsqueciSenha.Cursor = Cursors.Hand;
             btnEsqueciSenha.FlatAppearance.BorderColor = Color.FromArgb(221, 201, 194);
             btnEsqueciSenha.FlatStyle = FlatStyle.Flat;
             btnEsqueciSenha.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -108,6 +122,7 @@
             // 
             btnAcessar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAcessar.BackColor = Color.FromArgb(201, 142, 124);
+            btnAcessar.Cursor = Cursors.Hand;
             btnAcessar.FlatAppearance.BorderSize = 0;
             btnAcessar.FlatStyle = FlatStyle.Flat;
             btnAcessar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -240,19 +255,6 @@
             lblSair.Text = "X";
             lblSair.Click += lblSair_Click_1;
             // 
-            // picOlhoSenha
-            // 
-            picOlhoSenha.BackColor = Color.White;
-            picOlhoSenha.Cursor = Cursors.Hand;
-            picOlhoSenha.Image = Properties.Resources.olho_fechado;
-            picOlhoSenha.Location = new Point(520, 360);
-            picOlhoSenha.Name = "picOlhoSenha";
-            picOlhoSenha.Size = new Size(23, 22);
-            picOlhoSenha.SizeMode = PictureBoxSizeMode.Zoom;
-            picOlhoSenha.TabIndex = 10;
-            picOlhoSenha.TabStop = false;
-            picOlhoSenha.Click += picOlhoSenha_Click;
-            // 
             // TelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -269,11 +271,11 @@
             Click += txtcpf_TextChanged;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).EndInit();
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).EndInit();
             ResumeLayout(false);
         }
 

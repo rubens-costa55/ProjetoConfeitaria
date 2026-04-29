@@ -15,6 +15,10 @@ namespace PrimeiraTela
 
         private void TelaLogin_Load(object sender, EventArgs e)
         {
+            senhaVisivel = false;
+            txtSenha.UseSystemPasswordChar = true;
+            picOlhoSenha.Image = Properties.Resources.olho_aberto;
+
             ArredondarBotao(btnEsqueciSenha);
             GraphicsPath path = new GraphicsPath();
             int radius = 20;
@@ -172,7 +176,6 @@ namespace PrimeiraTela
             {
                 picOlhoSenha.Image = Properties.Resources.olho_aberto;
             }
-
         }
     }
 
