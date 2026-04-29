@@ -42,6 +42,8 @@
             lbRegra1 = new Label();
             PicLogo = new PictureBox();
             PanelEsquerdo = new Panel();
+            picOlhosenha2 = new PictureBox();
+            picOlhosenha = new PictureBox();
             txtCpf = new TextBox();
             label1 = new Label();
             btnAtualizarSenha = new Button();
@@ -57,6 +59,8 @@
             PanelRegras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
             PanelEsquerdo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhosenha2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picOlhosenha).BeginInit();
             SuspendLayout();
             // 
             // PanelJanela
@@ -107,6 +111,7 @@
             PanelDireito.Name = "PanelDireito";
             PanelDireito.Size = new Size(700, 615);
             PanelDireito.TabIndex = 2;
+            PanelDireito.Click += PanelDireito_Click;
             // 
             // label5
             // 
@@ -211,6 +216,8 @@
             // PanelEsquerdo
             // 
             PanelEsquerdo.BackColor = Color.FromArgb(235, 221, 218);
+            PanelEsquerdo.Controls.Add(picOlhosenha2);
+            PanelEsquerdo.Controls.Add(picOlhosenha);
             PanelEsquerdo.Controls.Add(txtCpf);
             PanelEsquerdo.Controls.Add(label1);
             PanelEsquerdo.Controls.Add(btnAtualizarSenha);
@@ -220,10 +227,34 @@
             PanelEsquerdo.Controls.Add(lbNovaSenha);
             PanelEsquerdo.Controls.Add(lbTitulo);
             PanelEsquerdo.Controls.Add(lbDescricao);
-            PanelEsquerdo.Location = new Point(84, 100);
+            PanelEsquerdo.Location = new Point(83, 100);
             PanelEsquerdo.Name = "PanelEsquerdo";
             PanelEsquerdo.Size = new Size(700, 615);
             PanelEsquerdo.TabIndex = 1;
+            // 
+            // picOlhosenha2
+            // 
+            picOlhosenha2.BackColor = Color.White;
+            picOlhosenha2.Image = Properties.Resources.olho_aberto;
+            picOlhosenha2.Location = new Point(447, 420);
+            picOlhosenha2.Name = "picOlhosenha2";
+            picOlhosenha2.Size = new Size(26, 20);
+            picOlhosenha2.SizeMode = PictureBoxSizeMode.Zoom;
+            picOlhosenha2.TabIndex = 11;
+            picOlhosenha2.TabStop = false;
+            picOlhosenha2.Click += picOlhosenha2_Click;
+            // 
+            // picOlhosenha
+            // 
+            picOlhosenha.BackColor = Color.White;
+            picOlhosenha.Image = Properties.Resources.olho_aberto;
+            picOlhosenha.Location = new Point(447, 305);
+            picOlhosenha.Name = "picOlhosenha";
+            picOlhosenha.Size = new Size(26, 20);
+            picOlhosenha.SizeMode = PictureBoxSizeMode.Zoom;
+            picOlhosenha.TabIndex = 10;
+            picOlhosenha.TabStop = false;
+            picOlhosenha.Click += picOlhosenha_Click_1;
             // 
             // txtCpf
             // 
@@ -361,6 +392,8 @@
             ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
             PanelEsquerdo.ResumeLayout(false);
             PanelEsquerdo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhosenha2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picOlhosenha).EndInit();
             ResumeLayout(false);
         }
 
@@ -390,5 +423,7 @@
         private Label label2;
         private Label lblSair;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private PictureBox picOlhosenha2;
+        private PictureBox picOlhosenha;
     }
 }

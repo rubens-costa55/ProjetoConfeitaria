@@ -13,6 +13,9 @@ namespace PrimeiraTela
 {
     public partial class FrmRedefinirSenha : Form
     {
+
+        private bool senhaVisivel = false;
+
         public FrmRedefinirSenha()
         {
             InitializeComponent();
@@ -99,7 +102,7 @@ namespace PrimeiraTela
         }
 
 
-        
+
 
         private void lbRegrasTitulo_Click(object sender, EventArgs e)
         {
@@ -147,6 +150,70 @@ namespace PrimeiraTela
 
 
         }
-    }
 
+
+
+        private void PicOlhosenha_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void picOlhoConfirmarSenha_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelDireito_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picOlhosenha_Click_1(object sender, EventArgs e)
+        {
+            senhaVisivel = !senhaVisivel;
+
+            txtNovaSenha.UseSystemPasswordChar = !senhaVisivel;
+            if (senhaVisivel)
+            {
+                picOlhosenha.Image = Properties.Resources.olho_fechado;
+            }
+            else
+            {
+                picOlhosenha.Image = Properties.Resources.olho_aberto;
+            }
+        }
+
+        private void picOlhosenha2_Click(object sender, EventArgs e)
+        {
+            senhaVisivel = !senhaVisivel;
+
+            txtConfirmarSenha.UseSystemPasswordChar = !senhaVisivel;
+
+            if (senhaVisivel)
+            {
+                picOlhosenha2.Image = Properties.Resources.olho_fechado;
+            }
+            else
+            {
+                picOlhosenha2.Image = Properties.Resources.olho_aberto;
+            }
+
+        }
+    }
 }
+
+
+

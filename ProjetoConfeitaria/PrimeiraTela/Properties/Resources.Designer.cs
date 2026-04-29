@@ -103,6 +103,26 @@ namespace PrimeiraTela.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Designer2 {
+            get {
+                object obj = ResourceManager.GetObject("Designer2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Designer3 {
+            get {
+                object obj = ResourceManager.GetObject("Designer3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO__1__removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("LOGO__1_-removebg-preview", resourceCulture);
@@ -113,9 +133,25 @@ namespace PrimeiraTela.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap LOGO__Post_para_Instagram__45__ {
             get {
                 object obj = ResourceManager.GetObject("LOGO (Post para Instagram (45))", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap Olhiho {
+            get {
+                object obj = ResourceManager.GetObject("Olhiho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Olhiho1 {
+            get {
+                object obj = ResourceManager.GetObject("Olhiho1", resourceCulture);
+>>>>>>> f5a31042f92cf31022b7d0c4f4d426f76493a1d4
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
