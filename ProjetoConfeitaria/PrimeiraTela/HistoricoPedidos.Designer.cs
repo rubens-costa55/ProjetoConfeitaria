@@ -101,14 +101,14 @@
             panelSidebar.Controls.Add(picLogoSidebar);
             panelSidebar.Location = new Point(30, 90);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(260, 720);
+            panelSidebar.Size = new Size(260, 740);
             panelSidebar.TabIndex = 0;
             // 
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox3.Image = Properties.Resources._1_removebg_preview;
-            pictureBox3.Location = new Point(32, 280);
+            pictureBox3.Location = new Point(32, 276);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(33, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -122,7 +122,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(123, 97, 88);
-            button2.Location = new Point(16, 259);
+            button2.Location = new Point(20, 260);
             button2.Name = "button2";
             button2.Size = new Size(220, 70);
             button2.TabIndex = 17;
@@ -133,7 +133,7 @@
             // 
             pictureBox4.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(33, 551);
+            pictureBox4.Location = new Point(32, 579);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(33, 32);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -147,7 +147,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11.25F);
             button3.ForeColor = Color.FromArgb(123, 97, 88);
-            button3.Location = new Point(16, 529);
+            button3.Location = new Point(20, 560);
             button3.Name = "button3";
             button3.Size = new Size(220, 70);
             button3.TabIndex = 19;
@@ -158,7 +158,7 @@
             // 
             pictureBox7.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(33, 458);
+            pictureBox7.Location = new Point(32, 478);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(33, 32);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -169,7 +169,7 @@
             // 
             pictureBox6.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(33, 364);
+            pictureBox6.Location = new Point(32, 380);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(33, 32);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -179,7 +179,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pictureBox1.Location = new Point(48, 10);
+            pictureBox1.Location = new Point(52, 10);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(150, 110);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -190,7 +190,7 @@
             // 
             pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox8.Image = Properties.Resources._3_removebg_preview;
-            pictureBox8.Location = new Point(25, 647);
+            pictureBox8.Location = new Point(32, 678);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(33, 32);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -201,7 +201,7 @@
             // 
             pictureBox2.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(33, 199);
+            pictureBox2.Location = new Point(32, 180);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 32);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -215,7 +215,7 @@
             btnSair.FlatStyle = FlatStyle.Flat;
             btnSair.Font = new Font("Segoe UI", 11.25F);
             btnSair.ForeColor = Color.FromArgb(123, 97, 88);
-            btnSair.Location = new Point(16, 630);
+            btnSair.Location = new Point(20, 660);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(220, 70);
             btnSair.TabIndex = 5;
@@ -230,11 +230,11 @@
             btnHistorico.FlatStyle = FlatStyle.Flat;
             btnHistorico.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnHistorico.ForeColor = Color.White;
-            btnHistorico.Location = new Point(16, 433);
+            btnHistorico.Location = new Point(20, 460);
             btnHistorico.Name = "btnHistorico";
             btnHistorico.Size = new Size(220, 70);
             btnHistorico.TabIndex = 4;
-            btnHistorico.Text = "Histórico";
+            btnHistorico.Text = "Histórico\r\nClientes";
             btnHistorico.UseVisualStyleBackColor = false;
             // 
             // btnPedidosAtuais
@@ -244,7 +244,7 @@
             btnPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuais.Font = new Font("Segoe UI", 11.25F);
             btnPedidosAtuais.ForeColor = Color.FromArgb(123, 97, 88);
-            btnPedidosAtuais.Location = new Point(16, 344);
+            btnPedidosAtuais.Location = new Point(20, 360);
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 3;
@@ -259,7 +259,7 @@
             btnMenuPrincipal.FlatStyle = FlatStyle.Flat;
             btnMenuPrincipal.Font = new Font("Segoe UI", 11.25F);
             btnMenuPrincipal.ForeColor = Color.FromArgb(123, 97, 88);
-            btnMenuPrincipal.Location = new Point(16, 177);
+            btnMenuPrincipal.Location = new Point(20, 160);
             btnMenuPrincipal.Name = "btnMenuPrincipal";
             btnMenuPrincipal.Size = new Size(220, 70);
             btnMenuPrincipal.TabIndex = 1;
@@ -270,9 +270,9 @@
             // panelLinhaLogo
             // 
             panelLinhaLogo.BackColor = Color.FromArgb(216, 194, 187);
-            panelLinhaLogo.Location = new Point(25, 158);
+            panelLinhaLogo.Location = new Point(20, 145);
             panelLinhaLogo.Name = "panelLinhaLogo";
-            panelLinhaLogo.Size = new Size(205, 2);
+            panelLinhaLogo.Size = new Size(220, 2);
             panelLinhaLogo.TabIndex = 1;
             // 
             // picLogoSidebar
@@ -288,7 +288,7 @@
             // 
             panelTitulo.BackColor = Color.FromArgb(232, 174, 184);
             panelTitulo.Controls.Add(lblTitulo);
-            panelTitulo.Location = new Point(350, 100);
+            panelTitulo.Location = new Point(355, 90);
             panelTitulo.Name = "panelTitulo";
             panelTitulo.Size = new Size(560, 70);
             panelTitulo.TabIndex = 1;
@@ -318,7 +318,7 @@
             panelHistorico.ForeColor = Color.FromArgb(252, 250, 249);
             panelHistorico.Location = new Point(355, 300);
             panelHistorico.Name = "panelHistorico";
-            panelHistorico.Size = new Size(1145, 470);
+            panelHistorico.Size = new Size(1137, 485);
             panelHistorico.TabIndex = 5;
             // 
             // dgvPedidos
@@ -394,7 +394,7 @@
             panel1.Controls.Add(button1);
             panel1.Location = new Point(355, 220);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1145, 74);
+            panel1.Size = new Size(1137, 74);
             panel1.TabIndex = 6;
             // 
             // cbFiltrosHistorico
@@ -419,7 +419,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.FromArgb(201, 142, 124);
-            button1.Location = new Point(985, 16);
+            button1.Location = new Point(971, 16);
             button1.Name = "button1";
             button1.Size = new Size(152, 42);
             button1.TabIndex = 5;
@@ -457,7 +457,7 @@
             btnremover.FlatStyle = FlatStyle.Flat;
             btnremover.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnremover.ForeColor = Color.White;
-            btnremover.Location = new Point(1376, 806);
+            btnremover.Location = new Point(1368, 802);
             btnremover.Name = "btnremover";
             btnremover.Size = new Size(124, 28);
             btnremover.TabIndex = 11;

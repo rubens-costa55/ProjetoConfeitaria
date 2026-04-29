@@ -97,14 +97,15 @@
             panel1.Controls.Add(btnMenuNA);
             panel1.Location = new Point(30, 90);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 720);
+            panel1.Size = new Size(260, 740);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(33, 551);
+            pictureBox4.Location = new Point(32, 581);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(33, 32);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -115,7 +116,7 @@
             // 
             pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox8.Image = Properties.Resources._3_removebg_preview;
-            pictureBox8.Location = new Point(33, 650);
+            pictureBox8.Location = new Point(32, 679);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(33, 32);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -126,7 +127,7 @@
             // 
             pictureBox7.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(33, 458);
+            pictureBox7.Location = new Point(32, 481);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(33, 32);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -137,7 +138,7 @@
             // 
             pictureBox6.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(33, 364);
+            pictureBox6.Location = new Point(32, 379);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(33, 32);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -150,7 +151,7 @@
             pictureBox3.Image = Properties.Resources._1_removebg_preview;
             pictureBox3.Location = new Point(32, 280);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(34, 29);
+            pictureBox3.Size = new Size(33, 29);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
@@ -159,7 +160,7 @@
             // 
             pictureBox2.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(33, 199);
+            pictureBox2.Location = new Point(32, 180);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 32);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -173,7 +174,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(16, 529);
+            button3.Location = new Point(16, 560);
             button3.Name = "button3";
             button3.Size = new Size(220, 70);
             button3.TabIndex = 17;
@@ -187,7 +188,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(123, 97, 88);
-            button2.Location = new Point(16, 259);
+            button2.Location = new Point(16, 260);
             button2.Name = "button2";
             button2.Size = new Size(220, 70);
             button2.TabIndex = 16;
@@ -202,7 +203,7 @@
             btnSairNA.FlatStyle = FlatStyle.Flat;
             btnSairNA.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSairNA.ForeColor = Color.FromArgb(123, 97, 88);
-            btnSairNA.Location = new Point(16, 630);
+            btnSairNA.Location = new Point(16, 660);
             btnSairNA.Name = "btnSairNA";
             btnSairNA.Size = new Size(220, 70);
             btnSairNA.TabIndex = 15;
@@ -227,7 +228,7 @@
             btnHistoricoNA.FlatStyle = FlatStyle.Flat;
             btnHistoricoNA.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistoricoNA.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistoricoNA.Location = new Point(16, 433);
+            btnHistoricoNA.Location = new Point(16, 460);
             btnHistoricoNA.Name = "btnHistoricoNA";
             btnHistoricoNA.Size = new Size(220, 70);
             btnHistoricoNA.TabIndex = 14;
@@ -238,9 +239,9 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(216, 194, 187);
-            panel4.Location = new Point(16, 149);
+            panel4.Location = new Point(16, 139);
             panel4.Name = "panel4";
-            panel4.Size = new Size(205, 2);
+            panel4.Size = new Size(220, 2);
             panel4.TabIndex = 10;
             // 
             // btnPedidosAtuaisNA
@@ -250,7 +251,7 @@
             btnPedidosAtuaisNA.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuaisNA.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPedidosAtuaisNA.ForeColor = Color.FromArgb(123, 97, 88);
-            btnPedidosAtuaisNA.Location = new Point(16, 344);
+            btnPedidosAtuaisNA.Location = new Point(16, 360);
             btnPedidosAtuaisNA.Name = "btnPedidosAtuaisNA";
             btnPedidosAtuaisNA.Size = new Size(220, 70);
             btnPedidosAtuaisNA.TabIndex = 13;
@@ -265,7 +266,7 @@
             btnMenuNA.FlatStyle = FlatStyle.Flat;
             btnMenuNA.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenuNA.ForeColor = Color.FromArgb(123, 97, 88);
-            btnMenuNA.Location = new Point(16, 177);
+            btnMenuNA.Location = new Point(16, 160);
             btnMenuNA.Name = "btnMenuNA";
             btnMenuNA.Size = new Size(220, 70);
             btnMenuNA.TabIndex = 12;
@@ -277,7 +278,7 @@
             // 
             panel2.BackColor = Color.FromArgb(232, 174, 184);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(350, 100);
+            panel2.Location = new Point(336, 90);
             panel2.Name = "panel2";
             panel2.Size = new Size(500, 70);
             panel2.TabIndex = 1;
@@ -298,7 +299,7 @@
             // 
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(142, 111, 101);
-            label2.Location = new Point(350, 188);
+            label2.Location = new Point(336, 206);
             label2.Name = "label2";
             label2.Size = new Size(700, 35);
             label2.TabIndex = 2;
@@ -315,7 +316,7 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(336, 250);
+            panel3.Location = new Point(336, 270);
             panel3.Name = "panel3";
             panel3.Size = new Size(774, 560);
             panel3.TabIndex = 3;
@@ -406,7 +407,7 @@
             panelprodutoslateral.Controls.Add(dgvprodutos);
             panelprodutoslateral.Controls.Add(txtpesquisarprod);
             panelprodutoslateral.Controls.Add(label6);
-            panelprodutoslateral.Location = new Point(1130, 250);
+            panelprodutoslateral.Location = new Point(1134, 270);
             panelprodutoslateral.Name = "panelprodutoslateral";
             panelprodutoslateral.Size = new Size(398, 560);
             panelprodutoslateral.TabIndex = 4;

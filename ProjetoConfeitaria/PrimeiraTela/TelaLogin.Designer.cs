@@ -43,10 +43,12 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             lblSair = new Label();
+            picOlhoSenha = new PictureBox();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).BeginInit();
             SuspendLayout();
             // 
             // lblLogin
@@ -64,6 +66,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel3.BackColor = Color.FromArgb(235, 221, 218);
+            panel3.Controls.Add(picOlhoSenha);
             panel3.Controls.Add(flowLayoutPanel1);
             panel3.Controls.Add(btnEsqueciSenha);
             panel3.Controls.Add(btnAcessar);
@@ -237,6 +240,19 @@
             lblSair.Text = "X";
             lblSair.Click += lblSair_Click_1;
             // 
+            // picOlhoSenha
+            // 
+            picOlhoSenha.BackColor = Color.White;
+            picOlhoSenha.Cursor = Cursors.Hand;
+            picOlhoSenha.Image = Properties.Resources.olho_fechado;
+            picOlhoSenha.Location = new Point(520, 360);
+            picOlhoSenha.Name = "picOlhoSenha";
+            picOlhoSenha.Size = new Size(23, 22);
+            picOlhoSenha.SizeMode = PictureBoxSizeMode.Zoom;
+            picOlhoSenha.TabIndex = 10;
+            picOlhoSenha.TabStop = false;
+            picOlhoSenha.Click += picOlhoSenha_Click;
+            // 
             // TelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -257,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picOlhoSenha).EndInit();
             ResumeLayout(false);
         }
 
@@ -277,5 +294,6 @@
         private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label lblSair;
+        private PictureBox picOlhoSenha;
     }
 }

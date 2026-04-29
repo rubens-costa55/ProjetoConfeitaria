@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosAtuais));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox13 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -46,7 +46,6 @@
             btnPedidosAtuais = new Button();
             btnMenuPrincipal = new Button();
             btnNovoAgendamento = new Button();
-            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             lblpedidos = new Label();
@@ -66,6 +65,7 @@
             colstatus = new DataGridViewComboBoxColumn();
             btacao = new DataGridViewButtonColumn();
             btnbuscarpedido = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -100,14 +100,14 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(30, 90);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 720);
+            panel1.Size = new Size(260, 740);
             panel1.TabIndex = 1;
             // 
             // pictureBox13
             // 
             pictureBox13.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
-            pictureBox13.Location = new Point(25, 566);
+            pictureBox13.Image = Properties.Resources.LOGO__Post_para_Instagram__45__;
+            pictureBox13.Location = new Point(25, 576);
             pictureBox13.Name = "pictureBox13";
             pictureBox13.Size = new Size(33, 32);
             pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
@@ -118,7 +118,7 @@
             // 
             pictureBox6.BackColor = Color.Transparent;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(25, 398);
+            pictureBox6.Location = new Point(25, 378);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(33, 32);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -132,7 +132,7 @@
             btncadastroprodutos.FlatStyle = FlatStyle.Flat;
             btncadastroprodutos.Font = new Font("Segoe UI", 11.25F);
             btncadastroprodutos.ForeColor = Color.FromArgb(123, 97, 88);
-            btncadastroprodutos.Location = new Point(20, 547);
+            btncadastroprodutos.Location = new Point(16, 560);
             btncadastroprodutos.Name = "btncadastroprodutos";
             btncadastroprodutos.Size = new Size(220, 70);
             btncadastroprodutos.TabIndex = 12;
@@ -143,7 +143,7 @@
             // 
             pictureBox3.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox3.Image = Properties.Resources._1_removebg_preview;
-            pictureBox3.Location = new Point(25, 302);
+            pictureBox3.Location = new Point(25, 278);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(33, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -154,7 +154,7 @@
             // 
             pictureBox2.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(25, 182);
+            pictureBox2.Location = new Point(25, 179);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 32);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -165,7 +165,7 @@
             // 
             pictureBox8.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox8.Image = Properties.Resources._3_removebg_preview;
-            pictureBox8.Location = new Point(25, 647);
+            pictureBox8.Location = new Point(25, 678);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(33, 32);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -176,7 +176,7 @@
             // 
             pictureBox7.BackColor = Color.FromArgb(247, 242, 241);
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(25, 499);
+            pictureBox7.Location = new Point(25, 476);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(33, 32);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -190,7 +190,7 @@
             btnsair.FlatStyle = FlatStyle.Flat;
             btnsair.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnsair.ForeColor = Color.FromArgb(123, 97, 88);
-            btnsair.Location = new Point(20, 632);
+            btnsair.Location = new Point(20, 660);
             btnsair.Name = "btnsair";
             btnsair.Size = new Size(220, 70);
             btnsair.TabIndex = 8;
@@ -205,7 +205,7 @@
             btnHistorico.FlatStyle = FlatStyle.Flat;
             btnHistorico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistorico.ForeColor = Color.FromArgb(123, 97, 88);
-            btnHistorico.Location = new Point(20, 461);
+            btnHistorico.Location = new Point(16, 460);
             btnHistorico.Name = "btnHistorico";
             btnHistorico.Size = new Size(220, 70);
             btnHistorico.TabIndex = 7;
@@ -220,7 +220,7 @@
             btnPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuais.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPedidosAtuais.ForeColor = Color.White;
-            btnPedidosAtuais.Location = new Point(20, 380);
+            btnPedidosAtuais.Location = new Point(16, 360);
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 6;
@@ -234,7 +234,7 @@
             btnMenuPrincipal.FlatStyle = FlatStyle.Flat;
             btnMenuPrincipal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenuPrincipal.ForeColor = Color.FromArgb(123, 97, 88);
-            btnMenuPrincipal.Location = new Point(20, 166);
+            btnMenuPrincipal.Location = new Point(16, 160);
             btnMenuPrincipal.Name = "btnMenuPrincipal";
             btnMenuPrincipal.Size = new Size(220, 70);
             btnMenuPrincipal.TabIndex = 5;
@@ -249,7 +249,7 @@
             btnNovoAgendamento.FlatStyle = FlatStyle.Flat;
             btnNovoAgendamento.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnNovoAgendamento.ForeColor = Color.FromArgb(123, 97, 88);
-            btnNovoAgendamento.Location = new Point(20, 280);
+            btnNovoAgendamento.Location = new Point(16, 260);
             btnNovoAgendamento.Name = "btnNovoAgendamento";
             btnNovoAgendamento.Size = new Size(220, 70);
             btnNovoAgendamento.TabIndex = 4;
@@ -257,18 +257,10 @@
             btnNovoAgendamento.UseVisualStyleBackColor = false;
             btnNovoAgendamento.Click += btnNovoAgendamento_Click;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(216, 194, 187);
-            panel2.Location = new Point(25, 158);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(205, 2);
-            panel2.TabIndex = 3;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LOGO__1__removebg_preview;
-            pictureBox1.Location = new Point(52, 10);
+            pictureBox1.Location = new Point(48, 10);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(150, 110);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -392,7 +384,7 @@
             panel5.Controls.Add(dgvPedidos);
             panel5.Location = new Point(350, 300);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1209, 510);
+            panel5.Size = new Size(1209, 530);
             panel5.TabIndex = 11;
             // 
             // dgvPedidos
@@ -406,25 +398,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvPedidos.ColumnHeadersHeight = 35;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor, colstatus, btacao });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(126, 99, 92);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(126, 99, 92);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle12;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(22, 21);
@@ -464,10 +456,10 @@
             // colstatus
             // 
             colstatus.AutoComplete = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(247, 242, 241);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(126, 99, 92);
-            colstatus.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(247, 242, 241);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(126, 99, 92);
+            colstatus.DefaultCellStyle = dataGridViewCellStyle10;
             colstatus.FillWeight = 22F;
             colstatus.HeaderText = "Status";
             colstatus.Items.AddRange(new object[] { "Em produção", "Agendado", "Atrasado" });
@@ -475,11 +467,11 @@
             // 
             // btacao
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(220, 238, 219);
-            btacao.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.FromArgb(220, 238, 219);
+            btacao.DefaultCellStyle = dataGridViewCellStyle11;
             btacao.FillWeight = 14F;
             btacao.HeaderText = "Ação";
             btacao.Name = "btacao";
@@ -501,6 +493,14 @@
             btnbuscarpedido.TabIndex = 8;
             btnbuscarpedido.Text = "Buscar";
             btnbuscarpedido.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(216, 194, 187);
+            panel2.Location = new Point(16, 136);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(220, 2);
+            panel2.TabIndex = 3;
             // 
             // PedidosAtuais
             // 
@@ -552,7 +552,6 @@
         private Button btnPedidosAtuais;
         private Button btnMenuPrincipal;
         private Button btnNovoAgendamento;
-        private Panel panel2;
         private PictureBox pictureBox1;
         private Panel panel3;
         private Label lblpedidos;
@@ -575,5 +574,6 @@
         private DataGridViewButtonColumn btacao;
         private PictureBox pictureBox13;
         private Button btncadastroprodutos;
+        private Panel panel2;
     }
 }

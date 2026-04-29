@@ -97,6 +97,11 @@ namespace PrimeiraTela
             telaprodutos.Show();
             this.Hide();
         }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

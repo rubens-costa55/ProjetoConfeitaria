@@ -6,6 +6,8 @@ namespace PrimeiraTela
 {
     public partial class TelaLogin : Form
     {
+        private bool senhaVisivel = false;
+
         public TelaLogin()
         {
             InitializeComponent();
@@ -154,6 +156,23 @@ namespace PrimeiraTela
         private void lblSair_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void picOlhoSenha_Click(object sender, EventArgs e)
+        {
+            senhaVisivel = !senhaVisivel;
+
+            txtSenha.UseSystemPasswordChar = !senhaVisivel;
+
+            if (senhaVisivel)
+            {
+                picOlhoSenha.Image = Properties.Resources.olho_fechado;
+            }
+            else
+            {
+                picOlhoSenha.Image = Properties.Resources.olho_aberto;
+            }
+
         }
     }
 
