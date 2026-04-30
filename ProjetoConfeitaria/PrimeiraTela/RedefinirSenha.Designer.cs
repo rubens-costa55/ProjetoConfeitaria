@@ -79,6 +79,7 @@
             // lblSair
             // 
             lblSair.AutoSize = true;
+            lblSair.Cursor = Cursors.Hand;
             lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSair.ForeColor = Color.FromArgb(201, 137, 120);
             lblSair.Location = new Point(1462, 15);
@@ -111,7 +112,6 @@
             PanelDireito.Name = "PanelDireito";
             PanelDireito.Size = new Size(700, 615);
             PanelDireito.TabIndex = 2;
-            PanelDireito.Click += PanelDireito_Click;
             // 
             // label5
             // 
@@ -235,6 +235,7 @@
             // picOlhosenha2
             // 
             picOlhosenha2.BackColor = Color.White;
+            picOlhosenha2.Cursor = Cursors.Hand;
             picOlhosenha2.Image = Properties.Resources.olho_aberto;
             picOlhosenha2.Location = new Point(447, 420);
             picOlhosenha2.Name = "picOlhosenha2";
@@ -247,6 +248,7 @@
             // picOlhosenha
             // 
             picOlhosenha.BackColor = Color.White;
+            picOlhosenha.Cursor = Cursors.Hand;
             picOlhosenha.Image = Properties.Resources.olho_aberto;
             picOlhosenha.Location = new Point(447, 305);
             picOlhosenha.Name = "picOlhosenha";
@@ -285,6 +287,7 @@
             // btnAtualizarSenha
             // 
             btnAtualizarSenha.BackColor = Color.FromArgb(201, 142, 124);
+            btnAtualizarSenha.Cursor = Cursors.Hand;
             btnAtualizarSenha.FlatStyle = FlatStyle.Flat;
             btnAtualizarSenha.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAtualizarSenha.ForeColor = Color.White;

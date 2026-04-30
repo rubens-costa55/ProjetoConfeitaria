@@ -262,6 +262,7 @@
             // btnMenuNA
             // 
             btnMenuNA.BackColor = Color.FromArgb(247, 242, 241);
+            btnMenuNA.Cursor = Cursors.Hand;
             btnMenuNA.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnMenuNA.FlatStyle = FlatStyle.Flat;
             btnMenuNA.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
