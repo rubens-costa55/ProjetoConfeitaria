@@ -66,6 +66,27 @@
             colstatus = new DataGridViewComboBoxColumn();
             btacao = new DataGridViewButtonColumn();
             btnbuscarpedido = new Button();
+            btnEditarDados = new Button();
+            panelEditarPedido = new Panel();
+            cbCategoriaEditar = new ComboBox();
+            label7 = new Label();
+            btnCancelarEdicaoPedido = new Button();
+            btnSalvarEdicaoPedido = new Button();
+            lblValorTotalEditar = new Label();
+            lstItensEditar = new ListBox();
+            btnRemoverItemEditar = new Button();
+            btnIncluirItemEditar = new Button();
+            txtValorEditar = new TextBox();
+            label6 = new Label();
+            txtQuantidadeEditar = new TextBox();
+            label5 = new Label();
+            cbProdutoEditar = new ComboBox();
+            label4 = new Label();
+            txtEntregaEditar = new TextBox();
+            label3 = new Label();
+            txtClienteEditar = new TextBox();
+            label1 = new Label();
+            lblTituloEditarPedido = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -78,6 +99,7 @@
             PanelBuscar.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
+            panelEditarPedido.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -426,11 +448,13 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(111, 84, 75);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvPedidos.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(22, 21);
             dgvPedidos.MultiSelect = false;
             dgvPedidos.Name = "dgvPedidos";
+            dgvPedidos.ReadOnly = true;
             dgvPedidos.RowHeadersVisible = false;
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.Size = new Size(1163, 469);
@@ -443,24 +467,28 @@
             colcliente.FillWeight = 22F;
             colcliente.HeaderText = "Cliente";
             colcliente.Name = "colcliente";
+            colcliente.ReadOnly = true;
             // 
             // colpedido
             // 
             colpedido.FillWeight = 28F;
             colpedido.HeaderText = "Pedido";
             colpedido.Name = "colpedido";
+            colpedido.ReadOnly = true;
             // 
             // colentrega
             // 
             colentrega.FillWeight = 20F;
             colentrega.HeaderText = "Entrega";
             colentrega.Name = "colentrega";
+            colentrega.ReadOnly = true;
             // 
             // colvalor
             // 
             colvalor.FillWeight = 12F;
             colvalor.HeaderText = "Valor";
             colvalor.Name = "colvalor";
+            colvalor.ReadOnly = true;
             // 
             // colstatus
             // 
@@ -473,6 +501,7 @@
             colstatus.HeaderText = "Status";
             colstatus.Items.AddRange(new object[] { "Em produção", "Agendado", "Atrasado" });
             colstatus.Name = "colstatus";
+            colstatus.ReadOnly = true;
             // 
             // btacao
             // 
@@ -484,6 +513,7 @@
             btacao.FillWeight = 14F;
             btacao.HeaderText = "Ação";
             btacao.Name = "btacao";
+            btacao.ReadOnly = true;
             btacao.Resizable = DataGridViewTriState.True;
             btacao.SortMode = DataGridViewColumnSortMode.Automatic;
             btacao.Text = "Concluir Pedido";
@@ -503,12 +533,225 @@
             btnbuscarpedido.Text = "Buscar";
             btnbuscarpedido.UseVisualStyleBackColor = false;
             // 
+            // btnEditarDados
+            // 
+            btnEditarDados.BackColor = Color.FromArgb(243, 232, 228);
+            btnEditarDados.FlatStyle = FlatStyle.Flat;
+            btnEditarDados.ForeColor = Color.FromArgb(201, 142, 124);
+            btnEditarDados.Location = new Point(1439, 245);
+            btnEditarDados.Name = "btnEditarDados";
+            btnEditarDados.Size = new Size(120, 42);
+            btnEditarDados.TabIndex = 12;
+            btnEditarDados.Text = "Editar dados";
+            btnEditarDados.UseVisualStyleBackColor = false;
+            // 
+            // panelEditarPedido
+            // 
+            panelEditarPedido.BackColor = Color.FromArgb(252, 250, 249);
+            panelEditarPedido.BorderStyle = BorderStyle.FixedSingle;
+            panelEditarPedido.Controls.Add(cbCategoriaEditar);
+            panelEditarPedido.Controls.Add(label7);
+            panelEditarPedido.Controls.Add(btnCancelarEdicaoPedido);
+            panelEditarPedido.Controls.Add(btnSalvarEdicaoPedido);
+            panelEditarPedido.Controls.Add(lblValorTotalEditar);
+            panelEditarPedido.Controls.Add(lstItensEditar);
+            panelEditarPedido.Controls.Add(btnRemoverItemEditar);
+            panelEditarPedido.Controls.Add(btnIncluirItemEditar);
+            panelEditarPedido.Controls.Add(txtValorEditar);
+            panelEditarPedido.Controls.Add(label6);
+            panelEditarPedido.Controls.Add(txtQuantidadeEditar);
+            panelEditarPedido.Controls.Add(label5);
+            panelEditarPedido.Controls.Add(cbProdutoEditar);
+            panelEditarPedido.Controls.Add(label4);
+            panelEditarPedido.Controls.Add(txtEntregaEditar);
+            panelEditarPedido.Controls.Add(label3);
+            panelEditarPedido.Controls.Add(txtClienteEditar);
+            panelEditarPedido.Controls.Add(label1);
+            panelEditarPedido.Controls.Add(lblTituloEditarPedido);
+            panelEditarPedido.Location = new Point(1006, 158);
+            panelEditarPedido.Name = "panelEditarPedido";
+            panelEditarPedido.Size = new Size(510, 362);
+            panelEditarPedido.TabIndex = 13;
+            panelEditarPedido.Visible = false;
+            // 
+            // cbCategoriaEditar
+            // 
+            cbCategoriaEditar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategoriaEditar.FormattingEnabled = true;
+            cbCategoriaEditar.Location = new Point(10, 120);
+            cbCategoriaEditar.Name = "cbCategoriaEditar";
+            cbCategoriaEditar.Size = new Size(165, 23);
+            cbCategoriaEditar.TabIndex = 18;
+            // 
+            // label7
+            // 
+            label7.Location = new Point(15, 92);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 25);
+            label7.TabIndex = 17;
+            label7.Text = "Categoria:";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCancelarEdicaoPedido
+            // 
+            btnCancelarEdicaoPedido.BackColor = Color.FromArgb(239, 229, 226);
+            btnCancelarEdicaoPedido.FlatStyle = FlatStyle.Flat;
+            btnCancelarEdicaoPedido.ForeColor = Color.FromArgb(111, 84, 75);
+            btnCancelarEdicaoPedido.Location = new Point(393, 314);
+            btnCancelarEdicaoPedido.Name = "btnCancelarEdicaoPedido";
+            btnCancelarEdicaoPedido.Size = new Size(100, 30);
+            btnCancelarEdicaoPedido.TabIndex = 16;
+            btnCancelarEdicaoPedido.Text = "Cancelar";
+            btnCancelarEdicaoPedido.UseVisualStyleBackColor = false;
+            // 
+            // btnSalvarEdicaoPedido
+            // 
+            btnSalvarEdicaoPedido.BackColor = Color.FromArgb(201, 142, 124);
+            btnSalvarEdicaoPedido.FlatStyle = FlatStyle.Flat;
+            btnSalvarEdicaoPedido.ForeColor = Color.White;
+            btnSalvarEdicaoPedido.Location = new Point(15, 308);
+            btnSalvarEdicaoPedido.Name = "btnSalvarEdicaoPedido";
+            btnSalvarEdicaoPedido.Size = new Size(100, 30);
+            btnSalvarEdicaoPedido.TabIndex = 15;
+            btnSalvarEdicaoPedido.Text = "Salvar";
+            btnSalvarEdicaoPedido.UseVisualStyleBackColor = false;
+            // 
+            // lblValorTotalEditar
+            // 
+            lblValorTotalEditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValorTotalEditar.ForeColor = Color.FromArgb(111, 84, 75);
+            lblValorTotalEditar.Location = new Point(15, 260);
+            lblValorTotalEditar.Name = "lblValorTotalEditar";
+            lblValorTotalEditar.Size = new Size(105, 45);
+            lblValorTotalEditar.TabIndex = 14;
+            lblValorTotalEditar.Text = "Total: R$ 0,00";
+            // 
+            // lstItensEditar
+            // 
+            lstItensEditar.FormattingEnabled = true;
+            lstItensEditar.ItemHeight = 15;
+            lstItensEditar.Location = new Point(253, 162);
+            lstItensEditar.Name = "lstItensEditar";
+            lstItensEditar.Size = new Size(240, 79);
+            lstItensEditar.TabIndex = 13;
+            // 
+            // btnRemoverItemEditar
+            // 
+            btnRemoverItemEditar.Location = new Point(452, 262);
+            btnRemoverItemEditar.Name = "btnRemoverItemEditar";
+            btnRemoverItemEditar.Size = new Size(41, 34);
+            btnRemoverItemEditar.TabIndex = 12;
+            btnRemoverItemEditar.Text = "-";
+            btnRemoverItemEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnIncluirItemEditar
+            // 
+            btnIncluirItemEditar.Location = new Point(253, 262);
+            btnIncluirItemEditar.Name = "btnIncluirItemEditar";
+            btnIncluirItemEditar.Size = new Size(41, 34);
+            btnIncluirItemEditar.TabIndex = 11;
+            btnIncluirItemEditar.Text = "+";
+            btnIncluirItemEditar.UseVisualStyleBackColor = true;
+            // 
+            // txtValorEditar
+            // 
+            txtValorEditar.Location = new Point(328, 114);
+            txtValorEditar.Name = "txtValorEditar";
+            txtValorEditar.Size = new Size(165, 23);
+            txtValorEditar.TabIndex = 10;
+            // 
+            // label6
+            // 
+            label6.Location = new Point(328, 86);
+            label6.Name = "label6";
+            label6.Size = new Size(83, 25);
+            label6.TabIndex = 9;
+            label6.Text = "Valor Unitário:";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtQuantidadeEditar
+            // 
+            txtQuantidadeEditar.Location = new Point(253, 114);
+            txtQuantidadeEditar.Name = "txtQuantidadeEditar";
+            txtQuantidadeEditar.Size = new Size(67, 23);
+            txtQuantidadeEditar.TabIndex = 8;
+            // 
+            // label5
+            // 
+            label5.Location = new Point(253, 86);
+            label5.Name = "label5";
+            label5.Size = new Size(37, 25);
+            label5.TabIndex = 7;
+            label5.Text = "Qtd:";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cbProdutoEditar
+            // 
+            cbProdutoEditar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProdutoEditar.FormattingEnabled = true;
+            cbProdutoEditar.Location = new Point(10, 192);
+            cbProdutoEditar.Name = "cbProdutoEditar";
+            cbProdutoEditar.Size = new Size(165, 23);
+            cbProdutoEditar.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.Location = new Point(10, 162);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 25);
+            label4.TabIndex = 5;
+            label4.Text = "Produto:\r\n";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtEntregaEditar
+            // 
+            txtEntregaEditar.Location = new Point(253, 60);
+            txtEntregaEditar.Name = "txtEntregaEditar";
+            txtEntregaEditar.Size = new Size(240, 23);
+            txtEntregaEditar.TabIndex = 4;
+            // 
+            // label3
+            // 
+            label3.Location = new Point(253, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 25);
+            label3.TabIndex = 3;
+            label3.Text = "Entrega:";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtClienteEditar
+            // 
+            txtClienteEditar.Location = new Point(15, 60);
+            txtClienteEditar.Name = "txtClienteEditar";
+            txtClienteEditar.Size = new Size(165, 23);
+            txtClienteEditar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.Location = new Point(15, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Cliente:";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTituloEditarPedido
+            // 
+            lblTituloEditarPedido.Location = new Point(42, 12);
+            lblTituloEditarPedido.Name = "lblTituloEditarPedido";
+            lblTituloEditarPedido.Size = new Size(350, 25);
+            lblTituloEditarPedido.TabIndex = 0;
+            lblTituloEditarPedido.Text = "EDITAR PEDIDO";
+            lblTituloEditarPedido.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PedidosAtuais
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1584, 861);
+            Controls.Add(panelEditarPedido);
+            Controls.Add(btnEditarDados);
             Controls.Add(PanelBuscar);
             Controls.Add(btnbuscarpedido);
             Controls.Add(btnatrasado);
@@ -538,6 +781,8 @@
             PanelBuscar.PerformLayout();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
+            panelEditarPedido.ResumeLayout(false);
+            panelEditarPedido.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -576,5 +821,26 @@
         private PictureBox pictureBox13;
         private Button btncadastroprodutos;
         private Panel panel2;
+        private Button btnEditarDados;
+        private Panel panelEditarPedido;
+        private Label lblTituloEditarPedido;
+        private Label label4;
+        private TextBox txtEntregaEditar;
+        private Label label3;
+        private TextBox txtClienteEditar;
+        private Label label1;
+        private Label label5;
+        private ComboBox cbProdutoEditar;
+        private TextBox txtValorEditar;
+        private Label label6;
+        private TextBox txtQuantidadeEditar;
+        private Label lblValorTotalEditar;
+        private ListBox lstItensEditar;
+        private Button btnRemoverItemEditar;
+        private Button btnIncluirItemEditar;
+        private Button btnCancelarEdicaoPedido;
+        private Button btnSalvarEdicaoPedido;
+        private ComboBox cbCategoriaEditar;
+        private Label label7;
     }
 }
