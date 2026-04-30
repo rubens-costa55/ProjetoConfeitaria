@@ -176,11 +176,6 @@ namespace PrimeiraTela
 
         }
 
-        private void PanelDireito_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void picOlhosenha_Click_1(object sender, EventArgs e)
         {
             senhaVisivel = !senhaVisivel;
