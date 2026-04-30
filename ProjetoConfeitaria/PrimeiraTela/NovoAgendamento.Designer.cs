@@ -355,7 +355,7 @@
             cbCategoriaAgendamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoriaAgendamento.FlatStyle = FlatStyle.Flat;
             cbCategoriaAgendamento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbCategoriaAgendamento.ForeColor = Color.FromArgb(191, 167, 157);
+            cbCategoriaAgendamento.ForeColor = Color.FromArgb(123, 97, 88);
             cbCategoriaAgendamento.FormattingEnabled = true;
             cbCategoriaAgendamento.Location = new Point(29, 316);
             cbCategoriaAgendamento.Name = "cbCategoriaAgendamento";
@@ -393,7 +393,7 @@
             txtTelefone.BackColor = Color.FromArgb(255, 253, 252);
             txtTelefone.BorderStyle = BorderStyle.FixedSingle;
             txtTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTelefone.ForeColor = Color.FromArgb(191, 167, 157);
+            txtTelefone.ForeColor = Color.FromArgb(123, 97, 88);
             txtTelefone.Location = new Point(29, 142);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(439, 29);
@@ -418,7 +418,7 @@
             cbProdutoAgendamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProdutoAgendamento.FlatStyle = FlatStyle.Flat;
             cbProdutoAgendamento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbProdutoAgendamento.ForeColor = Color.FromArgb(191, 167, 157);
+            cbProdutoAgendamento.ForeColor = Color.FromArgb(123, 97, 88);
             cbProdutoAgendamento.FormattingEnabled = true;
             cbProdutoAgendamento.Location = new Point(29, 399);
             cbProdutoAgendamento.Name = "cbProdutoAgendamento";
@@ -430,7 +430,7 @@
             txtDataeHora.BackColor = Color.FromArgb(255, 253, 252);
             txtDataeHora.BorderStyle = BorderStyle.FixedSingle;
             txtDataeHora.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDataeHora.ForeColor = Color.FromArgb(191, 167, 157);
+            txtDataeHora.ForeColor = Color.FromArgb(123, 97, 88);
             txtDataeHora.Location = new Point(29, 226);
             txtDataeHora.Name = "txtDataeHora";
             txtDataeHora.Size = new Size(439, 29);
@@ -454,7 +454,7 @@
             txtQuantidade.BackColor = Color.FromArgb(255, 253, 252);
             txtQuantidade.BorderStyle = BorderStyle.FixedSingle;
             txtQuantidade.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtQuantidade.ForeColor = Color.FromArgb(191, 167, 157);
+            txtQuantidade.ForeColor = Color.FromArgb(123, 97, 88);
             txtQuantidade.Location = new Point(595, 399);
             txtQuantidade.Name = "txtQuantidade";
             txtQuantidade.Size = new Size(136, 29);
@@ -478,7 +478,7 @@
             txtNomeCliente.BackColor = Color.FromArgb(255, 253, 252);
             txtNomeCliente.BorderStyle = BorderStyle.FixedSingle;
             txtNomeCliente.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNomeCliente.ForeColor = Color.FromArgb(191, 167, 157);
+            txtNomeCliente.ForeColor = Color.FromArgb(123, 97, 88);
             txtNomeCliente.Location = new Point(29, 52);
             txtNomeCliente.Name = "txtNomeCliente";
             txtNomeCliente.Size = new Size(640, 29);

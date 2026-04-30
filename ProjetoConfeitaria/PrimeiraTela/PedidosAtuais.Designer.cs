@@ -568,9 +568,9 @@
             panelEditarPedido.Controls.Add(txtClienteEditar);
             panelEditarPedido.Controls.Add(label1);
             panelEditarPedido.Controls.Add(lblTituloEditarPedido);
-            panelEditarPedido.Location = new Point(1006, 158);
+            panelEditarPedido.Location = new Point(944, 112);
             panelEditarPedido.Name = "panelEditarPedido";
-            panelEditarPedido.Size = new Size(510, 362);
+            panelEditarPedido.Size = new Size(580, 365);
             panelEditarPedido.TabIndex = 13;
             panelEditarPedido.Visible = false;
             // 
@@ -580,7 +580,7 @@
             cbCategoriaEditar.FormattingEnabled = true;
             cbCategoriaEditar.Location = new Point(10, 120);
             cbCategoriaEditar.Name = "cbCategoriaEditar";
-            cbCategoriaEditar.Size = new Size(165, 23);
+            cbCategoriaEditar.Size = new Size(233, 23);
             cbCategoriaEditar.TabIndex = 18;
             // 
             // label7
@@ -597,7 +597,7 @@
             btnCancelarEdicaoPedido.BackColor = Color.FromArgb(239, 229, 226);
             btnCancelarEdicaoPedido.FlatStyle = FlatStyle.Flat;
             btnCancelarEdicaoPedido.ForeColor = Color.FromArgb(111, 84, 75);
-            btnCancelarEdicaoPedido.Location = new Point(393, 314);
+            btnCancelarEdicaoPedido.Location = new Point(463, 315);
             btnCancelarEdicaoPedido.Name = "btnCancelarEdicaoPedido";
             btnCancelarEdicaoPedido.Size = new Size(100, 30);
             btnCancelarEdicaoPedido.TabIndex = 16;
@@ -609,7 +609,7 @@
             btnSalvarEdicaoPedido.BackColor = Color.FromArgb(201, 142, 124);
             btnSalvarEdicaoPedido.FlatStyle = FlatStyle.Flat;
             btnSalvarEdicaoPedido.ForeColor = Color.White;
-            btnSalvarEdicaoPedido.Location = new Point(15, 308);
+            btnSalvarEdicaoPedido.Location = new Point(15, 315);
             btnSalvarEdicaoPedido.Name = "btnSalvarEdicaoPedido";
             btnSalvarEdicaoPedido.Size = new Size(100, 30);
             btnSalvarEdicaoPedido.TabIndex = 15;
@@ -630,14 +630,14 @@
             // 
             lstItensEditar.FormattingEnabled = true;
             lstItensEditar.ItemHeight = 15;
-            lstItensEditar.Location = new Point(253, 162);
+            lstItensEditar.Location = new Point(323, 163);
             lstItensEditar.Name = "lstItensEditar";
             lstItensEditar.Size = new Size(240, 79);
             lstItensEditar.TabIndex = 13;
             // 
             // btnRemoverItemEditar
             // 
-            btnRemoverItemEditar.Location = new Point(452, 262);
+            btnRemoverItemEditar.Location = new Point(522, 263);
             btnRemoverItemEditar.Name = "btnRemoverItemEditar";
             btnRemoverItemEditar.Size = new Size(41, 34);
             btnRemoverItemEditar.TabIndex = 12;
@@ -646,7 +646,7 @@
             // 
             // btnIncluirItemEditar
             // 
-            btnIncluirItemEditar.Location = new Point(253, 262);
+            btnIncluirItemEditar.Location = new Point(323, 263);
             btnIncluirItemEditar.Name = "btnIncluirItemEditar";
             btnIncluirItemEditar.Size = new Size(41, 34);
             btnIncluirItemEditar.TabIndex = 11;
@@ -655,14 +655,14 @@
             // 
             // txtValorEditar
             // 
-            txtValorEditar.Location = new Point(328, 114);
+            txtValorEditar.Location = new Point(398, 115);
             txtValorEditar.Name = "txtValorEditar";
             txtValorEditar.Size = new Size(165, 23);
             txtValorEditar.TabIndex = 10;
             // 
             // label6
             // 
-            label6.Location = new Point(328, 86);
+            label6.Location = new Point(398, 87);
             label6.Name = "label6";
             label6.Size = new Size(83, 25);
             label6.TabIndex = 9;
@@ -671,14 +671,14 @@
             // 
             // txtQuantidadeEditar
             // 
-            txtQuantidadeEditar.Location = new Point(253, 114);
+            txtQuantidadeEditar.Location = new Point(323, 115);
             txtQuantidadeEditar.Name = "txtQuantidadeEditar";
             txtQuantidadeEditar.Size = new Size(67, 23);
             txtQuantidadeEditar.TabIndex = 8;
             // 
             // label5
             // 
-            label5.Location = new Point(253, 86);
+            label5.Location = new Point(323, 87);
             label5.Name = "label5";
             label5.Size = new Size(37, 25);
             label5.TabIndex = 7;
@@ -691,7 +691,7 @@
             cbProdutoEditar.FormattingEnabled = true;
             cbProdutoEditar.Location = new Point(10, 192);
             cbProdutoEditar.Name = "cbProdutoEditar";
-            cbProdutoEditar.Size = new Size(165, 23);
+            cbProdutoEditar.Size = new Size(233, 23);
             cbProdutoEditar.TabIndex = 6;
             // 
             // label4
@@ -705,14 +705,14 @@
             // 
             // txtEntregaEditar
             // 
-            txtEntregaEditar.Location = new Point(253, 60);
+            txtEntregaEditar.Location = new Point(323, 61);
             txtEntregaEditar.Name = "txtEntregaEditar";
             txtEntregaEditar.Size = new Size(240, 23);
             txtEntregaEditar.TabIndex = 4;
             // 
             // label3
             // 
-            label3.Location = new Point(253, 37);
+            label3.Location = new Point(323, 38);
             label3.Name = "label3";
             label3.Size = new Size(51, 25);
             label3.TabIndex = 3;
@@ -723,7 +723,7 @@
             // 
             txtClienteEditar.Location = new Point(15, 60);
             txtClienteEditar.Name = "txtClienteEditar";
-            txtClienteEditar.Size = new Size(165, 23);
+            txtClienteEditar.Size = new Size(228, 23);
             txtClienteEditar.TabIndex = 2;
             // 
             // label1
@@ -737,7 +737,7 @@
             // 
             // lblTituloEditarPedido
             // 
-            lblTituloEditarPedido.Location = new Point(42, 12);
+            lblTituloEditarPedido.Location = new Point(104, 13);
             lblTituloEditarPedido.Name = "lblTituloEditarPedido";
             lblTituloEditarPedido.Size = new Size(350, 25);
             lblTituloEditarPedido.TabIndex = 0;

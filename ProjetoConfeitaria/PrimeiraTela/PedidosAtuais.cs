@@ -38,24 +38,22 @@ namespace PrimeiraTela
 
         private void PedidosAtuais_Load(object sender, EventArgs e)
         {
+            
+
             dgvPedidos.AutoGenerateColumns = false;
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.MultiSelect = false;
 
-            // Importante:
-            // O grid NÃO fica totalmente ReadOnly porque o Status precisa abrir o ComboBox.
             dgvPedidos.ReadOnly = false;
             dgvPedidos.EditMode = DataGridViewEditMode.EditOnEnter;
 
-            // Bloqueia todas as colunas.
             foreach (DataGridViewColumn coluna in dgvPedidos.Columns)
             {
                 coluna.ReadOnly = true;
             }
 
-            // Libera apenas Status e botão Concluir.
             if (dgvPedidos.Columns["colstatus"] != null)
                 dgvPedidos.Columns["colstatus"].ReadOnly = false;
 
@@ -164,6 +162,8 @@ namespace PrimeiraTela
                 {
                     con.Open();
 
+                    AtualizarPedidosAtrasadosAutomaticamente(con);
+
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
 
@@ -205,7 +205,10 @@ namespace PrimeiraTela
                                 OR p.Status = 'Em produção'
                                 OR p.Status = 'Atrasado'
                             )
-                            AND p.Status <> 'Concluído'
+                            AND (
+                                p.Status IS NULL
+                                OR p.Status <> 'Concluído'
+                            )
                     ";
 
                     if (!string.IsNullOrWhiteSpace(busca) && busca != "Buscar pedido..")
@@ -248,8 +251,12 @@ namespace PrimeiraTela
                         sql += @"
                             AND DATE(
                                 COALESCE(
+                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %H:%i'),
                                     STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %H:%i'),
-                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %H:%i')
+                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %Hh'),
+                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %Hh'),
+                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %Hh%i'),
+                                    STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %Hh%i')
                                 )
                             ) = CURDATE()
                         ";
@@ -265,8 +272,12 @@ namespace PrimeiraTela
                             p.Status
                         ORDER BY
                             COALESCE(
+                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %H:%i'),
                                 STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %H:%i'),
-                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %H:%i')
+                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %Hh'),
+                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %Hh'),
+                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y - %Hh%i'),
+                                STR_TO_DATE(p.DataHoraEntrega, '%d/%m/%Y %Hh%i')
                             ) ASC;
                     ";
 
@@ -288,6 +299,54 @@ namespace PrimeiraTela
                 {
                     carregandoGrid = false;
                 }
+            }
+        }
+
+        private void AtualizarPedidosAtrasadosAutomaticamente(MySqlConnection con)
+        {
+            try
+            {
+                string sql = @"
+                    UPDATE pedidos
+                    SET Status = 'Atrasado'
+                    WHERE
+                        (
+                            Status IS NULL
+                            OR Status = ''
+                            OR Status = 'Aberto'
+                            OR Status = 'Agendado'
+                            OR Status = 'Em produção'
+                        )
+                        AND (
+                            Status IS NULL
+                            OR Status <> 'Concluído'
+                        )
+                        AND COALESCE(
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %H:%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %H:%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %Hh'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %Hh'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %Hh%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %Hh%i')
+                        ) IS NOT NULL
+                        AND COALESCE(
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %H:%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %H:%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %Hh'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %Hh'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y - %Hh%i'),
+                            STR_TO_DATE(DataHoraEntrega, '%d/%m/%Y %Hh%i')
+                        ) < NOW();
+                ";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar pedidos atrasados automaticamente: " + ex.Message);
             }
         }
 
@@ -779,7 +838,9 @@ namespace PrimeiraTela
                 "dd/MM/yyyy - HH'h'",
                 "dd/MM/yyyy HH'h'",
                 "dd/MM/yyyy - H'h'",
-                "dd/MM/yyyy H'h'"
+                "dd/MM/yyyy H'h'",
+                "dd/MM/yyyy - HH'h'mm",
+                "dd/MM/yyyy HH'h'mm"
             };
 
             if (!DateTime.TryParseExact(
@@ -812,12 +873,20 @@ namespace PrimeiraTela
 
                 try
                 {
+                    string novoStatus = "Agendado";
+
+                    if (dataValidada < DateTime.Now)
+                    {
+                        novoStatus = "Atrasado";
+                    }
+
                     string sqlPedido = @"
                         UPDATE pedidos
                         SET
                             NomeCliente = @cliente,
                             DataHoraEntrega = @entrega,
-                            ValorTotal = @total
+                            ValorTotal = @total,
+                            Status = @status
                         WHERE id_pedido = @id_pedido;
                     ";
 
@@ -826,6 +895,7 @@ namespace PrimeiraTela
                         cmdPedido.Parameters.AddWithValue("@cliente", cliente);
                         cmdPedido.Parameters.AddWithValue("@entrega", dataValidada.ToString("dd/MM/yyyy - HH:mm"));
                         cmdPedido.Parameters.AddWithValue("@total", total);
+                        cmdPedido.Parameters.AddWithValue("@status", novoStatus);
                         cmdPedido.Parameters.AddWithValue("@id_pedido", idPedidoEdicao);
                         cmdPedido.ExecuteNonQuery();
                     }
@@ -932,7 +1002,10 @@ namespace PrimeiraTela
                         INNER JOIN itens_pedido ip ON p.id_pedido = ip.id_pedido
                         INNER JOIN produtos pr ON ip.id_produto = pr.id_produto
                         WHERE p.id_pedido = @id_pedido
-                          AND p.Status <> 'Concluído';
+                          AND (
+                                p.Status IS NULL
+                                OR p.Status <> 'Concluído'
+                          );
                     ";
 
                     using (MySqlCommand cmdHistorico = new MySqlCommand(inserirHistorico, con, transacao))
@@ -1022,6 +1095,8 @@ namespace PrimeiraTela
                         cmd.Parameters.AddWithValue("@id_pedido", idPedido);
                         cmd.ExecuteNonQuery();
                     }
+
+                    CarregarPedidos();
                 }
                 catch (Exception ex)
                 {

@@ -13,7 +13,7 @@ namespace PrimeiraTela
             ApplicationConfiguration.Initialize();
 
 
-            Application.Run(new frmCarregamento());
+            Application.Run(new PedidosAtuais());
 
             
 
