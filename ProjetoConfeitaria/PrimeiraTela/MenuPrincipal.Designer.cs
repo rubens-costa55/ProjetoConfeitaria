@@ -56,6 +56,7 @@
             pictureBox12 = new PictureBox();
             btnMenuPrincipal1 = new Button();
             panel1 = new Panel();
+            pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             button3 = new Button();
             pictureBox9 = new PictureBox();
@@ -65,7 +66,6 @@
             label8 = new Label();
             label9 = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox6 = new PictureBox();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
@@ -76,12 +76,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // btnHistórico
@@ -425,6 +425,17 @@
             panel1.Size = new Size(260, 740);
             panel1.TabIndex = 10;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.FromArgb(247, 242, 241);
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(25, 180);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(33, 32);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 26;
+            pictureBox6.TabStop = false;
+            // 
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.FromArgb(247, 242, 241);
@@ -449,6 +460,7 @@
             button3.TabIndex = 24;
             button3.Text = "Cadastrar\r\nProdutos";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // pictureBox9
             // 
@@ -531,17 +543,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.BackColor = Color.FromArgb(247, 242, 241);
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(25, 180);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(33, 32);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 26;
-            pictureBox6.TabStop = false;
-            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -555,7 +556,7 @@
             Controls.Add(panel5);
             Controls.Add(panel4);
             ForeColor = SystemColors.ActiveCaption;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MinimizeBox = false;
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
@@ -572,12 +573,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
 
 

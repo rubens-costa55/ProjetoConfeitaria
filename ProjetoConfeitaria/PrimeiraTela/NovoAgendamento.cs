@@ -146,7 +146,9 @@ namespace PrimeiraTela
 
         private void btnSairNA_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void btnSalvarNA_Click(object sender, EventArgs e)
@@ -250,7 +252,9 @@ namespace PrimeiraTela
 
         private void btnHistoricoNA_Click(object sender, EventArgs e)
         {
-
+            FrmHistoricoPedidos telahistorico = new FrmHistoricoPedidos();
+            telahistorico.Show();
+            this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -408,5 +412,11 @@ namespace PrimeiraTela
             lbValorTotal.Text = total.ToString("C");
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CadastroProdutos telacadastro = new CadastroProdutos();
+            telacadastro.Show();
+            this.Hide();
+        }
     }
 }

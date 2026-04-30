@@ -491,7 +491,7 @@
             Controls.Add(panelHistorico);
             Controls.Add(panelTitulo);
             Controls.Add(panelSidebar);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "FrmHistoricoPedidos";
             StartPosition = FormStartPosition.CenterScreen;

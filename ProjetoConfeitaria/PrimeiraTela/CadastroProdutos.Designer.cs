@@ -365,6 +365,7 @@
             textBox2.Size = new Size(152, 29);
             textBox2.TabIndex = 3;
             textBox2.Text = "0,00";
+            textBox2.Click += textBox2_Click;
             // 
             // label4
             // 
@@ -518,6 +519,7 @@
             Controls.Add(label2);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CadastroProdutos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro Produtos";

@@ -25,6 +25,7 @@ namespace PrimeiraTela
         private void btnNovoAgendamento_Click(object sender, EventArgs e)
         {
             new NovoAgendamento().Show();
+            this.Hide();
 
         }
 
@@ -33,17 +34,20 @@ namespace PrimeiraTela
         {
 
             new PedidosAtuais().Show();
+            this.Hide();
         }
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             new MenuPrincipal().Show();
+            this.Hide();
         }
 
 
         private void btnHistórico_Click(object sender, EventArgs e)
         {
             new FrmHistoricoPedidos().Show();
+            this.Hide();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -54,16 +58,19 @@ namespace PrimeiraTela
         private void btnFormularioAgendamento_Click(object sender, EventArgs e)
         {
             new NovoAgendamento().Show();
+            this.Hide();
         }
 
         private void btnConsultarHistorico_Click(object sender, EventArgs e)
         {
             new FrmHistoricoPedidos().Show();
+            this.Hide();
         }
 
         private void btnListPedidosAtuais_Click(object sender, EventArgs e)
         {
             new PedidosAtuais().Show();
+            this.Hide(); 
         }
 
         private void TituloPrincipal_Click(object sender, EventArgs e)
@@ -88,7 +95,10 @@ namespace PrimeiraTela
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
+
         }
 
         private void btnAbrirCadastroProdutos_Click(object sender, EventArgs e)
@@ -101,6 +111,13 @@ namespace PrimeiraTela
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CadastroProdutos telaprodutos = new CadastroProdutos();
+            telaprodutos.Show();
+            this.Hide();
         }
     }
 }

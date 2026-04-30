@@ -65,6 +65,7 @@
             label1 = new Label();
             btnSalvarNA = new Button();
             panel6 = new Panel();
+            RemoverItem = new Button();
             dgvCarrinho = new DataGridView();
             ColProduto = new DataGridViewTextBoxColumn();
             ColQuantidade = new DataGridViewTextBoxColumn();
@@ -74,7 +75,6 @@
             label9 = new Label();
             label6 = new Label();
             pictureBox5 = new PictureBox();
-            RemoverItem = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -139,6 +139,7 @@
             button3.TabIndex = 20;
             button3.Text = "Cadastrar\r\nProdutos";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // pictureBox3
             // 
@@ -536,6 +537,19 @@
             panel6.Size = new Size(325, 591);
             panel6.TabIndex = 14;
             // 
+            // RemoverItem
+            // 
+            RemoverItem.BackColor = Color.Brown;
+            RemoverItem.FlatStyle = FlatStyle.Flat;
+            RemoverItem.ForeColor = Color.White;
+            RemoverItem.Location = new Point(112, 427);
+            RemoverItem.Name = "RemoverItem";
+            RemoverItem.Size = new Size(100, 23);
+            RemoverItem.TabIndex = 22;
+            RemoverItem.Text = "Remover Item";
+            RemoverItem.UseVisualStyleBackColor = false;
+            RemoverItem.Click += RemoverItem_Click;
+            // 
             // dgvCarrinho
             // 
             dgvCarrinho.AllowUserToAddRows = false;
@@ -659,19 +673,6 @@
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
             // 
-            // RemoverItem
-            // 
-            RemoverItem.BackColor = Color.Brown;
-            RemoverItem.FlatStyle = FlatStyle.Flat;
-            RemoverItem.ForeColor = Color.White;
-            RemoverItem.Location = new Point(112, 427);
-            RemoverItem.Name = "RemoverItem";
-            RemoverItem.Size = new Size(100, 23);
-            RemoverItem.TabIndex = 22;
-            RemoverItem.Text = "Remover Item";
-            RemoverItem.UseVisualStyleBackColor = false;
-            RemoverItem.Click += RemoverItem_Click;
-            // 
             // NovoAgendamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -682,7 +683,7 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "NovoAgendamento";
             StartPosition = FormStartPosition.CenterScreen;

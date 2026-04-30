@@ -62,7 +62,7 @@ namespace PrimeiraTela
                 return;
             }
 
-            if (!Regex.IsMatch(txtNovaSenha.Text, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$"))
+            if (!Regex.IsMatch(txtNovaSenha.Text, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[-_@$!%*#?&]).{8,}$"))
             {
                 MessageBox.Show("A senha deve conter letra, número e caractere especial.");
                 return;

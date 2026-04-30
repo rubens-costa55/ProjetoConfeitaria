@@ -522,12 +522,19 @@ namespace PrimeiraTela
 
         private void btnSairNA_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            textBox2.Clear();
         }
     }
 }

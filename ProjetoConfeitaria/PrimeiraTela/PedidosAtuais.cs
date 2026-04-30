@@ -21,6 +21,13 @@ namespace PrimeiraTela
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.MultiSelect = false;
 
+            RemoverSelecaoAzulGrid();
+
+            dgvPedidos.AutoGenerateColumns = false;
+            dgvPedidos.AllowUserToAddRows = false;
+            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPedidos.MultiSelect = false;
+
             if (dgvPedidos.Columns["btacao"] is DataGridViewButtonColumn btn)
             {
                 btn.Text = "Concluir";
@@ -460,12 +467,48 @@ namespace PrimeiraTela
 
         private void btnsair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void RemoverSelecaoAzulGrid()
+        {
+            dgvPedidos.EnableHeadersVisualStyles = false;
+
+            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dgvPedidos.RowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dgvPedidos.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(239, 229, 226);
+            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(239, 229, 226);
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dgvPedidos.RowHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+
+            dgvPedidos.BackgroundColor = Color.White;
+            dgvPedidos.GridColor = Color.FromArgb(228, 206, 199);
+            dgvPedidos.BorderStyle = BorderStyle.None;
+        }
+
+        private void btncadastroprodutos_Click(object sender, EventArgs e)
+        {
+            CadastroProdutos telaprodutos = new CadastroProdutos();
+            telaprodutos.Show();
+            this.Hide();
         }
     }
 }

@@ -165,7 +165,7 @@
             lbRegrasTitulo.Name = "lbRegrasTitulo";
             lbRegrasTitulo.Size = new Size(530, 70);
             lbRegrasTitulo.TabIndex = 1;
-            lbRegrasTitulo.Text = "REGRAS SUGERIDAS";
+            lbRegrasTitulo.Text = "REGRAS";
             lbRegrasTitulo.TextAlign = ContentAlignment.MiddleCenter;
             lbRegrasTitulo.Click += lbRegrasTitulo_Click;
             // 
@@ -188,9 +188,9 @@
             lbRegra2.ForeColor = Color.FromArgb(126, 99, 92);
             lbRegra2.Location = new Point(148, 431);
             lbRegra2.Name = "lbRegra2";
-            lbRegra2.Size = new Size(241, 20);
+            lbRegra2.Size = new Size(405, 20);
             lbRegra2.TabIndex = 3;
-            lbRegra2.Text = "Misture letras, números e simbolos.";
+            lbRegra2.Text = "Misture letras maiuscúlas e minusculas, números e simbolos.";
             // 
             // lbRegra1
             // 

@@ -670,7 +670,9 @@ namespace PrimeiraTela
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
