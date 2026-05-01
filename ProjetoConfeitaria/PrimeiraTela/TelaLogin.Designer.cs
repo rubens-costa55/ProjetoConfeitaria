@@ -257,6 +257,7 @@
             // 
             // TelaLogin
             // 
+            AcceptButton = btnAcessar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 239, 237);

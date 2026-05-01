@@ -87,6 +87,7 @@
             // btnHistórico
             // 
             btnHistórico.BackColor = Color.FromArgb(247, 242, 241);
+            btnHistórico.Cursor = Cursors.Hand;
             btnHistórico.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnHistórico.FlatStyle = FlatStyle.Flat;
             btnHistórico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -102,6 +103,7 @@
             // btnPedidosAtuais
             // 
             btnPedidosAtuais.BackColor = Color.FromArgb(247, 242, 241);
+            btnPedidosAtuais.Cursor = Cursors.Hand;
             btnPedidosAtuais.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnPedidosAtuais.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -117,6 +119,7 @@
             // btnNovoAgendamento
             // 
             btnNovoAgendamento.BackColor = Color.FromArgb(247, 242, 241);
+            btnNovoAgendamento.Cursor = Cursors.Hand;
             btnNovoAgendamento.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnNovoAgendamento.FlatStyle = FlatStyle.Flat;
             btnNovoAgendamento.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -137,7 +140,7 @@
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(308, 251);
+            panel4.Location = new Point(315, 251);
             panel4.Name = "panel4";
             panel4.Size = new Size(282, 508);
             panel4.TabIndex = 2;
@@ -145,6 +148,7 @@
             // btnFormularioAgendamento
             // 
             btnFormularioAgendamento.BackColor = Color.FromArgb(243, 232, 228);
+            btnFormularioAgendamento.Cursor = Cursors.Hand;
             btnFormularioAgendamento.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnFormularioAgendamento.FlatStyle = FlatStyle.Flat;
             btnFormularioAgendamento.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -161,7 +165,7 @@
             // 
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(142, 111, 101);
-            label3.Location = new Point(7, 224);
+            label3.Location = new Point(6, 224);
             label3.Name = "label3";
             label3.Size = new Size(270, 80);
             label3.TabIndex = 2;
@@ -196,7 +200,7 @@
             panel5.Controls.Add(label4);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(pictureBox3);
-            panel5.Location = new Point(617, 251);
+            panel5.Location = new Point(624, 251);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 508);
             panel5.TabIndex = 4;
@@ -204,6 +208,7 @@
             // btnListPedidosAtuais
             // 
             btnListPedidosAtuais.BackColor = Color.FromArgb(243, 232, 228);
+            btnListPedidosAtuais.Cursor = Cursors.Hand;
             btnListPedidosAtuais.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnListPedidosAtuais.FlatStyle = FlatStyle.Flat;
             btnListPedidosAtuais.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -255,7 +260,7 @@
             panel6.Controls.Add(label6);
             panel6.Controls.Add(label7);
             panel6.Controls.Add(pictureBox4);
-            panel6.Location = new Point(945, 251);
+            panel6.Location = new Point(948, 251);
             panel6.Name = "panel6";
             panel6.Size = new Size(300, 509);
             panel6.TabIndex = 5;
@@ -263,6 +268,7 @@
             // btnConsultarHistorico
             // 
             btnConsultarHistorico.BackColor = Color.FromArgb(243, 232, 228);
+            btnConsultarHistorico.Cursor = Cursors.Hand;
             btnConsultarHistorico.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnConsultarHistorico.FlatStyle = FlatStyle.Flat;
             btnConsultarHistorico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -353,6 +359,7 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(247, 242, 241);
+            button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -390,6 +397,7 @@
             // btnMenuPrincipal1
             // 
             btnMenuPrincipal1.BackColor = Color.FromArgb(201, 142, 124);
+            btnMenuPrincipal1.Cursor = Cursors.Hand;
             btnMenuPrincipal1.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnMenuPrincipal1.FlatStyle = FlatStyle.Flat;
             btnMenuPrincipal1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -450,6 +458,7 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(247, 242, 241);
+            button3.Cursor = Cursors.Hand;
             button3.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -493,7 +502,7 @@
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(1265, 251);
+            panel2.Location = new Point(1275, 251);
             panel2.Name = "panel2";
             panel2.Size = new Size(300, 509);
             panel2.TabIndex = 6;
@@ -501,6 +510,7 @@
             // btnAbrirCadastroProdutos
             // 
             btnAbrirCadastroProdutos.BackColor = Color.FromArgb(243, 232, 228);
+            btnAbrirCadastroProdutos.Cursor = Cursors.Hand;
             btnAbrirCadastroProdutos.FlatAppearance.BorderColor = Color.FromArgb(228, 206, 199);
             btnAbrirCadastroProdutos.FlatStyle = FlatStyle.Flat;
             btnAbrirCadastroProdutos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -517,7 +527,7 @@
             // 
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(142, 111, 101);
-            label8.Location = new Point(15, 216);
+            label8.Location = new Point(3, 216);
             label8.Name = "label8";
             label8.Size = new Size(270, 80);
             label8.TabIndex = 2;
