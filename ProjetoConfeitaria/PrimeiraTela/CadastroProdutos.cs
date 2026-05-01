@@ -24,6 +24,8 @@ namespace PrimeiraTela
             CarregarCategoriasCadastro();
             CarregarCategoriasFiltro();
             CarregarProdutos();
+
+            panelNovaCategoria.Visible = false;
         }
 
         private void ConfigurarEventos()
@@ -45,6 +47,15 @@ namespace PrimeiraTela
 
             cbFiltroCategoria.SelectedIndexChanged -= cbFiltroCategoria_SelectedIndexChanged;
             cbFiltroCategoria.SelectedIndexChanged += cbFiltroCategoria_SelectedIndexChanged;
+
+            btnAbrirCategoria.Click -= btnAbrirCategoria_Click;
+            btnAbrirCategoria.Click += btnAbrirCategoria_Click;
+
+            btnSalvarCategoria.Click -= btnSalvarCategoria_Click;
+            btnSalvarCategoria.Click += btnSalvarCategoria_Click;
+
+            btnCancelarCategoria.Click -= btnCancelarCategoria_Click;
+            btnCancelarCategoria.Click += btnCancelarCategoria_Click;
         }
 
         private void ConfigurarGrid()
@@ -324,6 +335,103 @@ namespace PrimeiraTela
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao salvar produto: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnAbrirCategoria_Click(object sender, EventArgs e)
+        {
+            txtNovaCategoria.Clear();
+
+            panelNovaCategoria.Visible = true;
+            panelNovaCategoria.BringToFront();
+
+            txtNovaCategoria.Focus();
+        }
+
+        private void btnCancelarCategoria_Click(object sender, EventArgs e)
+        {
+            txtNovaCategoria.Clear();
+            panelNovaCategoria.Visible = false;
+        }
+
+        private void btnSalvarCategoria_Click(object sender, EventArgs e)
+        {
+            SalvarCategoria();
+        }
+
+        private void SalvarCategoria()
+        {
+            string nomeCategoria = txtNovaCategoria.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nomeCategoria))
+            {
+                MessageBox.Show("Digite o nome da categoria.");
+                txtNovaCategoria.Focus();
+                return;
+            }
+
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                try
+                {
+                    con.Open();
+
+                    string sql = @"
+                        INSERT INTO categorias
+                        (
+                            nome_categoria
+                        )
+                        VALUES
+                        (
+                            @nome_categoria
+                        );
+                        SELECT LAST_INSERT_ID();
+                    ";
+
+                    int idNovaCategoria = 0;
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@nome_categoria", nomeCategoria);
+
+                        object resultado = cmd.ExecuteScalar();
+
+                        if (resultado != null)
+                        {
+                            idNovaCategoria = Convert.ToInt32(resultado);
+                        }
+                    }
+
+                    MessageBox.Show("Categoria cadastrada com sucesso.");
+
+                    panelNovaCategoria.Visible = false;
+                    txtNovaCategoria.Clear();
+
+                    CarregarCategoriasCadastro();
+                    CarregarCategoriasFiltro();
+
+                    if (idNovaCategoria > 0)
+                    {
+                        cbCategoria.SelectedValue = idNovaCategoria;
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    if (ex.Number == 1062)
+                    {
+                        MessageBox.Show("Essa categoria já está cadastrada.");
+                        txtNovaCategoria.Focus();
+                        return;
+                    }
+
+                    MessageBox.Show("Erro ao salvar categoria: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao salvar categoria: " + ex.Message);
                 }
             }
         }
