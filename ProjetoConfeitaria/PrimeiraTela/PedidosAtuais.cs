@@ -38,8 +38,6 @@ namespace PrimeiraTela
 
         private void PedidosAtuais_Load(object sender, EventArgs e)
         {
-            
-
             dgvPedidos.AutoGenerateColumns = false;
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
@@ -290,6 +288,11 @@ namespace PrimeiraTela
                     dgvPedidos.DataSource = dt;
 
                     dgvPedidos.ClearSelection();
+
+                    if (dgvPedidos.Rows.Count > 0)
+                    {
+                        dgvPedidos.CurrentCell = null;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -359,6 +362,7 @@ namespace PrimeiraTela
 
             if (nomeColuna == "colstatus")
             {
+                dgvPedidos.Rows[e.RowIndex].Selected = true;
                 dgvPedidos.CurrentCell = dgvPedidos.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 dgvPedidos.BeginEdit(true);
 
@@ -400,17 +404,31 @@ namespace PrimeiraTela
 
         private void btnEditarDados_Click(object sender, EventArgs e)
         {
-            if (dgvPedidos.CurrentRow == null)
+            if (dgvPedidos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um pedido para editar.");
+                MessageBox.Show(
+                    "Selecione um pedido na lista para editar.",
+                    "Pedido não selecionado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
                 return;
             }
 
-            DataRowView linha = dgvPedidos.CurrentRow.DataBoundItem as DataRowView;
+            DataGridViewRow rowSelecionada = dgvPedidos.SelectedRows[0];
+
+            DataRowView linha = rowSelecionada.DataBoundItem as DataRowView;
 
             if (linha == null)
             {
-                MessageBox.Show("Não foi possível obter os dados do pedido selecionado.");
+                MessageBox.Show(
+                    "Não foi possível obter os dados do pedido selecionado.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
                 return;
             }
 
