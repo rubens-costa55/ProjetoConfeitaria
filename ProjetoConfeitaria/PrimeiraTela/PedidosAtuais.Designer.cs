@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosAtuais));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox13 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -429,25 +429,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvPedidos.ColumnHeadersHeight = 35;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor, colstatus, btacao });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(126, 99, 92);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(126, 99, 92);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle8;
             dgvPedidos.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
@@ -493,10 +493,10 @@
             // colstatus
             // 
             colstatus.AutoComplete = false;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 242, 241);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(126, 99, 92);
-            colstatus.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(247, 242, 241);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(126, 99, 92);
+            colstatus.DefaultCellStyle = dataGridViewCellStyle6;
             colstatus.FillWeight = 22F;
             colstatus.HeaderText = "Status";
             colstatus.Items.AddRange(new object[] { "Em produção", "Agendado", "Atrasado" });
@@ -505,11 +505,11 @@
             // 
             // btacao
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(220, 238, 219);
-            btacao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(220, 238, 219);
+            btacao.DefaultCellStyle = dataGridViewCellStyle7;
             btacao.FillWeight = 14F;
             btacao.HeaderText = "Ação";
             btacao.Name = "btacao";
@@ -568,9 +568,9 @@
             panelEditarPedido.Controls.Add(txtClienteEditar);
             panelEditarPedido.Controls.Add(label1);
             panelEditarPedido.Controls.Add(lblTituloEditarPedido);
-            panelEditarPedido.Location = new Point(944, 112);
+            panelEditarPedido.Location = new Point(915, 112);
             panelEditarPedido.Name = "panelEditarPedido";
-            panelEditarPedido.Size = new Size(580, 365);
+            panelEditarPedido.Size = new Size(603, 409);
             panelEditarPedido.TabIndex = 13;
             panelEditarPedido.Visible = false;
             // 
@@ -578,26 +578,27 @@
             // 
             cbCategoriaEditar.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoriaEditar.FormattingEnabled = true;
-            cbCategoriaEditar.Location = new Point(10, 120);
+            cbCategoriaEditar.Location = new Point(14, 160);
             cbCategoriaEditar.Name = "cbCategoriaEditar";
             cbCategoriaEditar.Size = new Size(233, 23);
             cbCategoriaEditar.TabIndex = 18;
             // 
             // label7
             // 
-            label7.Location = new Point(15, 92);
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(201, 142, 124);
+            label7.Location = new Point(14, 132);
             label7.Name = "label7";
             label7.Size = new Size(72, 25);
             label7.TabIndex = 17;
             label7.Text = "Categoria:";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnCancelarEdicaoPedido
             // 
             btnCancelarEdicaoPedido.BackColor = Color.FromArgb(239, 229, 226);
             btnCancelarEdicaoPedido.FlatStyle = FlatStyle.Flat;
             btnCancelarEdicaoPedido.ForeColor = Color.FromArgb(111, 84, 75);
-            btnCancelarEdicaoPedido.Location = new Point(463, 315);
+            btnCancelarEdicaoPedido.Location = new Point(467, 355);
             btnCancelarEdicaoPedido.Name = "btnCancelarEdicaoPedido";
             btnCancelarEdicaoPedido.Size = new Size(100, 30);
             btnCancelarEdicaoPedido.TabIndex = 16;
@@ -609,7 +610,7 @@
             btnSalvarEdicaoPedido.BackColor = Color.FromArgb(201, 142, 124);
             btnSalvarEdicaoPedido.FlatStyle = FlatStyle.Flat;
             btnSalvarEdicaoPedido.ForeColor = Color.White;
-            btnSalvarEdicaoPedido.Location = new Point(15, 315);
+            btnSalvarEdicaoPedido.Location = new Point(19, 355);
             btnSalvarEdicaoPedido.Name = "btnSalvarEdicaoPedido";
             btnSalvarEdicaoPedido.Size = new Size(100, 30);
             btnSalvarEdicaoPedido.TabIndex = 15;
@@ -620,7 +621,7 @@
             // 
             lblValorTotalEditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValorTotalEditar.ForeColor = Color.FromArgb(111, 84, 75);
-            lblValorTotalEditar.Location = new Point(15, 260);
+            lblValorTotalEditar.Location = new Point(19, 300);
             lblValorTotalEditar.Name = "lblValorTotalEditar";
             lblValorTotalEditar.Size = new Size(105, 45);
             lblValorTotalEditar.TabIndex = 14;
@@ -628,16 +629,17 @@
             // 
             // lstItensEditar
             // 
+            lstItensEditar.ForeColor = Color.FromArgb(201, 142, 124);
             lstItensEditar.FormattingEnabled = true;
             lstItensEditar.ItemHeight = 15;
-            lstItensEditar.Location = new Point(323, 163);
+            lstItensEditar.Location = new Point(327, 203);
             lstItensEditar.Name = "lstItensEditar";
             lstItensEditar.Size = new Size(240, 79);
             lstItensEditar.TabIndex = 13;
             // 
             // btnRemoverItemEditar
             // 
-            btnRemoverItemEditar.Location = new Point(522, 263);
+            btnRemoverItemEditar.Location = new Point(526, 303);
             btnRemoverItemEditar.Name = "btnRemoverItemEditar";
             btnRemoverItemEditar.Size = new Size(41, 34);
             btnRemoverItemEditar.TabIndex = 12;
@@ -646,7 +648,7 @@
             // 
             // btnIncluirItemEditar
             // 
-            btnIncluirItemEditar.Location = new Point(323, 263);
+            btnIncluirItemEditar.Location = new Point(327, 303);
             btnIncluirItemEditar.Name = "btnIncluirItemEditar";
             btnIncluirItemEditar.Size = new Size(41, 34);
             btnIncluirItemEditar.TabIndex = 11;
@@ -655,88 +657,95 @@
             // 
             // txtValorEditar
             // 
-            txtValorEditar.Location = new Point(398, 115);
+            txtValorEditar.Location = new Point(402, 155);
             txtValorEditar.Name = "txtValorEditar";
             txtValorEditar.Size = new Size(165, 23);
             txtValorEditar.TabIndex = 10;
             // 
             // label6
             // 
-            label6.Location = new Point(398, 87);
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(201, 142, 124);
+            label6.Location = new Point(402, 132);
             label6.Name = "label6";
-            label6.Size = new Size(83, 25);
+            label6.Size = new Size(44, 25);
             label6.TabIndex = 9;
             label6.Text = "Valor Unitário:";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtQuantidadeEditar
             // 
-            txtQuantidadeEditar.Location = new Point(323, 115);
+            txtQuantidadeEditar.Location = new Point(327, 155);
             txtQuantidadeEditar.Name = "txtQuantidadeEditar";
             txtQuantidadeEditar.Size = new Size(67, 23);
             txtQuantidadeEditar.TabIndex = 8;
             // 
             // label5
             // 
-            label5.Location = new Point(323, 87);
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(201, 142, 124);
+            label5.Location = new Point(327, 132);
             label5.Name = "label5";
             label5.Size = new Size(37, 25);
             label5.TabIndex = 7;
             label5.Text = "Qtd:";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cbProdutoEditar
             // 
             cbProdutoEditar.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProdutoEditar.FormattingEnabled = true;
-            cbProdutoEditar.Location = new Point(10, 192);
+            cbProdutoEditar.Location = new Point(14, 232);
             cbProdutoEditar.Name = "cbProdutoEditar";
             cbProdutoEditar.Size = new Size(233, 23);
             cbProdutoEditar.TabIndex = 6;
             // 
             // label4
             // 
-            label4.Location = new Point(10, 162);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(201, 142, 124);
+            label4.Location = new Point(14, 203);
             label4.Name = "label4";
-            label4.Size = new Size(51, 25);
+            label4.Size = new Size(56, 25);
             label4.TabIndex = 5;
             label4.Text = "Produto:\r\n";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtEntregaEditar
             // 
-            txtEntregaEditar.Location = new Point(323, 61);
+            txtEntregaEditar.Location = new Point(327, 101);
             txtEntregaEditar.Name = "txtEntregaEditar";
             txtEntregaEditar.Size = new Size(240, 23);
             txtEntregaEditar.TabIndex = 4;
             // 
             // label3
             // 
-            label3.Location = new Point(323, 38);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(201, 142, 124);
+            label3.Location = new Point(327, 78);
             label3.Name = "label3";
             label3.Size = new Size(51, 25);
             label3.TabIndex = 3;
             label3.Text = "Entrega:";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtClienteEditar
             // 
-            txtClienteEditar.Location = new Point(15, 60);
+            txtClienteEditar.Location = new Point(14, 100);
             txtClienteEditar.Name = "txtClienteEditar";
-            txtClienteEditar.Size = new Size(228, 23);
+            txtClienteEditar.Size = new Size(233, 23);
             txtClienteEditar.TabIndex = 2;
             // 
             // label1
             // 
-            label1.Location = new Point(15, 38);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(201, 142, 124);
+            label1.Location = new Point(14, 72);
             label1.Name = "label1";
             label1.Size = new Size(51, 25);
             label1.TabIndex = 1;
             label1.Text = "Cliente:";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTituloEditarPedido
             // 
+            lblTituloEditarPedido.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloEditarPedido.ForeColor = Color.FromArgb(201, 142, 124);
             lblTituloEditarPedido.Location = new Point(104, 13);
             lblTituloEditarPedido.Name = "lblTituloEditarPedido";
             lblTituloEditarPedido.Size = new Size(350, 25);

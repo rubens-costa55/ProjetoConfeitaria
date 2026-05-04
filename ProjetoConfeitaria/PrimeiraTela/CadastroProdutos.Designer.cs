@@ -48,6 +48,7 @@
             label1 = new Label();
             label2 = new Label();
             panel3 = new Panel();
+            btnAbrirCategoria = new Button();
             button1 = new Button();
             label5 = new Label();
             cbCategoria = new ComboBox();
@@ -64,6 +65,12 @@
             dgvprodutos = new DataGridView();
             txtpesquisarprod = new TextBox();
             label6 = new Label();
+            panelNovaCategoria = new Panel();
+            btnCancelarCategoria = new Button();
+            btnSalvarCategoria = new Button();
+            txtNovaCategoria = new TextBox();
+            lblNomeCategoria = new Label();
+            lblTituloCategoria = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -76,6 +83,7 @@
             panel3.SuspendLayout();
             panelprodutoslateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvprodutos).BeginInit();
+            panelNovaCategoria.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -310,6 +318,7 @@
             // 
             panel3.BackColor = Color.FromArgb(252, 250, 249);
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(btnAbrirCategoria);
             panel3.Controls.Add(button1);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(cbCategoria);
@@ -321,6 +330,19 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(774, 560);
             panel3.TabIndex = 3;
+            // 
+            // btnAbrirCategoria
+            // 
+            btnAbrirCategoria.BackColor = Color.FromArgb(243, 232, 228);
+            btnAbrirCategoria.FlatStyle = FlatStyle.Flat;
+            btnAbrirCategoria.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAbrirCategoria.ForeColor = Color.FromArgb(201, 142, 124);
+            btnAbrirCategoria.Location = new Point(651, 400);
+            btnAbrirCategoria.Name = "btnAbrirCategoria";
+            btnAbrirCategoria.Size = new Size(105, 49);
+            btnAbrirCategoria.TabIndex = 7;
+            btnAbrirCategoria.Text = "Cadastrar\r\ncategoria";
+            btnAbrirCategoria.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -509,12 +531,79 @@
             label6.TabIndex = 1;
             label6.Text = "Produtos cadastrados";
             // 
+            // panelNovaCategoria
+            // 
+            panelNovaCategoria.BorderStyle = BorderStyle.FixedSingle;
+            panelNovaCategoria.Controls.Add(btnCancelarCategoria);
+            panelNovaCategoria.Controls.Add(btnSalvarCategoria);
+            panelNovaCategoria.Controls.Add(txtNovaCategoria);
+            panelNovaCategoria.Controls.Add(lblNomeCategoria);
+            panelNovaCategoria.Controls.Add(lblTituloCategoria);
+            panelNovaCategoria.ForeColor = Color.FromArgb(252, 250, 249);
+            panelNovaCategoria.Location = new Point(841, 197);
+            panelNovaCategoria.Name = "panelNovaCategoria";
+            panelNovaCategoria.Size = new Size(404, 201);
+            panelNovaCategoria.TabIndex = 5;
+            panelNovaCategoria.Visible = false;
+            // 
+            // btnCancelarCategoria
+            // 
+            btnCancelarCategoria.BackColor = Color.FromArgb(239, 229, 226);
+            btnCancelarCategoria.FlatStyle = FlatStyle.Flat;
+            btnCancelarCategoria.ForeColor = Color.FromArgb(111, 84, 75);
+            btnCancelarCategoria.Location = new Point(267, 140);
+            btnCancelarCategoria.Name = "btnCancelarCategoria";
+            btnCancelarCategoria.Size = new Size(100, 32);
+            btnCancelarCategoria.TabIndex = 4;
+            btnCancelarCategoria.Text = "Cancelar";
+            btnCancelarCategoria.UseVisualStyleBackColor = false;
+            // 
+            // btnSalvarCategoria
+            // 
+            btnSalvarCategoria.BackColor = Color.FromArgb(201, 142, 124);
+            btnSalvarCategoria.FlatStyle = FlatStyle.Flat;
+            btnSalvarCategoria.Location = new Point(42, 142);
+            btnSalvarCategoria.Name = "btnSalvarCategoria";
+            btnSalvarCategoria.Size = new Size(100, 32);
+            btnSalvarCategoria.TabIndex = 3;
+            btnSalvarCategoria.Text = "Salvar";
+            btnSalvarCategoria.UseVisualStyleBackColor = false;
+            // 
+            // txtNovaCategoria
+            // 
+            txtNovaCategoria.Location = new Point(42, 94);
+            txtNovaCategoria.Name = "txtNovaCategoria";
+            txtNovaCategoria.Size = new Size(325, 23);
+            txtNovaCategoria.TabIndex = 2;
+            // 
+            // lblNomeCategoria
+            // 
+            lblNomeCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNomeCategoria.ForeColor = Color.FromArgb(201, 142, 124);
+            lblNomeCategoria.Location = new Point(42, 62);
+            lblNomeCategoria.Name = "lblNomeCategoria";
+            lblNomeCategoria.Size = new Size(135, 17);
+            lblNomeCategoria.TabIndex = 1;
+            lblNomeCategoria.Text = "Nome da categoria:\r\n";
+            // 
+            // lblTituloCategoria
+            // 
+            lblTituloCategoria.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloCategoria.ForeColor = Color.FromArgb(201, 142, 124);
+            lblTituloCategoria.Location = new Point(42, 13);
+            lblTituloCategoria.Name = "lblTituloCategoria";
+            lblTituloCategoria.Size = new Size(360, 30);
+            lblTituloCategoria.TabIndex = 0;
+            lblTituloCategoria.Text = "NOVA CATEGORIA";
+            lblTituloCategoria.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // CadastroProdutos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 242, 241);
             ClientSize = new Size(1584, 861);
+            Controls.Add(panelNovaCategoria);
             Controls.Add(panelprodutoslateral);
             Controls.Add(panel3);
             Controls.Add(label2);
@@ -538,6 +627,8 @@
             panelprodutoslateral.ResumeLayout(false);
             panelprodutoslateral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvprodutos).EndInit();
+            panelNovaCategoria.ResumeLayout(false);
+            panelNovaCategoria.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -578,5 +669,12 @@
         private DataGridView dgvprodutos;
         private Button btnremover;
         private PictureBox pictureBox4;
+        private Button btnAbrirCategoria;
+        private Panel panelNovaCategoria;
+        private TextBox txtNovaCategoria;
+        private Label lblNomeCategoria;
+        private Label lblTituloCategoria;
+        private Button btnCancelarCategoria;
+        private Button btnSalvarCategoria;
     }
 }
