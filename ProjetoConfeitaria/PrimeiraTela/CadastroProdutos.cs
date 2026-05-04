@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -234,9 +235,88 @@ namespace PrimeiraTela
             SalvarProduto();
         }
 
+        private string NormalizarTexto(string texto)
+        {
+            if (texto == null)
+                return "";
+
+            texto = texto.Trim();
+            texto = Regex.Replace(texto, @"\s+", " ");
+
+            return texto;
+        }
+
+        private bool ProdutoJaCadastrado(string nomeProduto, int idProdutoAtual)
+        {
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                try
+                {
+                    con.Open();
+
+                    string sql = @"
+                        SELECT COUNT(*)
+                        FROM produtos
+                        WHERE LOWER(TRIM(NomeProduto)) = LOWER(TRIM(@nome))
+                          AND id_produto <> @id_produto_atual;
+                    ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", nomeProduto);
+                        cmd.Parameters.AddWithValue("@id_produto_atual", idProdutoAtual);
+
+                        int total = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        return total > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao verificar produto duplicado: " + ex.Message);
+                    return true;
+                }
+            }
+        }
+
+        private bool CategoriaJaCadastrada(string nomeCategoria)
+        {
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                try
+                {
+                    con.Open();
+
+                    string sql = @"
+                        SELECT COUNT(*)
+                        FROM categorias
+                        WHERE LOWER(TRIM(nome_categoria)) = LOWER(TRIM(@nome_categoria));
+                    ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@nome_categoria", nomeCategoria);
+
+                        int total = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        return total > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao verificar categoria duplicada: " + ex.Message);
+                    return true;
+                }
+            }
+        }
+
         private void SalvarProduto()
         {
-            string nomeProduto = textBox1.Text.Trim();
+            string nomeProduto = NormalizarTexto(textBox1.Text);
             string precoTexto = textBox2.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nomeProduto))
@@ -266,6 +346,13 @@ namespace PrimeiraTela
             {
                 MessageBox.Show("O preço precisa ser maior que zero.");
                 textBox2.Focus();
+                return;
+            }
+
+            if (ProdutoJaCadastrado(nomeProduto, idProdutoSelecionado))
+            {
+                MessageBox.Show("produto já cadastrado");
+                textBox1.Focus();
                 return;
             }
 
@@ -362,11 +449,18 @@ namespace PrimeiraTela
 
         private void SalvarCategoria()
         {
-            string nomeCategoria = txtNovaCategoria.Text.Trim();
+            string nomeCategoria = NormalizarTexto(txtNovaCategoria.Text);
 
             if (string.IsNullOrWhiteSpace(nomeCategoria))
             {
                 MessageBox.Show("Digite o nome da categoria.");
+                txtNovaCategoria.Focus();
+                return;
+            }
+
+            if (CategoriaJaCadastrada(nomeCategoria))
+            {
+                MessageBox.Show("categoria já cadastrada");
                 txtNovaCategoria.Focus();
                 return;
             }
@@ -422,7 +516,7 @@ namespace PrimeiraTela
                 {
                     if (ex.Number == 1062)
                     {
-                        MessageBox.Show("Essa categoria já está cadastrada.");
+                        MessageBox.Show("categoria já cadastrada");
                         txtNovaCategoria.Focus();
                         return;
                     }
