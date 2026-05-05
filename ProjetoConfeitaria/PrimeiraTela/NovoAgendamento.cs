@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -11,6 +12,7 @@ namespace PrimeiraTela
     public partial class NovoAgendamento : Form
     {
         private bool carregandoCategorias = false;
+        private bool restaurandoRascunho = false;
 
         private const string PlaceholderNome = "Ex.: Ana Paula Oliveira";
         private const string PlaceholderTelefone = "Digite o telefone";
@@ -25,13 +27,30 @@ namespace PrimeiraTela
             public decimal ValorItem { get; set; }
         }
 
+        private static bool rascunhoAtivo = false;
+        private static string rascunhoNomeCliente = "";
+        private static string rascunhoTelefone = "";
+        private static string rascunhoDataHora = "";
+        private static string rascunhoQuantidade = "";
+        private static int rascunhoCategoriaId = 0;
+        private static int rascunhoProdutoId = 0;
+        private static List<ItemCarrinho> rascunhoItens = new List<ItemCarrinho>();
+
         public NovoAgendamento()
         {
             InitializeComponent();
 
             ConfigurarCarrinho();
             CarregarCategorias();
-            LimparPedidoCompleto();
+
+            if (rascunhoAtivo)
+            {
+                RestaurarRascunhoTemporario();
+            }
+            else
+            {
+                LimparPedidoCompleto();
+            }
         }
 
         private void ConfigurarCarrinho()
@@ -66,8 +85,6 @@ namespace PrimeiraTela
             Color cabecalho = Color.FromArgb(239, 229, 226);
             Color textoCabecalho = Color.FromArgb(95, 75, 69);
 
-            // Cor para mostrar qual item está selecionado no carrinho.
-            // Não fica azul, fica em rosa dentro da paleta do projeto.
             Color selecao = Color.FromArgb(232, 174, 184);
             Color textoSelecao = Color.White;
 
@@ -391,7 +408,7 @@ namespace PrimeiraTela
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (carregandoCategorias)
+            if (carregandoCategorias || restaurandoRascunho)
                 return;
 
             if (sender != cbCategoriaAgendamento)
@@ -478,9 +495,10 @@ namespace PrimeiraTela
             txtQuantidade.Clear();
             cbProdutoAgendamento.SelectedIndex = -1;
 
-            // Remove a seleção automática depois de incluir.
             dgvCarrinho.ClearSelection();
             dgvCarrinho.CurrentCell = null;
+
+            SalvarRascunhoTemporario();
         }
 
         private void btnSalvarNA_Click(object sender, EventArgs e)
@@ -620,6 +638,7 @@ namespace PrimeiraTela
                     );
 
                     LimparPedidoCompleto();
+                    LimparRascunhoTemporario();
                 }
                 catch (Exception ex)
                 {
@@ -671,6 +690,8 @@ namespace PrimeiraTela
 
             dgvCarrinho.ClearSelection();
             dgvCarrinho.CurrentCell = null;
+
+            SalvarRascunhoTemporario();
         }
 
         private decimal CalcularTotalCarrinho()
@@ -719,6 +740,209 @@ namespace PrimeiraTela
             txtNomeCliente.Focus();
         }
 
+        private bool TextoPreenchido(TextBox campo, string placeholder)
+        {
+            if (campo == null)
+                return false;
+
+            string texto = campo.Text.Trim();
+
+            return !string.IsNullOrWhiteSpace(texto) && texto != placeholder;
+        }
+
+        private bool ExisteAlgumDadoParaRascunho()
+        {
+            if (TextoPreenchido(txtNomeCliente, PlaceholderNome))
+                return true;
+
+            if (TextoPreenchido(txtTelefone, PlaceholderTelefone))
+                return true;
+
+            if (TextoPreenchido(txtDataeHora, PlaceholderDataHora))
+                return true;
+
+            if (!string.IsNullOrWhiteSpace(txtQuantidade.Text))
+                return true;
+
+            if (cbCategoriaAgendamento.SelectedValue != null && cbCategoriaAgendamento.SelectedIndex >= 0)
+                return true;
+
+            if (cbProdutoAgendamento.SelectedValue != null && cbProdutoAgendamento.SelectedIndex >= 0)
+                return true;
+
+            if (dgvCarrinho.Rows.Count > 0)
+                return true;
+
+            return false;
+        }
+
+        private ItemCarrinho CopiarItem(ItemCarrinho item)
+        {
+            if (item == null)
+                return null;
+
+            return new ItemCarrinho
+            {
+                IdProduto = item.IdProduto,
+                NomeProduto = item.NomeProduto,
+                Quantidade = item.Quantidade,
+                ValorUnitario = item.ValorUnitario,
+                ValorItem = item.ValorItem
+            };
+        }
+
+        private void SalvarRascunhoTemporario()
+        {
+            if (!ExisteAlgumDadoParaRascunho())
+            {
+                LimparRascunhoTemporario();
+                return;
+            }
+
+            rascunhoAtivo = true;
+
+            rascunhoNomeCliente = txtNomeCliente.Text;
+            rascunhoTelefone = txtTelefone.Text;
+            rascunhoDataHora = txtDataeHora.Text;
+            rascunhoQuantidade = txtQuantidade.Text;
+
+            rascunhoCategoriaId = 0;
+            rascunhoProdutoId = 0;
+
+            if (cbCategoriaAgendamento.SelectedValue != null)
+            {
+                int.TryParse(cbCategoriaAgendamento.SelectedValue.ToString(), out rascunhoCategoriaId);
+            }
+
+            if (cbProdutoAgendamento.SelectedValue != null)
+            {
+                int.TryParse(cbProdutoAgendamento.SelectedValue.ToString(), out rascunhoProdutoId);
+            }
+
+            rascunhoItens.Clear();
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                ItemCarrinho item = row.Tag as ItemCarrinho;
+
+                if (item != null)
+                {
+                    rascunhoItens.Add(CopiarItem(item));
+                }
+                else
+                {
+                    try
+                    {
+                        string nomeProduto = row.Cells["ColProduto"].Value?.ToString() ?? "";
+                        int quantidade = Convert.ToInt32(row.Cells["ColQuantidade"].Value);
+                        decimal valorItem = Convert.ToDecimal(row.Cells["ColValor"].Value);
+                        decimal valorUnitario = quantidade > 0 ? valorItem / quantidade : 0;
+
+                        rascunhoItens.Add(new ItemCarrinho
+                        {
+                            IdProduto = 0,
+                            NomeProduto = nomeProduto,
+                            Quantidade = quantidade,
+                            ValorUnitario = valorUnitario,
+                            ValorItem = valorItem
+                        });
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private void RestaurarRascunhoTemporario()
+        {
+            restaurandoRascunho = true;
+
+            try
+            {
+                txtNomeCliente.Text = string.IsNullOrWhiteSpace(rascunhoNomeCliente) ? PlaceholderNome : rascunhoNomeCliente;
+                txtTelefone.Text = string.IsNullOrWhiteSpace(rascunhoTelefone) ? PlaceholderTelefone : rascunhoTelefone;
+                txtDataeHora.Text = string.IsNullOrWhiteSpace(rascunhoDataHora) ? PlaceholderDataHora : rascunhoDataHora;
+                txtQuantidade.Text = rascunhoQuantidade;
+
+                if (rascunhoCategoriaId > 0 && cbCategoriaAgendamento.DataSource != null)
+                {
+                    try
+                    {
+                        cbCategoriaAgendamento.SelectedValue = rascunhoCategoriaId;
+                        CarregarProdutosPorCategoria(rascunhoCategoriaId);
+                    }
+                    catch
+                    {
+                        cbCategoriaAgendamento.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    cbCategoriaAgendamento.SelectedIndex = -1;
+                    cbProdutoAgendamento.DataSource = null;
+                }
+
+                if (rascunhoProdutoId > 0 && cbProdutoAgendamento.DataSource != null)
+                {
+                    try
+                    {
+                        cbProdutoAgendamento.SelectedValue = rascunhoProdutoId;
+                    }
+                    catch
+                    {
+                        cbProdutoAgendamento.SelectedIndex = -1;
+                    }
+                }
+
+                dgvCarrinho.Rows.Clear();
+
+                foreach (ItemCarrinho itemSalvo in rascunhoItens)
+                {
+                    ItemCarrinho item = CopiarItem(itemSalvo);
+
+                    if (item == null)
+                        continue;
+
+                    int indiceLinha = dgvCarrinho.Rows.Add(item.NomeProduto, item.Quantidade, item.ValorItem);
+                    dgvCarrinho.Rows[indiceLinha].Tag = item;
+                }
+
+                AtualizarTotal();
+
+                dgvCarrinho.ClearSelection();
+                dgvCarrinho.CurrentCell = null;
+            }
+            finally
+            {
+                restaurandoRascunho = false;
+            }
+        }
+
+        private void LimparRascunhoTemporario()
+        {
+            rascunhoAtivo = false;
+            rascunhoNomeCliente = "";
+            rascunhoTelefone = "";
+            rascunhoDataHora = "";
+            rascunhoQuantidade = "";
+            rascunhoCategoriaId = 0;
+            rascunhoProdutoId = 0;
+            rascunhoItens.Clear();
+        }
+
+        private void AbrirTelaMantendoRascunho(Form tela)
+        {
+            SalvarRascunhoTemporario();
+
+            tela.Show();
+            this.Hide();
+        }
+
         private void txtNomeCliente_Click(object sender, EventArgs e)
         {
             if (txtNomeCliente.Text == PlaceholderNome)
@@ -749,37 +973,27 @@ namespace PrimeiraTela
 
         private void btnMenuNA_Click(object sender, EventArgs e)
         {
-            MenuPrincipal telaprincipal = new MenuPrincipal();
-            telaprincipal.Show();
-            this.Hide();
+            AbrirTelaMantendoRascunho(new MenuPrincipal());
         }
 
         private void btnPedidosAtuaisNA_Click(object sender, EventArgs e)
         {
-            PedidosAtuais telaPedidosAtuais = new PedidosAtuais();
-            telaPedidosAtuais.Show();
-            this.Hide();
+            AbrirTelaMantendoRascunho(new PedidosAtuais());
         }
 
         private void btnHistoricoNA_Click(object sender, EventArgs e)
         {
-            FrmHistoricoPedidos telahistorico = new FrmHistoricoPedidos();
-            telahistorico.Show();
-            this.Hide();
+            AbrirTelaMantendoRascunho(new FrmHistoricoPedidos());
         }
 
         private void btnSairNA_Click(object sender, EventArgs e)
         {
-            TelaLogin login = new TelaLogin();
-            login.Show();
-            this.Hide();
+            AbrirTelaMantendoRascunho(new TelaLogin());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CadastroProdutos telacadastro = new CadastroProdutos();
-            telacadastro.Show();
-            this.Hide();
+            AbrirTelaMantendoRascunho(new CadastroProdutos());
         }
 
         private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
