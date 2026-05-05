@@ -22,8 +22,10 @@ namespace PrimeiraTela
         {
             ConfigurarGrid();
             ConfigurarEventos();
+
             CarregarCategoriasCadastro();
             CarregarCategoriasFiltro();
+            CarregarCategoriasLista();
             CarregarProdutos();
 
             panelNovaCategoria.Visible = false;
@@ -57,6 +59,15 @@ namespace PrimeiraTela
 
             btnCancelarCategoria.Click -= btnCancelarCategoria_Click;
             btnCancelarCategoria.Click += btnCancelarCategoria_Click;
+
+            btnRemoverCategoria.Click -= btnRemoverCategoria_Click;
+            btnRemoverCategoria.Click += btnRemoverCategoria_Click;
+
+            textBox1.KeyPress -= BloquearCaracteresInvalidos_KeyPress;
+            textBox1.KeyPress += BloquearCaracteresInvalidos_KeyPress;
+
+            txtNovaCategoria.KeyPress -= BloquearCaracteresInvalidos_KeyPress;
+            txtNovaCategoria.KeyPress += BloquearCaracteresInvalidos_KeyPress;
         }
 
         private void ConfigurarGrid()
@@ -171,6 +182,38 @@ namespace PrimeiraTela
             }
         }
 
+        private void CarregarCategoriasLista()
+        {
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                try
+                {
+                    con.Open();
+
+                    string sql = @"
+                        SELECT id_categoria, nome_categoria
+                        FROM categorias
+                        ORDER BY nome_categoria;
+                    ";
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(sql, con);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    lstCategorias.DataSource = dt;
+                    lstCategorias.DisplayMember = "nome_categoria";
+                    lstCategorias.ValueMember = "id_categoria";
+                    lstCategorias.ClearSelected();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao carregar lista de categorias: " + ex.Message);
+                }
+            }
+        }
+
         private void CarregarProdutos(string busca = "", int idCategoria = 0)
         {
             conexao conexao = new conexao();
@@ -244,6 +287,50 @@ namespace PrimeiraTela
             texto = Regex.Replace(texto, @"\s+", " ");
 
             return texto;
+        }
+
+        private bool CaracterePermitidoNome(char caractere)
+        {
+            if (char.IsLetter(caractere))
+                return true;
+
+            if (char.IsWhiteSpace(caractere))
+                return true;
+
+            if (caractere == '-' || caractere == '(' || caractere == ')')
+                return true;
+
+            return false;
+        }
+
+        private bool NomeProdutoOuCategoriaValido(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return false;
+
+            bool temLetra = false;
+
+            foreach (char caractere in texto)
+            {
+                if (char.IsLetter(caractere))
+                    temLetra = true;
+
+                if (!CaracterePermitidoNome(caractere))
+                    return false;
+            }
+
+            return temLetra;
+        }
+
+        private void BloquearCaracteresInvalidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (!CaracterePermitidoNome(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private bool ProdutoJaCadastrado(string nomeProduto, int idProdutoAtual)
@@ -322,6 +409,18 @@ namespace PrimeiraTela
             if (string.IsNullOrWhiteSpace(nomeProduto))
             {
                 MessageBox.Show("Digite o nome do produto.");
+                textBox1.Focus();
+                return;
+            }
+
+            if (!NomeProdutoOuCategoriaValido(nomeProduto))
+            {
+                MessageBox.Show(
+                    "O nome do produto não pode conter números ou caracteres especiais.\n\n" +
+                    "Use apenas letras, espaços, acentos, hífen e parênteses.\n\n" +
+                    "Exemplo: Bolo de Chocolate"
+                );
+
                 textBox1.Focus();
                 return;
             }
@@ -430,6 +529,8 @@ namespace PrimeiraTela
         {
             txtNovaCategoria.Clear();
 
+            CarregarCategoriasLista();
+
             panelNovaCategoria.Visible = true;
             panelNovaCategoria.BringToFront();
 
@@ -439,6 +540,12 @@ namespace PrimeiraTela
         private void btnCancelarCategoria_Click(object sender, EventArgs e)
         {
             txtNovaCategoria.Clear();
+
+            if (lstCategorias.DataSource != null)
+            {
+                lstCategorias.ClearSelected();
+            }
+
             panelNovaCategoria.Visible = false;
         }
 
@@ -454,6 +561,18 @@ namespace PrimeiraTela
             if (string.IsNullOrWhiteSpace(nomeCategoria))
             {
                 MessageBox.Show("Digite o nome da categoria.");
+                txtNovaCategoria.Focus();
+                return;
+            }
+
+            if (!NomeProdutoOuCategoriaValido(nomeCategoria))
+            {
+                MessageBox.Show(
+                    "O nome da categoria não pode conter números ou caracteres especiais.\n\n" +
+                    "Use apenas letras, espaços, acentos, hífen e parênteses.\n\n" +
+                    "Exemplo: Bolos (Sabores)"
+                );
+
                 txtNovaCategoria.Focus();
                 return;
             }
@@ -501,16 +620,18 @@ namespace PrimeiraTela
 
                     MessageBox.Show("Categoria cadastrada com sucesso.");
 
-                    panelNovaCategoria.Visible = false;
                     txtNovaCategoria.Clear();
 
                     CarregarCategoriasCadastro();
                     CarregarCategoriasFiltro();
+                    CarregarCategoriasLista();
 
                     if (idNovaCategoria > 0)
                     {
                         cbCategoria.SelectedValue = idNovaCategoria;
                     }
+
+                    txtNovaCategoria.Focus();
                 }
                 catch (MySqlException ex)
                 {
@@ -526,6 +647,91 @@ namespace PrimeiraTela
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao salvar categoria: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnRemoverCategoria_Click(object sender, EventArgs e)
+        {
+            RemoverCategoriaSelecionada();
+        }
+
+        private void RemoverCategoriaSelecionada()
+        {
+            if (lstCategorias.SelectedValue == null || lstCategorias.SelectedIndex < 0)
+            {
+                MessageBox.Show("Selecione uma categoria para remover.");
+                lstCategorias.Focus();
+                return;
+            }
+
+            int idCategoria = Convert.ToInt32(lstCategorias.SelectedValue);
+            string nomeCategoria = lstCategorias.Text;
+
+            DialogResult resposta = MessageBox.Show(
+                "Deseja remover a categoria '" + nomeCategoria + "'?",
+                "Confirmar remoção",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resposta != DialogResult.Yes)
+                return;
+
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                try
+                {
+                    con.Open();
+
+                    string verificarUso = @"
+                        SELECT COUNT(*)
+                        FROM produtos
+                        WHERE id_categoria = @id_categoria;
+                    ";
+
+                    using (MySqlCommand cmdVerificar = new MySqlCommand(verificarUso, con))
+                    {
+                        cmdVerificar.Parameters.AddWithValue("@id_categoria", idCategoria);
+
+                        int totalProdutos = Convert.ToInt32(cmdVerificar.ExecuteScalar());
+
+                        if (totalProdutos > 0)
+                        {
+                            MessageBox.Show(
+                                "Essa categoria possui produtos cadastrados e não pode ser removida.\n\n" +
+                                "Remova ou altere os produtos dessa categoria antes de excluir."
+                            );
+
+                            return;
+                        }
+                    }
+
+                    string sqlDelete = @"
+                        DELETE FROM categorias
+                        WHERE id_categoria = @id_categoria;
+                    ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sqlDelete, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Categoria removida com sucesso.");
+
+                    txtNovaCategoria.Clear();
+
+                    CarregarCategoriasCadastro();
+                    CarregarCategoriasFiltro();
+                    CarregarCategoriasLista();
+                    CarregarProdutos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao remover categoria: " + ex.Message);
                 }
             }
         }

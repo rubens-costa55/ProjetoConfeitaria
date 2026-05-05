@@ -39,7 +39,14 @@ namespace PrimeiraTela
             dgvPedidos.MultiSelect = false;
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
+            dgvPedidos.AllowUserToResizeRows = false;
+            dgvPedidos.AllowUserToResizeColumns = false;
             dgvPedidos.ReadOnly = true;
+            dgvPedidos.RowHeadersVisible = false;
+            dgvPedidos.EnableHeadersVisualStyles = false;
+            dgvPedidos.BackgroundColor = Color.FromArgb(252, 250, 249);
+            dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
+            dgvPedidos.BorderStyle = BorderStyle.None;
 
             dgvPedidos.Columns["colcliente"].DataPropertyName = "NomeCliente";
             dgvPedidos.Columns["colpedido"].DataPropertyName = "Produto";
@@ -48,17 +55,54 @@ namespace PrimeiraTela
 
             dgvPedidos.Columns["colvalor"].DefaultCellStyle.Format = "C2";
 
-            dgvPedidos.DefaultCellStyle.ForeColor = Color.FromArgb(111, 84, 75);
-            dgvPedidos.RowsDefaultCellStyle.ForeColor = Color.FromArgb(111, 84, 75);
-            dgvPedidos.AlternatingRowsDefaultCellStyle.ForeColor = Color.FromArgb(111, 84, 75);
+            Color fundoLinha = Color.FromArgb(252, 250, 249);
+            Color fundoSelecionado = Color.FromArgb(243, 232, 228);
+            Color texto = Color.FromArgb(111, 84, 75);
+            Color fundoCabecalho = Color.FromArgb(239, 229, 226);
+            Color textoCabecalho = Color.FromArgb(95, 75, 69);
 
-            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dgvPedidos.DefaultCellStyle.BackColor = fundoLinha;
+            dgvPedidos.DefaultCellStyle.ForeColor = texto;
+            dgvPedidos.DefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvPedidos.DefaultCellStyle.SelectionForeColor = texto;
+
+            dgvPedidos.RowsDefaultCellStyle.BackColor = fundoLinha;
+            dgvPedidos.RowsDefaultCellStyle.ForeColor = texto;
+            dgvPedidos.RowsDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvPedidos.RowsDefaultCellStyle.SelectionForeColor = texto;
+
+            dgvPedidos.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dgvPedidos.AlternatingRowsDefaultCellStyle.ForeColor = texto;
+            dgvPedidos.AlternatingRowsDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvPedidos.AlternatingRowsDefaultCellStyle.SelectionForeColor = texto;
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = fundoCabecalho;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = textoCabecalho;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionBackColor = fundoCabecalho;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionForeColor = textoCabecalho;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
+
+            dgvPedidos.RowHeadersDefaultCellStyle.BackColor = fundoLinha;
+            dgvPedidos.RowHeadersDefaultCellStyle.ForeColor = texto;
+            dgvPedidos.RowHeadersDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvPedidos.RowHeadersDefaultCellStyle.SelectionForeColor = texto;
+
+            foreach (DataGridViewColumn coluna in dgvPedidos.Columns)
+            {
+                coluna.ReadOnly = true;
+
+                // Mantém a setinha/ordenação no cabeçalho da coluna.
+                coluna.SortMode = DataGridViewColumnSortMode.Automatic;
+            }
+
+            dgvPedidos.ClearSelection();
+            dgvPedidos.CurrentCell = null;
         }
 
         private void ConfigurarFiltros()
         {
             cbFiltrosHistorico.SelectedIndexChanged -= cbFiltrosHistorico_SelectedIndexChanged;
+            cbFiltrosHistorico.SelectedIndexChanged -= cbFiltrosHistorico_SelectedIndexChanged_1;
 
             cbFiltrosHistorico.Items.Clear();
             cbFiltrosHistorico.Items.Add("Filtros...");
@@ -145,6 +189,13 @@ namespace PrimeiraTela
                     adapter.Fill(dt);
 
                     dgvPedidos.DataSource = dt;
+
+                    dgvPedidos.ClearSelection();
+
+                    if (dgvPedidos.Rows.Count > 0)
+                    {
+                        dgvPedidos.CurrentCell = null;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -343,13 +394,15 @@ namespace PrimeiraTela
 
         private void btnremover_Click(object sender, EventArgs e)
         {
-            if (dgvPedidos.CurrentRow == null)
+            if (dgvPedidos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um registro para remover.");
                 return;
             }
 
-            DataRowView linha = dgvPedidos.CurrentRow.DataBoundItem as DataRowView;
+            DataGridViewRow rowSelecionada = dgvPedidos.SelectedRows[0];
+
+            DataRowView linha = rowSelecionada.DataBoundItem as DataRowView;
 
             if (linha == null)
             {

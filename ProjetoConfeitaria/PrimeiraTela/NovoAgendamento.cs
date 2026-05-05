@@ -66,22 +66,27 @@ namespace PrimeiraTela
             Color cabecalho = Color.FromArgb(239, 229, 226);
             Color textoCabecalho = Color.FromArgb(95, 75, 69);
 
+            // Cor para mostrar qual item está selecionado no carrinho.
+            // Não fica azul, fica em rosa dentro da paleta do projeto.
+            Color selecao = Color.FromArgb(232, 174, 184);
+            Color textoSelecao = Color.White;
+
             dgvCarrinho.BackgroundColor = fundo;
 
             dgvCarrinho.DefaultCellStyle.BackColor = fundo;
             dgvCarrinho.DefaultCellStyle.ForeColor = texto;
-            dgvCarrinho.DefaultCellStyle.SelectionBackColor = fundo;
-            dgvCarrinho.DefaultCellStyle.SelectionForeColor = texto;
+            dgvCarrinho.DefaultCellStyle.SelectionBackColor = selecao;
+            dgvCarrinho.DefaultCellStyle.SelectionForeColor = textoSelecao;
 
             dgvCarrinho.RowsDefaultCellStyle.BackColor = fundo;
             dgvCarrinho.RowsDefaultCellStyle.ForeColor = texto;
-            dgvCarrinho.RowsDefaultCellStyle.SelectionBackColor = fundo;
-            dgvCarrinho.RowsDefaultCellStyle.SelectionForeColor = texto;
+            dgvCarrinho.RowsDefaultCellStyle.SelectionBackColor = selecao;
+            dgvCarrinho.RowsDefaultCellStyle.SelectionForeColor = textoSelecao;
 
             dgvCarrinho.AlternatingRowsDefaultCellStyle.BackColor = fundo;
             dgvCarrinho.AlternatingRowsDefaultCellStyle.ForeColor = texto;
-            dgvCarrinho.AlternatingRowsDefaultCellStyle.SelectionBackColor = fundo;
-            dgvCarrinho.AlternatingRowsDefaultCellStyle.SelectionForeColor = texto;
+            dgvCarrinho.AlternatingRowsDefaultCellStyle.SelectionBackColor = selecao;
+            dgvCarrinho.AlternatingRowsDefaultCellStyle.SelectionForeColor = textoSelecao;
 
             dgvCarrinho.ColumnHeadersDefaultCellStyle.BackColor = cabecalho;
             dgvCarrinho.ColumnHeadersDefaultCellStyle.ForeColor = textoCabecalho;
@@ -269,7 +274,7 @@ namespace PrimeiraTela
         {
             dataEntrega = DateTime.MinValue;
 
-            if (string.IsNullOrWhiteSpace(txtDataeHora.Text))
+            if (CampoVazio(txtDataeHora, PlaceholderDataHora))
             {
                 MessageBox.Show(
                     "(Data e Hora da entrega vazio)",
@@ -473,12 +478,9 @@ namespace PrimeiraTela
             txtQuantidade.Clear();
             cbProdutoAgendamento.SelectedIndex = -1;
 
+            // Remove a seleção automática depois de incluir.
             dgvCarrinho.ClearSelection();
-
-            if (dgvCarrinho.Rows.Count > 0)
-            {
-                dgvCarrinho.CurrentCell = null;
-            }
+            dgvCarrinho.CurrentCell = null;
         }
 
         private void btnSalvarNA_Click(object sender, EventArgs e)
@@ -668,11 +670,7 @@ namespace PrimeiraTela
             AtualizarTotal();
 
             dgvCarrinho.ClearSelection();
-
-            if (dgvCarrinho.Rows.Count > 0)
-            {
-                dgvCarrinho.CurrentCell = null;
-            }
+            dgvCarrinho.CurrentCell = null;
         }
 
         private decimal CalcularTotalCarrinho()
@@ -716,11 +714,7 @@ namespace PrimeiraTela
             cbProdutoAgendamento.DataSource = null;
 
             dgvCarrinho.ClearSelection();
-
-            if (dgvCarrinho.Rows.Count > 0)
-            {
-                dgvCarrinho.CurrentCell = null;
-            }
+            dgvCarrinho.CurrentCell = null;
 
             txtNomeCliente.Focus();
         }
@@ -739,6 +733,12 @@ namespace PrimeiraTela
 
         private void txtDataeHora_Click(object sender, EventArgs e)
         {
+            if (txtDataeHora.Text == PlaceholderDataHora)
+            {
+                txtDataeHora.Clear();
+                return;
+            }
+
             txtDataeHora.SelectAll();
         }
 
