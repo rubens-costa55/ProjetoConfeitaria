@@ -38,6 +38,7 @@ namespace PrimeiraTela
 
         private void PedidosAtuais_Load(object sender, EventArgs e)
         {
+            MoverJanela.Ativar(this);
             dgvPedidos.AutoGenerateColumns = false;
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;

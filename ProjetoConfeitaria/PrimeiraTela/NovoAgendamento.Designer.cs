@@ -688,6 +688,7 @@
             Name = "NovoAgendamento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Novo Agendamento";
+            Load += NovoAgendamento_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

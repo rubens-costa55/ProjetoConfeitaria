@@ -645,6 +645,7 @@
             Name = "CadastroProdutos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro Produtos";
+            Load += CadastroProdutos_Load_1;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();

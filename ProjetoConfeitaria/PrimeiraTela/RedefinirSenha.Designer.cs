@@ -387,6 +387,7 @@
             Name = "FrmRedefinirSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RedefinirSenha";
+            Load += FrmRedefinirSenha_Load;
             PanelJanela.ResumeLayout(false);
             PanelJanela.PerformLayout();
             PanelDireito.ResumeLayout(false);

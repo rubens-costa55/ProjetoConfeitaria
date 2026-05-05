@@ -861,5 +861,10 @@ namespace PrimeiraTela
         {
 
         }
+
+        private void NovoAgendamento_Load(object sender, EventArgs e)
+        {
+            MoverJanela.Ativar(this);
+        }
     }
 }

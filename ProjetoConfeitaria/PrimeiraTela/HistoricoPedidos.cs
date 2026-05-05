@@ -24,6 +24,7 @@ namespace PrimeiraTela
 
         private void FrmHistoricoPedidos_Load(object sender, EventArgs e)
         {
+            MoverJanela.Ativar(this);
             ConfigurarGrid();
             ConfigurarFiltros();
             ConfigurarBusca();

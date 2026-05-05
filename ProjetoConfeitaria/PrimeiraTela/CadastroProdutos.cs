@@ -944,5 +944,10 @@ namespace PrimeiraTela
         {
             textBox2.Clear();
         }
+
+        private void CadastroProdutos_Load_1(object sender, EventArgs e)
+        {
+            MoverJanela.Ativar(this);
+        }
     }
 }

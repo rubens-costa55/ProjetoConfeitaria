@@ -15,6 +15,7 @@ namespace PrimeiraTela
 
         private void TelaLogin_Load(object sender, EventArgs e)
         {
+            MoverJanela.Ativar(this);
             senhaVisivel = false;
             txtSenha.UseSystemPasswordChar = true;
             picOlhoSenha.Image = Properties.Resources.olho_aberto;
@@ -50,6 +51,7 @@ namespace PrimeiraTela
         {
             FrmRedefinirSenha tela = new FrmRedefinirSenha();
             tela.Show();
+            this.Hide();
         }
 
         private void btnAcessar_Click(object sender, EventArgs e)

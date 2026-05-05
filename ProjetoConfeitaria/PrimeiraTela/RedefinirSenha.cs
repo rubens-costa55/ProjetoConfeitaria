@@ -131,8 +131,9 @@ namespace PrimeiraTela
 
         private void lblSair_Click(object sender, EventArgs e)
         {
-
-            this.Close();
+            TelaLogin login = new TelaLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void txtCpf_Enter(object sender, EventArgs e)
@@ -206,6 +207,11 @@ namespace PrimeiraTela
                 picOlhosenha2.Image = Properties.Resources.olho_aberto;
             }
 
+        }
+
+        private void FrmRedefinirSenha_Load(object sender, EventArgs e)
+        {
+            MoverJanela.Ativar(this);
         }
     }
 }
