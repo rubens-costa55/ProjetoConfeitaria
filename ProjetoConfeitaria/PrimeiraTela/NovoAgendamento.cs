@@ -16,7 +16,6 @@ namespace PrimeiraTela
 
         private const string PlaceholderNome = "Ex.: Ana Paula Oliveira";
         private const string PlaceholderTelefone = "Digite o telefone";
-        private const string PlaceholderDataHora = "15/04/2026 - 16:30";
 
         private class ItemCarrinho
         {
@@ -30,8 +29,9 @@ namespace PrimeiraTela
         private static bool rascunhoAtivo = false;
         private static string rascunhoNomeCliente = "";
         private static string rascunhoTelefone = "";
-        private static string rascunhoDataHora = "";
         private static string rascunhoQuantidade = "";
+        private static DateTime rascunhoDataEntrega = DateTime.Today;
+        private static DateTime rascunhoHoraEntrega = DateTime.Now;
         private static int rascunhoCategoriaId = 0;
         private static int rascunhoProdutoId = 0;
         private static List<ItemCarrinho> rascunhoItens = new List<ItemCarrinho>();
@@ -41,6 +41,7 @@ namespace PrimeiraTela
             InitializeComponent();
 
             ConfigurarCarrinho();
+            ConfigurarDataHora();
             CarregarCategorias();
 
             if (rascunhoAtivo)
@@ -51,6 +52,16 @@ namespace PrimeiraTela
             {
                 LimparPedidoCompleto();
             }
+        }
+
+        private void ConfigurarDataHora()
+        {
+            dtpDataEntrega.Format = DateTimePickerFormat.Custom;
+            dtpDataEntrega.CustomFormat = "dd/MM/yyyy";
+
+            dtpHoraEntrega.Format = DateTimePickerFormat.Custom;
+            dtpHoraEntrega.CustomFormat = "HH:mm";
+            dtpHoraEntrega.ShowUpDown = true;
         }
 
         private void ConfigurarCarrinho()
@@ -289,56 +300,27 @@ namespace PrimeiraTela
 
         private bool ValidarDataHoraEntrega(out DateTime dataEntrega)
         {
-            dataEntrega = DateTime.MinValue;
+            DateTime data = dtpDataEntrega.Value.Date;
+            TimeSpan hora = dtpHoraEntrega.Value.TimeOfDay;
 
-            if (CampoVazio(txtDataeHora, PlaceholderDataHora))
+            dataEntrega = data.Add(hora);
+
+            if (dataEntrega < DateTime.Now)
             {
-                MessageBox.Show(
-                    "(Data e Hora da entrega vazio)",
-                    "Campo obrigatório",
-                    MessageBoxButtons.OK,
+                DialogResult resposta = MessageBox.Show(
+                    "A data e hora escolhida já passou.\n\nDeseja salvar esse pedido como atrasado?",
+                    "Data e hora anterior ao momento atual",
+                    MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
                 );
 
-                txtDataeHora.Focus();
-                return false;
+                if (resposta != DialogResult.Yes)
+                {
+                    dtpDataEntrega.Focus();
+                    return false;
+                }
             }
 
-            string entrega = txtDataeHora.Text.Trim();
-
-            string[] formatosPermitidos =
-            {
-                "dd/MM/yyyy - HH:mm",
-                "dd/MM/yyyy HH:mm",
-                "dd/MM/yyyy - H:mm",
-                "dd/MM/yyyy H:mm",
-                "dd/MM/yyyy - HH'h'",
-                "dd/MM/yyyy HH'h'",
-                "dd/MM/yyyy - H'h'",
-                "dd/MM/yyyy H'h'",
-                "dd/MM/yyyy - HH'h'mm",
-                "dd/MM/yyyy HH'h'mm"
-            };
-
-            if (!DateTime.TryParseExact(
-                    entrega,
-                    formatosPermitidos,
-                    new CultureInfo("pt-BR"),
-                    DateTimeStyles.None,
-                    out dataEntrega))
-            {
-                MessageBox.Show(
-                    "Data e Hora da entrega inválida.\n\nExemplo de preenchimento:\n15/04/2026 - 16:30",
-                    "Campo preenchido incorretamente",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                txtDataeHora.Focus();
-                return false;
-            }
-
-            txtDataeHora.Text = dataEntrega.ToString("dd/MM/yyyy - HH:mm");
             return true;
         }
 
@@ -723,8 +705,10 @@ namespace PrimeiraTela
         {
             txtNomeCliente.Text = PlaceholderNome;
             txtTelefone.Text = PlaceholderTelefone;
-            txtDataeHora.Text = PlaceholderDataHora;
             txtQuantidade.Clear();
+
+            dtpDataEntrega.Value = DateTime.Today;
+            dtpHoraEntrega.Value = DateTime.Now;
 
             dgvCarrinho.Rows.Clear();
             lbValorTotal.Text = 0.ToString("C2", new CultureInfo("pt-BR"));
@@ -758,9 +742,6 @@ namespace PrimeiraTela
             if (TextoPreenchido(txtTelefone, PlaceholderTelefone))
                 return true;
 
-            if (TextoPreenchido(txtDataeHora, PlaceholderDataHora))
-                return true;
-
             if (!string.IsNullOrWhiteSpace(txtQuantidade.Text))
                 return true;
 
@@ -771,6 +752,12 @@ namespace PrimeiraTela
                 return true;
 
             if (dgvCarrinho.Rows.Count > 0)
+                return true;
+
+            if (dtpDataEntrega.Value.Date != DateTime.Today)
+                return true;
+
+            if (Math.Abs((dtpHoraEntrega.Value.TimeOfDay - DateTime.Now.TimeOfDay).TotalMinutes) > 2)
                 return true;
 
             return false;
@@ -803,8 +790,10 @@ namespace PrimeiraTela
 
             rascunhoNomeCliente = txtNomeCliente.Text;
             rascunhoTelefone = txtTelefone.Text;
-            rascunhoDataHora = txtDataeHora.Text;
             rascunhoQuantidade = txtQuantidade.Text;
+
+            rascunhoDataEntrega = dtpDataEntrega.Value;
+            rascunhoHoraEntrega = dtpHoraEntrega.Value;
 
             rascunhoCategoriaId = 0;
             rascunhoProdutoId = 0;
@@ -866,8 +855,10 @@ namespace PrimeiraTela
             {
                 txtNomeCliente.Text = string.IsNullOrWhiteSpace(rascunhoNomeCliente) ? PlaceholderNome : rascunhoNomeCliente;
                 txtTelefone.Text = string.IsNullOrWhiteSpace(rascunhoTelefone) ? PlaceholderTelefone : rascunhoTelefone;
-                txtDataeHora.Text = string.IsNullOrWhiteSpace(rascunhoDataHora) ? PlaceholderDataHora : rascunhoDataHora;
                 txtQuantidade.Text = rascunhoQuantidade;
+
+                dtpDataEntrega.Value = rascunhoDataEntrega;
+                dtpHoraEntrega.Value = rascunhoHoraEntrega;
 
                 if (rascunhoCategoriaId > 0 && cbCategoriaAgendamento.DataSource != null)
                 {
@@ -928,8 +919,9 @@ namespace PrimeiraTela
             rascunhoAtivo = false;
             rascunhoNomeCliente = "";
             rascunhoTelefone = "";
-            rascunhoDataHora = "";
             rascunhoQuantidade = "";
+            rascunhoDataEntrega = DateTime.Today;
+            rascunhoHoraEntrega = DateTime.Now;
             rascunhoCategoriaId = 0;
             rascunhoProdutoId = 0;
             rascunhoItens.Clear();
@@ -953,17 +945,6 @@ namespace PrimeiraTela
         {
             if (txtTelefone.Text == PlaceholderTelefone)
                 txtTelefone.Clear();
-        }
-
-        private void txtDataeHora_Click(object sender, EventArgs e)
-        {
-            if (txtDataeHora.Text == PlaceholderDataHora)
-            {
-                txtDataeHora.Clear();
-                return;
-            }
-
-            txtDataeHora.SelectAll();
         }
 
         private void txtQuantidade_Click(object sender, EventArgs e)
@@ -1002,6 +983,11 @@ namespace PrimeiraTela
         }
 
         private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDataeHora_Click(object sender, EventArgs e)
         {
 
         }

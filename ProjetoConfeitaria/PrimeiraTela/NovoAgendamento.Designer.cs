@@ -50,13 +50,15 @@
             lbltitulonovoagendamento = new Label();
             textBox3 = new TextBox();
             panel4 = new Panel();
+            dtpHoraEntrega = new DateTimePicker();
+            dtpDataEntrega = new DateTimePicker();
+            label7 = new Label();
             cbCategoriaAgendamento = new ComboBox();
             label4 = new Label();
             btnIncluirItem = new Button();
             txtTelefone = new TextBox();
             label10 = new Label();
             cbProdutoAgendamento = new ComboBox();
-            txtDataeHora = new TextBox();
             label5 = new Label();
             txtQuantidade = new TextBox();
             label3 = new Label();
@@ -331,13 +333,15 @@
             // 
             panel4.BackColor = Color.FromArgb(252, 250, 249);
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(dtpHoraEntrega);
+            panel4.Controls.Add(dtpDataEntrega);
+            panel4.Controls.Add(label7);
             panel4.Controls.Add(cbCategoriaAgendamento);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(btnIncluirItem);
             panel4.Controls.Add(txtTelefone);
             panel4.Controls.Add(label10);
             panel4.Controls.Add(cbProdutoAgendamento);
-            panel4.Controls.Add(txtDataeHora);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(txtQuantidade);
             panel4.Controls.Add(label3);
@@ -348,6 +352,39 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(776, 591);
             panel4.TabIndex = 2;
+            // 
+            // dtpHoraEntrega
+            // 
+            dtpHoraEntrega.CalendarFont = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpHoraEntrega.CalendarForeColor = Color.FromArgb(123, 97, 88);
+            dtpHoraEntrega.CustomFormat = "HH:mm";
+            dtpHoraEntrega.Format = DateTimePickerFormat.Custom;
+            dtpHoraEntrega.Location = new Point(171, 234);
+            dtpHoraEntrega.Name = "dtpHoraEntrega";
+            dtpHoraEntrega.ShowUpDown = true;
+            dtpHoraEntrega.Size = new Size(87, 23);
+            dtpHoraEntrega.TabIndex = 25;
+            // 
+            // dtpDataEntrega
+            // 
+            dtpDataEntrega.CalendarFont = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpDataEntrega.CalendarForeColor = Color.FromArgb(123, 97, 88);
+            dtpDataEntrega.CustomFormat = "dd/MM/yyyy";
+            dtpDataEntrega.Format = DateTimePickerFormat.Custom;
+            dtpDataEntrega.Location = new Point(171, 195);
+            dtpDataEntrega.Name = "dtpDataEntrega";
+            dtpDataEntrega.Size = new Size(87, 23);
+            dtpDataEntrega.TabIndex = 24;
+            // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(185, 120, 103);
+            label7.Location = new Point(29, 233);
+            label7.Name = "label7";
+            label7.Size = new Size(140, 28);
+            label7.TabIndex = 23;
+            label7.Text = "Hora da entrega:";
             // 
             // cbCategoriaAgendamento
             // 
@@ -425,20 +462,6 @@
             cbProdutoAgendamento.Size = new Size(439, 29);
             cbProdutoAgendamento.TabIndex = 16;
             // 
-            // txtDataeHora
-            // 
-            txtDataeHora.BackColor = Color.FromArgb(255, 253, 252);
-            txtDataeHora.BorderStyle = BorderStyle.FixedSingle;
-            txtDataeHora.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDataeHora.ForeColor = Color.FromArgb(123, 97, 88);
-            txtDataeHora.Location = new Point(29, 226);
-            txtDataeHora.Name = "txtDataeHora";
-            txtDataeHora.Size = new Size(439, 29);
-            txtDataeHora.TabIndex = 11;
-            txtDataeHora.Text = "15/04/2026 - 16:30";
-            txtDataeHora.Click += txtDataeHora_Click;
-            txtDataeHora.TextChanged += txtDataeHora_TextChanged;
-            // 
             // label5
             // 
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -447,7 +470,7 @@
             label5.Name = "label5";
             label5.Size = new Size(220, 28);
             label5.TabIndex = 10;
-            label5.Text = "Data e Hora da entrega:";
+            label5.Text = "Data da entrega:";
             // 
             // txtQuantidade
             // 
@@ -733,7 +756,6 @@
         private TextBox txtQuantidade;
         private Label label5;
         private PictureBox pictureBox3;
-        private TextBox txtDataeHora;
         private Panel panel6;
         private Label label6;
         private PictureBox pictureBox5;
@@ -755,5 +777,8 @@
         private DataGridViewTextBoxColumn ColValor;
         private Button btnRemoverItem;
         private Button RemoverItem;
+        private DateTimePicker dtpHoraEntrega;
+        private DateTimePicker dtpDataEntrega;
+        private Label label7;
     }
 }
