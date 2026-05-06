@@ -20,17 +20,7 @@ namespace PrimeiraTela
             txtSenha.UseSystemPasswordChar = true;
             picOlhoSenha.Image = Properties.Resources.olho_aberto;
 
-            ArredondarBotao(btnEsqueciSenha);
-            GraphicsPath path = new GraphicsPath();
-            int radius = 20;
-
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(btnAcessar.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(btnAcessar.Width - radius, btnAcessar.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, btnAcessar.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            btnAcessar.Region = new Region(path);
+       
         }
 
 
@@ -147,16 +137,6 @@ namespace PrimeiraTela
 
         private void ArredondarBotao(Button botao)
         {
-            GraphicsPath path = new GraphicsPath();
-            int raio = 20;
-
-            path.AddArc(0, 0, raio, raio, 180, 90);
-            path.AddArc(botao.Width - raio, 0, raio, raio, 270, 90);
-            path.AddArc(botao.Width - raio, botao.Height - raio, raio, raio, 0, 90);
-            path.AddArc(0, botao.Height - raio, raio, raio, 90, 90);
-
-            path.CloseAllFigures();
-            botao.Region = new Region(path);
         }
 
         private void lblSair_Click_1(object sender, EventArgs e)
