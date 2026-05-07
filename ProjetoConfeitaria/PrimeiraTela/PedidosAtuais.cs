@@ -437,7 +437,8 @@ namespace PrimeiraTela
             idPedidoEdicao = Convert.ToInt32(linha["id_pedido"]);
 
             CarregarCategoriasEdicao();
-            CarregarProdutosEdicao(0);
+            LimparProdutosEdicao();
+
             CarregarDadosPedidoEdicao(idPedidoEdicao);
             CarregarItensPedidoEdicao(idPedidoEdicao);
 
@@ -510,7 +511,7 @@ namespace PrimeiraTela
 
                     DataRow linhaInicial = dt.NewRow();
                     linhaInicial["id_categoria"] = 0;
-                    linhaInicial["nome_categoria"] = "Todas as categorias";
+                    linhaInicial["nome_categoria"] = "Selecione a categoria";
                     dt.Rows.InsertAt(linhaInicial, 0);
 
                     cbCategoriaEditar.DataSource = dt;
@@ -529,8 +530,24 @@ namespace PrimeiraTela
             }
         }
 
+        private void LimparProdutosEdicao()
+        {
+            cbProdutoEditar.DataSource = null;
+            cbProdutoEditar.Items.Clear();
+            cbProdutoEditar.Text = "";
+
+            txtQuantidadeEditar.Text = "1";
+            txtValorEditar.Text = "0,00";
+        }
+
         private void CarregarProdutosEdicao(int idCategoria)
         {
+            if (idCategoria <= 0)
+            {
+                LimparProdutosEdicao();
+                return;
+            }
+
             conexao conexao = new conexao();
 
             using (MySqlConnection con = conexao.Conectar())
@@ -547,21 +564,12 @@ namespace PrimeiraTela
                             p.id_categoria
                         FROM produtos p
                         INNER JOIN categorias c ON p.id_categoria = c.id_categoria
-                        WHERE 1 = 1
+                        WHERE p.id_categoria = @id_categoria
+                        ORDER BY p.NomeProduto;
                     ";
 
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = con;
-
-                    if (idCategoria > 0)
-                    {
-                        sql += " AND p.id_categoria = @id_categoria ";
-                        cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
-                    }
-
-                    sql += " ORDER BY p.NomeProduto; ";
-
-                    cmd.CommandText = sql;
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -588,11 +596,20 @@ namespace PrimeiraTela
                 return;
 
             if (cbCategoriaEditar.SelectedValue == null)
+            {
+                LimparProdutosEdicao();
                 return;
+            }
 
             int idCategoria = 0;
 
             int.TryParse(cbCategoriaEditar.SelectedValue.ToString(), out idCategoria);
+
+            if (idCategoria <= 0)
+            {
+                LimparProdutosEdicao();
+                return;
+            }
 
             CarregarProdutosEdicao(idCategoria);
         }
@@ -676,8 +693,8 @@ namespace PrimeiraTela
         {
             if (cbProdutoEditar.SelectedItem == null || cbProdutoEditar.SelectedIndex < 0)
             {
-                MessageBox.Show("Selecione um produto.");
-                cbProdutoEditar.Focus();
+                MessageBox.Show("Selecione uma categoria e depois selecione um produto.");
+                cbCategoriaEditar.Focus();
                 return;
             }
 
@@ -811,8 +828,7 @@ namespace PrimeiraTela
             if (cbCategoriaEditar.DataSource != null)
                 cbCategoriaEditar.SelectedIndex = 0;
 
-            if (cbProdutoEditar.DataSource != null)
-                cbProdutoEditar.SelectedIndex = -1;
+            LimparProdutosEdicao();
         }
 
         private void btnSalvarEdicaoPedido_Click(object sender, EventArgs e)
