@@ -67,6 +67,7 @@
             label1 = new Label();
             btnSalvarNA = new Button();
             panel6 = new Panel();
+            btnExportarOrcamento = new Button();
             RemoverItem = new Button();
             dgvCarrinho = new DataGridView();
             ColProduto = new DataGridViewTextBoxColumn();
@@ -536,7 +537,7 @@
             btnSalvarNA.BackColor = Color.FromArgb(201, 142, 124);
             btnSalvarNA.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSalvarNA.ForeColor = Color.White;
-            btnSalvarNA.Location = new Point(36, 511);
+            btnSalvarNA.Location = new Point(99, 528);
             btnSalvarNA.Margin = new Padding(3, 2, 3, 2);
             btnSalvarNA.Name = "btnSalvarNA";
             btnSalvarNA.Size = new Size(220, 51);
@@ -549,6 +550,7 @@
             // 
             panel6.BackColor = Color.FromArgb(252, 250, 249);
             panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(btnExportarOrcamento);
             panel6.Controls.Add(RemoverItem);
             panel6.Controls.Add(dgvCarrinho);
             panel6.Controls.Add(btnSalvarNA);
@@ -558,15 +560,28 @@
             panel6.Controls.Add(pictureBox5);
             panel6.Location = new Point(1150, 250);
             panel6.Name = "panel6";
-            panel6.Size = new Size(325, 591);
+            panel6.Size = new Size(404, 591);
             panel6.TabIndex = 14;
+            // 
+            // btnExportarOrcamento
+            // 
+            btnExportarOrcamento.BackColor = Color.FromArgb(239, 229, 226);
+            btnExportarOrcamento.FlatStyle = FlatStyle.Flat;
+            btnExportarOrcamento.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportarOrcamento.ForeColor = Color.FromArgb(123, 97, 88);
+            btnExportarOrcamento.Location = new Point(99, 481);
+            btnExportarOrcamento.Name = "btnExportarOrcamento";
+            btnExportarOrcamento.Size = new Size(220, 30);
+            btnExportarOrcamento.TabIndex = 23;
+            btnExportarOrcamento.Text = "Exportar orçamento";
+            btnExportarOrcamento.UseVisualStyleBackColor = false;
             // 
             // RemoverItem
             // 
             RemoverItem.BackColor = Color.Brown;
             RemoverItem.FlatStyle = FlatStyle.Flat;
             RemoverItem.ForeColor = Color.White;
-            RemoverItem.Location = new Point(112, 427);
+            RemoverItem.Location = new Point(299, 394);
             RemoverItem.Name = "RemoverItem";
             RemoverItem.Size = new Size(100, 23);
             RemoverItem.TabIndex = 22;
@@ -607,13 +622,13 @@
             dgvCarrinho.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCarrinho.EnableHeadersVisualStyles = false;
             dgvCarrinho.GridColor = Color.FromArgb(231, 211, 204);
-            dgvCarrinho.Location = new Point(3, 94);
+            dgvCarrinho.Location = new Point(-1, 94);
             dgvCarrinho.MultiSelect = false;
             dgvCarrinho.Name = "dgvCarrinho";
             dgvCarrinho.RowHeadersVisible = false;
             dgvCarrinho.RowHeadersWidth = 51;
             dgvCarrinho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarrinho.Size = new Size(318, 294);
+            dgvCarrinho.Size = new Size(404, 294);
             dgvCarrinho.TabIndex = 20;
             dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
@@ -646,9 +661,9 @@
             // 
             lbValorTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbValorTotal.ForeColor = Color.FromArgb(126, 99, 92);
-            lbValorTotal.Location = new Point(151, 467);
+            lbValorTotal.Location = new Point(317, 439);
             lbValorTotal.Name = "lbValorTotal";
-            lbValorTotal.Size = new Size(125, 28);
+            lbValorTotal.Size = new Size(82, 28);
             lbValorTotal.TabIndex = 19;
             lbValorTotal.Text = "R$ 0,00";
             // 
@@ -656,7 +671,7 @@
             // 
             panel9.BackColor = Color.FromArgb(242, 221, 219);
             panel9.Controls.Add(label9);
-            panel9.Location = new Point(35, 457);
+            panel9.Location = new Point(3, 428);
             panel9.Name = "panel9";
             panel9.Size = new Size(95, 38);
             panel9.TabIndex = 17;
@@ -781,5 +796,6 @@
         private DateTimePicker dtpHoraEntrega;
         private DateTimePicker dtpDataEntrega;
         private Label label7;
+        private Button btnExportarOrcamento;
     }
 }

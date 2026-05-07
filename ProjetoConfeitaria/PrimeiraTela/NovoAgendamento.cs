@@ -3,7 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -26,6 +29,14 @@ namespace PrimeiraTela
             public decimal ValorItem { get; set; }
         }
 
+        private class ItemOrcamentoPdf
+        {
+            public string Produto { get; set; }
+            public int Quantidade { get; set; }
+            public decimal ValorUnitario { get; set; }
+            public decimal ValorTotal { get; set; }
+        }
+
         private static bool rascunhoAtivo = false;
         private static string rascunhoNomeCliente = "";
         private static string rascunhoTelefone = "";
@@ -36,12 +47,20 @@ namespace PrimeiraTela
         private static int rascunhoProdutoId = 0;
         private static List<ItemCarrinho> rascunhoItens = new List<ItemCarrinho>();
 
+        private List<ItemOrcamentoPdf> itensOrcamentoPdf = new List<ItemOrcamentoPdf>();
+        private int indiceItemOrcamentoPdf = 0;
+        private string nomeClienteOrcamentoPdf = "";
+        private string telefoneClienteOrcamentoPdf = "";
+        private DateTime dataEntregaOrcamentoPdf = DateTime.Now;
+        private decimal totalOrcamentoPdf = 0;
+
         public NovoAgendamento()
         {
             InitializeComponent();
 
             ConfigurarCarrinho();
             ConfigurarDataHora();
+            ConfigurarBotaoOrcamento();
             CarregarCategorias();
 
             if (rascunhoAtivo)
@@ -62,6 +81,12 @@ namespace PrimeiraTela
             dtpHoraEntrega.Format = DateTimePickerFormat.Custom;
             dtpHoraEntrega.CustomFormat = "HH:mm";
             dtpHoraEntrega.ShowUpDown = true;
+        }
+
+        private void ConfigurarBotaoOrcamento()
+        {
+            btnExportarOrcamento.Click -= btnExportarOrcamento_Click;
+            btnExportarOrcamento.Click += btnExportarOrcamento_Click;
         }
 
         private void ConfigurarCarrinho()
@@ -322,6 +347,14 @@ namespace PrimeiraTela
             }
 
             return true;
+        }
+
+        private DateTime ObterDataHoraEntregaSelecionada()
+        {
+            DateTime data = dtpDataEntrega.Value.Date;
+            TimeSpan hora = dtpHoraEntrega.Value.TimeOfDay;
+
+            return data.Add(hora);
         }
 
         private bool ValidarQuantidade(out int quantidade)
@@ -933,6 +966,374 @@ namespace PrimeiraTela
 
             tela.Show();
             this.Hide();
+        }
+
+        private void btnExportarOrcamento_Click(object sender, EventArgs e)
+        {
+            ExportarOrcamentoPdf();
+        }
+
+        private void ExportarOrcamentoPdf()
+        {
+            if (!ValidarNomeCliente())
+                return;
+
+            if (!ValidarTelefoneCliente())
+                return;
+
+            if (dgvCarrinho.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Inclua pelo menos um item no carrinho antes de gerar o orçamento.",
+                    "Carrinho vazio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            itensOrcamentoPdf = ObterItensCarrinhoParaOrcamento();
+
+            if (itensOrcamentoPdf.Count == 0)
+            {
+                MessageBox.Show(
+                    "Não foi possível obter os itens do carrinho para gerar o orçamento.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                return;
+            }
+
+            bool temMicrosoftPrintPdf = PrinterSettings.InstalledPrinters
+                .Cast<string>()
+                .Any(p => p.Equals("Microsoft Print to PDF", StringComparison.OrdinalIgnoreCase));
+
+            if (!temMicrosoftPrintPdf)
+            {
+                MessageBox.Show(
+                    "A impressora 'Microsoft Print to PDF' não foi encontrada no Windows.\n\n" +
+                    "Ative esse recurso no Windows para exportar o orçamento em PDF.",
+                    "PDF indisponível",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            SaveFileDialog salvar = new SaveFileDialog();
+            salvar.Title = "Salvar orçamento em PDF";
+            salvar.Filter = "PDF (*.pdf)|*.pdf";
+            salvar.FileName = "orcamento_" + SanitizarNomeArquivo(txtNomeCliente.Text.Trim()) + ".pdf";
+
+            if (salvar.ShowDialog() != DialogResult.OK)
+                return;
+
+            string caminho = salvar.FileName;
+
+            if (Path.GetExtension(caminho).ToLower() != ".pdf")
+            {
+                caminho += ".pdf";
+            }
+
+            nomeClienteOrcamentoPdf = txtNomeCliente.Text.Trim();
+            telefoneClienteOrcamentoPdf = txtTelefone.Text.Trim();
+            dataEntregaOrcamentoPdf = ObterDataHoraEntregaSelecionada();
+            totalOrcamentoPdf = itensOrcamentoPdf.Sum(i => i.ValorTotal);
+            indiceItemOrcamentoPdf = 0;
+
+            try
+            {
+                PrintDocument documento = new PrintDocument();
+                documento.DocumentName = "Orçamento";
+                documento.DefaultPageSettings.Landscape = false;
+                documento.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                documento.PrinterSettings.PrintToFile = true;
+                documento.PrinterSettings.PrintFileName = caminho;
+                documento.PrintController = new StandardPrintController();
+
+                documento.PrintPage += DocumentoOrcamento_PrintPage;
+                documento.Print();
+
+                MessageBox.Show(
+                    "Orçamento exportado com sucesso!",
+                    "PDF gerado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao exportar orçamento em PDF: " + ex.Message);
+            }
+        }
+
+        private List<ItemOrcamentoPdf> ObterItensCarrinhoParaOrcamento()
+        {
+            List<ItemOrcamentoPdf> itens = new List<ItemOrcamentoPdf>();
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                try
+                {
+                    string produto = row.Cells["ColProduto"].Value?.ToString() ?? "";
+                    int quantidade = Convert.ToInt32(row.Cells["ColQuantidade"].Value);
+                    decimal valorTotal = Convert.ToDecimal(row.Cells["ColValor"].Value);
+                    decimal valorUnitario = quantidade > 0 ? valorTotal / quantidade : 0;
+
+                    ItemCarrinho itemTag = row.Tag as ItemCarrinho;
+
+                    if (itemTag != null)
+                    {
+                        produto = itemTag.NomeProduto;
+                        quantidade = itemTag.Quantidade;
+                        valorUnitario = itemTag.ValorUnitario;
+                        valorTotal = itemTag.ValorItem;
+                    }
+
+                    itens.Add(new ItemOrcamentoPdf
+                    {
+                        Produto = produto,
+                        Quantidade = quantidade,
+                        ValorUnitario = valorUnitario,
+                        ValorTotal = valorTotal
+                    });
+                }
+                catch
+                {
+
+                }
+            }
+
+            return itens;
+        }
+
+        private string SanitizarNomeArquivo(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return "cliente";
+
+            foreach (char caractere in Path.GetInvalidFileNameChars())
+            {
+                texto = texto.Replace(caractere.ToString(), "");
+            }
+
+            texto = texto.Trim().Replace(" ", "_");
+
+            if (string.IsNullOrWhiteSpace(texto))
+                return "cliente";
+
+            return texto;
+        }
+
+        private void DocumentoOrcamento_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Color corRosa = Color.FromArgb(232, 174, 184);
+            Color corRose = Color.FromArgb(201, 142, 124);
+            Color corTexto = Color.FromArgb(95, 75, 69);
+            Color corTextoClaro = Color.FromArgb(126, 99, 92);
+            Color corFundoClaro = Color.FromArgb(252, 250, 249);
+            Color corTabela = Color.FromArgb(239, 229, 226);
+            Color corLinha = Color.FromArgb(228, 206, 199);
+
+            using (Font fonteTitulo = new Font("Segoe UI", 24, FontStyle.Bold))
+            using (Font fonteSubtitulo = new Font("Segoe UI", 11, FontStyle.Bold))
+            using (Font fonteTexto = new Font("Segoe UI", 10, FontStyle.Regular))
+            using (Font fonteTextoBold = new Font("Segoe UI", 10, FontStyle.Bold))
+            using (Font fonteTabela = new Font("Segoe UI", 9, FontStyle.Regular))
+            using (Font fonteTabelaBold = new Font("Segoe UI", 9, FontStyle.Bold))
+            using (Font fonteTotal = new Font("Segoe UI", 13, FontStyle.Bold))
+            using (SolidBrush brushRosa = new SolidBrush(corRosa))
+            using (SolidBrush brushRose = new SolidBrush(corRose))
+            using (SolidBrush brushTexto = new SolidBrush(corTexto))
+            using (SolidBrush brushTextoClaro = new SolidBrush(corTextoClaro))
+            using (SolidBrush brushBranco = new SolidBrush(Color.White))
+            using (SolidBrush brushFundoClaro = new SolidBrush(corFundoClaro))
+            using (SolidBrush brushTabela = new SolidBrush(corTabela))
+            using (Pen penLinha = new Pen(corLinha, 1))
+            {
+                Graphics g = e.Graphics;
+                g.Clear(Color.White);
+
+                Rectangle margem = e.MarginBounds;
+
+                int x = margem.Left;
+                int y = margem.Top;
+                int largura = margem.Width;
+
+                g.FillRectangle(brushFundoClaro, x, y, largura, margem.Height);
+
+                Rectangle cabecalho = new Rectangle(x, y, largura, 105);
+                g.FillRectangle(brushRosa, cabecalho);
+
+                try
+                {
+                    Image logo = Properties.Resources.LOGO__1__removebg_preview;
+                    g.DrawImage(logo, x + 20, y + 12, 95, 75);
+                }
+                catch
+                {
+
+                }
+
+                StringFormat centralizado = new StringFormat();
+                centralizado.Alignment = StringAlignment.Center;
+                centralizado.LineAlignment = StringAlignment.Center;
+
+                g.DrawString(
+                    "ORÇAMENTO",
+                    fonteTitulo,
+                    brushBranco,
+                    new RectangleF(x, y + 18, largura, 45),
+                    centralizado
+                );
+
+                g.DrawString(
+                    "Thayara Polizel - Confeitaria Artesanal",
+                    fonteSubtitulo,
+                    brushBranco,
+                    new RectangleF(x, y + 62, largura, 25),
+                    centralizado
+                );
+
+                y += 130;
+
+                g.DrawString("Dados do cliente", fonteSubtitulo, brushRose, x + 20, y);
+                y += 28;
+
+                g.DrawString("Cliente:", fonteTextoBold, brushTexto, x + 20, y);
+                g.DrawString(nomeClienteOrcamentoPdf, fonteTexto, brushTextoClaro, x + 95, y);
+
+                g.DrawString("Telefone:", fonteTextoBold, brushTexto, x + 350, y);
+                g.DrawString(telefoneClienteOrcamentoPdf, fonteTexto, brushTextoClaro, x + 430, y);
+
+                y += 25;
+
+                g.DrawString("Entrega:", fonteTextoBold, brushTexto, x + 20, y);
+                g.DrawString(dataEntregaOrcamentoPdf.ToString("dd/MM/yyyy - HH:mm"), fonteTexto, brushTextoClaro, x + 95, y);
+
+                y += 45;
+
+                int alturaCabecalhoTabela = 32;
+                int alturaLinha = 34;
+
+                int colProduto = 280;
+                int colValorUnitario = 105;
+                int colQuantidade = 75;
+                int colTotal = largura - colProduto - colValorUnitario - colQuantidade - 40;
+
+                int tabelaX = x + 20;
+                int tabelaY = y;
+                int tabelaLargura = largura - 40;
+
+                g.FillRectangle(brushTabela, tabelaX, tabelaY, tabelaLargura, alturaCabecalhoTabela);
+
+                g.DrawString("Produto", fonteTabelaBold, brushTexto, tabelaX + 8, tabelaY + 8);
+                g.DrawString("Valor unit.", fonteTabelaBold, brushTexto, tabelaX + colProduto + 8, tabelaY + 8);
+                g.DrawString("Qtd", fonteTabelaBold, brushTexto, tabelaX + colProduto + colValorUnitario + 8, tabelaY + 8);
+                g.DrawString("Total", fonteTabelaBold, brushTexto, tabelaX + colProduto + colValorUnitario + colQuantidade + 8, tabelaY + 8);
+
+                y += alturaCabecalhoTabela;
+
+                while (indiceItemOrcamentoPdf < itensOrcamentoPdf.Count)
+                {
+                    if (y + alturaLinha + 95 > margem.Bottom)
+                    {
+                        e.HasMorePages = true;
+                        return;
+                    }
+
+                    ItemOrcamentoPdf item = itensOrcamentoPdf[indiceItemOrcamentoPdf];
+
+                    g.FillRectangle(Brushes.White, tabelaX, y, tabelaLargura, alturaLinha);
+
+                    g.DrawString(
+                        item.Produto,
+                        fonteTabela,
+                        brushTextoClaro,
+                        new RectangleF(tabelaX + 8, y + 8, colProduto - 16, alturaLinha - 8)
+                    );
+
+                    g.DrawString(
+                        item.ValorUnitario.ToString("C2", new CultureInfo("pt-BR")),
+                        fonteTabela,
+                        brushTextoClaro,
+                        tabelaX + colProduto + 8,
+                        y + 8
+                    );
+
+                    g.DrawString(
+                        item.Quantidade.ToString(),
+                        fonteTabela,
+                        brushTextoClaro,
+                        tabelaX + colProduto + colValorUnitario + 8,
+                        y + 8
+                    );
+
+                    g.DrawString(
+                        item.ValorTotal.ToString("C2", new CultureInfo("pt-BR")),
+                        fonteTabela,
+                        brushTextoClaro,
+                        tabelaX + colProduto + colValorUnitario + colQuantidade + 8,
+                        y + 8
+                    );
+
+                    g.DrawLine(penLinha, tabelaX, y + alturaLinha, tabelaX + tabelaLargura, y + alturaLinha);
+
+                    y += alturaLinha;
+                    indiceItemOrcamentoPdf++;
+                }
+
+                y += 35;
+
+                Rectangle totalBox = new Rectangle(tabelaX + tabelaLargura - 250, y, 250, 50);
+                g.FillRectangle(brushRose, totalBox);
+
+                g.DrawString(
+                    "Total do pedido",
+                    fonteTextoBold,
+                    brushBranco,
+                    totalBox.X + 15,
+                    totalBox.Y + 8
+                );
+
+                g.DrawString(
+                    totalOrcamentoPdf.ToString("C2", new CultureInfo("pt-BR")),
+                    fonteTotal,
+                    brushBranco,
+                    totalBox.X + 15,
+                    totalBox.Y + 25
+                );
+
+                y += 85;
+
+                g.DrawLine(penLinha, x + 20, margem.Bottom - 45, x + largura - 20, margem.Bottom - 45);
+
+                g.DrawString(
+                    "Orçamento gerado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"),
+                    fonteTexto,
+                    brushTextoClaro,
+                    x + 20,
+                    margem.Bottom - 32
+                );
+
+                g.DrawString(
+                    "Valores sujeitos à confirmação.",
+                    fonteTexto,
+                    brushTextoClaro,
+                    x + largura - 230,
+                    margem.Bottom - 32
+                );
+
+                e.HasMorePages = false;
+                indiceItemOrcamentoPdf = 0;
+            }
         }
 
         private void txtNomeCliente_Click(object sender, EventArgs e)
