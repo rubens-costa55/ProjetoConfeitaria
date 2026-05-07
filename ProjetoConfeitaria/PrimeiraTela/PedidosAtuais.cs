@@ -39,6 +39,7 @@ namespace PrimeiraTela
         private void PedidosAtuais_Load(object sender, EventArgs e)
         {
             MoverJanela.Ativar(this);
+
             dgvPedidos.AutoGenerateColumns = false;
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
@@ -509,7 +510,7 @@ namespace PrimeiraTela
 
                     DataRow linhaInicial = dt.NewRow();
                     linhaInicial["id_categoria"] = 0;
-                    linhaInicial["nome_categoria"] = "Selecione a categoria";
+                    linhaInicial["nome_categoria"] = "Todas as categorias";
                     dt.Rows.InsertAt(linhaInicial, 0);
 
                     cbCategoriaEditar.DataSource = dt;
@@ -673,14 +674,7 @@ namespace PrimeiraTela
 
         private void btnIncluirItemEditar_Click(object sender, EventArgs e)
         {
-            if (cbCategoriaEditar.SelectedValue == null || cbCategoriaEditar.SelectedIndex <= 0)
-            {
-                MessageBox.Show("Selecione uma categoria.");
-                cbCategoriaEditar.Focus();
-                return;
-            }
-
-            if (cbProdutoEditar.SelectedItem == null)
+            if (cbProdutoEditar.SelectedItem == null || cbProdutoEditar.SelectedIndex < 0)
             {
                 MessageBox.Show("Selecione um produto.");
                 cbProdutoEditar.Focus();

@@ -1066,5 +1066,10 @@ namespace PrimeiraTela
         {
             MoverJanela.Ativar(this);
         }
+
+        private void dtpDataEntrega_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

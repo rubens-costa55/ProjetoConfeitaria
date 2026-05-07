@@ -375,6 +375,7 @@
             dtpDataEntrega.Name = "dtpDataEntrega";
             dtpDataEntrega.Size = new Size(87, 23);
             dtpDataEntrega.TabIndex = 24;
+            dtpDataEntrega.ValueChanged += dtpDataEntrega_ValueChanged;
             // 
             // label7
             // 
