@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -874,6 +876,7 @@ namespace PrimeiraTela
                     }
                     catch
                     {
+
                     }
                 }
             }
@@ -1106,6 +1109,7 @@ namespace PrimeiraTela
                 }
                 catch
                 {
+
                 }
             }
 
@@ -1128,6 +1132,34 @@ namespace PrimeiraTela
                 return "cliente";
 
             return texto;
+        }
+
+        private void DesenharLogoProporcional(Graphics g, Image imagem, Rectangle area)
+        {
+            if (imagem == null)
+                return;
+
+            float proporcaoImagem = (float)imagem.Width / imagem.Height;
+            float proporcaoArea = (float)area.Width / area.Height;
+
+            int larguraFinal;
+            int alturaFinal;
+
+            if (proporcaoImagem > proporcaoArea)
+            {
+                larguraFinal = area.Width;
+                alturaFinal = (int)(area.Width / proporcaoImagem);
+            }
+            else
+            {
+                alturaFinal = area.Height;
+                larguraFinal = (int)(area.Height * proporcaoImagem);
+            }
+
+            int xFinal = area.X + (area.Width - larguraFinal) / 2;
+            int yFinal = area.Y + (area.Height - alturaFinal) / 2;
+
+            g.DrawImage(imagem, xFinal, yFinal, larguraFinal, alturaFinal);
         }
 
         private void DocumentoOrcamento_PrintPage(object sender, PrintPageEventArgs e)
@@ -1161,6 +1193,10 @@ namespace PrimeiraTela
                 Graphics g = e.Graphics;
                 g.Clear(Color.White);
 
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
                 Rectangle margem = e.MarginBounds;
 
                 int x = margem.Left;
@@ -1170,63 +1206,104 @@ namespace PrimeiraTela
                 g.FillRectangle(brushFundoClaro, x, y, largura, margem.Height);
 
                 // =====================================================
-                // DADOS SUPERIORES FORA DA BARRA ROSA
+                // TOPO COM LOGO PEQUENA SEM DISTORCER
                 // =====================================================
                 int topoInfoY = y + 5;
 
-                // Esquerda
-                g.DrawString("Thayara Polizel - Confeitaria Artesanal", fontePequenaBold, brushTexto, x + 10, topoInfoY);
-                g.DrawString("CNPJ: 39.457.355/0001-40", fontePequena, brushTextoClaro, x + 10, topoInfoY + 18);
-                g.DrawString("Rua Zike Tuma, 576 (Casa 17) - Jardim Ubirajara", fontePequena, brushTextoClaro, x + 10, topoInfoY + 36);
-                g.DrawString("(Zona Sul)", fontePequena, brushTextoClaro, x + 10, topoInfoY + 50);
-                g.DrawString("04458-000 - São Paulo - SP", fontePequena, brushTextoClaro, x + 10, topoInfoY + 68);
-
-                // Direita
-                using (StringFormat alinhadoDireita = new StringFormat())
-                {
-                    alinhadoDireita.Alignment = StringAlignment.Far;
-
-                    g.DrawString("thayarapolizel@icloud.com", fontePequena, brushTextoClaro,
-                        new RectangleF(x + largura - 250, topoInfoY + 4, 240, 18), alinhadoDireita);
-
-                    g.DrawString("Tel.: 11 94977-5699", fontePequena, brushTextoClaro,
-                        new RectangleF(x + largura - 250, topoInfoY + 24, 240, 18), alinhadoDireita);
-                }
-
-                // =====================================================
-                // BARRA ROSA COM LOGO À ESQUERDA E SEM SUBTÍTULO
-                // =====================================================
-                int barraY = y + 95;
-                int barraAltura = 82;
-                Rectangle barraTitulo = new Rectangle(x, barraY, largura, barraAltura);
-                g.FillRectangle(brushRosa, barraTitulo);
-
-                int logoX = x + 24;
-                int logoY = barraY + 16;
-                int logoLargura = 52;
-                int logoAltura = 50;
+                Rectangle areaLogoTopo = new Rectangle(x + 10, topoInfoY + 2, 48, 48);
 
                 try
                 {
                     Image logo = Properties.Resources.LOGO__1__removebg_preview;
-                    g.DrawImage(logo, logoX, logoY, logoLargura, logoAltura);
+                    DesenharLogoProporcional(g, logo, areaLogoTopo);
                 }
                 catch
                 {
+
                 }
+
+                int dadosEsquerdaX = x + 70;
+
+                g.DrawString(
+                    "Thayara Polizel - Confeitaria Artesanal",
+                    fontePequenaBold,
+                    brushTexto,
+                    dadosEsquerdaX,
+                    topoInfoY
+                );
+
+                g.DrawString(
+                    "CNPJ: 39.457.355/0001-40",
+                    fontePequena,
+                    brushTextoClaro,
+                    dadosEsquerdaX,
+                    topoInfoY + 18
+                );
+
+                g.DrawString(
+                    "Rua Zike Tuma, 576 (Casa 17) - Jardim Ubirajara",
+                    fontePequena,
+                    brushTextoClaro,
+                    dadosEsquerdaX,
+                    topoInfoY + 36
+                );
+
+                g.DrawString(
+                    "(Zona Sul)",
+                    fontePequena,
+                    brushTextoClaro,
+                    dadosEsquerdaX,
+                    topoInfoY + 50
+                );
+
+                g.DrawString(
+                    "04458-000 - São Paulo - SP",
+                    fontePequena,
+                    brushTextoClaro,
+                    dadosEsquerdaX,
+                    topoInfoY + 68
+                );
+
+                using (StringFormat alinhadoDireita = new StringFormat())
+                {
+                    alinhadoDireita.Alignment = StringAlignment.Far;
+
+                    g.DrawString(
+                        "thayarapolizel@icloud.com",
+                        fontePequena,
+                        brushTextoClaro,
+                        new RectangleF(x + largura - 250, topoInfoY + 4, 240, 18),
+                        alinhadoDireita
+                    );
+
+                    g.DrawString(
+                        "Tel.: 11 94977-5699",
+                        fontePequena,
+                        brushTextoClaro,
+                        new RectangleF(x + largura - 250, topoInfoY + 24, 240, 18),
+                        alinhadoDireita
+                    );
+                }
+
+                // =====================================================
+                // BARRA ROSA SOMENTE COM O TÍTULO ORÇAMENTO
+                // =====================================================
+                int barraY = y + 95;
+                int barraAltura = 82;
+
+                Rectangle barraTitulo = new Rectangle(x, barraY, largura, barraAltura);
+                g.FillRectangle(brushRosa, barraTitulo);
 
                 using (StringFormat centralizado = new StringFormat())
                 {
                     centralizado.Alignment = StringAlignment.Center;
                     centralizado.LineAlignment = StringAlignment.Center;
 
-                    Rectangle areaTitulo = new Rectangle(x + 70, barraY, largura - 90, barraAltura);
-
                     g.DrawString(
                         "ORÇAMENTO",
                         fonteTitulo,
                         brushBranco,
-                        areaTitulo,
+                        new RectangleF(x, barraY, largura, barraAltura),
                         centralizado
                     );
                 }
@@ -1253,7 +1330,7 @@ namespace PrimeiraTela
                 y += 40;
 
                 // =====================================================
-                // TABELA
+                // TABELA DE PRODUTOS
                 // =====================================================
                 int alturaCabecalhoTabela = 32;
                 int alturaLinha = 34;
@@ -1327,13 +1404,31 @@ namespace PrimeiraTela
 
                 y += 35;
 
+                // =====================================================
+                // TOTAL DO PEDIDO
+                // =====================================================
                 Rectangle totalBox = new Rectangle(tabelaX + tabelaLargura - 250, y, 250, 50);
                 g.FillRectangle(brushRose, totalBox);
 
-                g.DrawString("Total do pedido", fonteTextoBold, brushBranco, totalBox.X + 15, totalBox.Y + 8);
-                g.DrawString(totalOrcamentoPdf.ToString("C2", new CultureInfo("pt-BR")), fonteTotal, brushBranco, totalBox.X + 15, totalBox.Y + 25);
+                g.DrawString(
+                    "Total do pedido",
+                    fonteTextoBold,
+                    brushBranco,
+                    totalBox.X + 15,
+                    totalBox.Y + 8
+                );
 
-                // Rodapé
+                g.DrawString(
+                    totalOrcamentoPdf.ToString("C2", new CultureInfo("pt-BR")),
+                    fonteTotal,
+                    brushBranco,
+                    totalBox.X + 15,
+                    totalBox.Y + 25
+                );
+
+                // =====================================================
+                // RODAPÉ
+                // =====================================================
                 g.DrawLine(penLinha, x + 20, margem.Bottom - 45, x + largura - 20, margem.Bottom - 45);
 
                 g.DrawString(
@@ -1401,70 +1496,87 @@ namespace PrimeiraTela
 
         private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
         }
 
         private void txtTelefone_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void txtDataeHora_Click(object sender, EventArgs e)
         {
+
         }
 
         private void txtDataeHora_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void txtQuantidade_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
+
         }
 
         private void txtProduto_Click(object sender, EventArgs e)
         {
+
         }
 
         private void txtValor_Click(object sender, EventArgs e)
         {
+
         }
 
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
+
         }
 
         private void lbClienteResumo_Click(object sender, EventArgs e)
         {
+
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
+
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
+
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
+
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
         }
 
         private void NovoAgendamento_Load(object sender, EventArgs e)
@@ -1474,6 +1586,7 @@ namespace PrimeiraTela
 
         private void dtpDataEntrega_ValueChanged(object sender, EventArgs e)
         {
+
         }
     }
 }
