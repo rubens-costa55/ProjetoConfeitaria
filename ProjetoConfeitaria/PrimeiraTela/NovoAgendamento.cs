@@ -874,7 +874,6 @@ namespace PrimeiraTela
                     }
                     catch
                     {
-
                     }
                 }
             }
@@ -1107,7 +1106,6 @@ namespace PrimeiraTela
                 }
                 catch
                 {
-
                 }
             }
 
@@ -1142,10 +1140,12 @@ namespace PrimeiraTela
             Color corTabela = Color.FromArgb(239, 229, 226);
             Color corLinha = Color.FromArgb(228, 206, 199);
 
-            using (Font fonteTitulo = new Font("Segoe UI", 24, FontStyle.Bold))
-            using (Font fonteSubtitulo = new Font("Segoe UI", 11, FontStyle.Bold))
+            using (Font fonteTitulo = new Font("Segoe UI", 22, FontStyle.Bold))
+            using (Font fonteSubtitulo = new Font("Segoe UI", 10, FontStyle.Bold))
             using (Font fonteTexto = new Font("Segoe UI", 10, FontStyle.Regular))
             using (Font fonteTextoBold = new Font("Segoe UI", 10, FontStyle.Bold))
+            using (Font fontePequena = new Font("Segoe UI", 8, FontStyle.Regular))
+            using (Font fontePequenaBold = new Font("Segoe UI", 8, FontStyle.Bold))
             using (Font fonteTabela = new Font("Segoe UI", 9, FontStyle.Regular))
             using (Font fonteTabelaBold = new Font("Segoe UI", 9, FontStyle.Bold))
             using (Font fonteTotal = new Font("Segoe UI", 13, FontStyle.Bold))
@@ -1169,41 +1169,73 @@ namespace PrimeiraTela
 
                 g.FillRectangle(brushFundoClaro, x, y, largura, margem.Height);
 
-                Rectangle cabecalho = new Rectangle(x, y, largura, 105);
-                g.FillRectangle(brushRosa, cabecalho);
+                // =====================================================
+                // DADOS SUPERIORES FORA DA BARRA ROSA
+                // =====================================================
+                int topoInfoY = y + 5;
+
+                // Esquerda
+                g.DrawString("Thayara Polizel - Confeitaria Artesanal", fontePequenaBold, brushTexto, x + 10, topoInfoY);
+                g.DrawString("CNPJ: 39.457.355/0001-40", fontePequena, brushTextoClaro, x + 10, topoInfoY + 18);
+                g.DrawString("Rua Zike Tuma, 576 (Casa 17) - Jardim Ubirajara", fontePequena, brushTextoClaro, x + 10, topoInfoY + 36);
+                g.DrawString("(Zona Sul)", fontePequena, brushTextoClaro, x + 10, topoInfoY + 50);
+                g.DrawString("04458-000 - São Paulo - SP", fontePequena, brushTextoClaro, x + 10, topoInfoY + 68);
+
+                // Direita
+                using (StringFormat alinhadoDireita = new StringFormat())
+                {
+                    alinhadoDireita.Alignment = StringAlignment.Far;
+
+                    g.DrawString("thayarapolizel@icloud.com", fontePequena, brushTextoClaro,
+                        new RectangleF(x + largura - 250, topoInfoY + 4, 240, 18), alinhadoDireita);
+
+                    g.DrawString("Tel.: 11 94977-5699", fontePequena, brushTextoClaro,
+                        new RectangleF(x + largura - 250, topoInfoY + 24, 240, 18), alinhadoDireita);
+                }
+
+                // =====================================================
+                // BARRA ROSA COM LOGO À ESQUERDA E SEM SUBTÍTULO
+                // =====================================================
+                int barraY = y + 95;
+                int barraAltura = 82;
+                Rectangle barraTitulo = new Rectangle(x, barraY, largura, barraAltura);
+                g.FillRectangle(brushRosa, barraTitulo);
+
+                int logoX = x + 24;
+                int logoY = barraY + 16;
+                int logoLargura = 52;
+                int logoAltura = 50;
 
                 try
                 {
                     Image logo = Properties.Resources.LOGO__1__removebg_preview;
-                    g.DrawImage(logo, x + 20, y + 12, 95, 75);
+                    g.DrawImage(logo, logoX, logoY, logoLargura, logoAltura);
                 }
                 catch
                 {
-
                 }
 
-                StringFormat centralizado = new StringFormat();
-                centralizado.Alignment = StringAlignment.Center;
-                centralizado.LineAlignment = StringAlignment.Center;
+                using (StringFormat centralizado = new StringFormat())
+                {
+                    centralizado.Alignment = StringAlignment.Center;
+                    centralizado.LineAlignment = StringAlignment.Center;
 
-                g.DrawString(
-                    "ORÇAMENTO",
-                    fonteTitulo,
-                    brushBranco,
-                    new RectangleF(x, y + 18, largura, 45),
-                    centralizado
-                );
+                    Rectangle areaTitulo = new Rectangle(x + 70, barraY, largura - 90, barraAltura);
 
-                g.DrawString(
-                    "Thayara Polizel - Confeitaria Artesanal",
-                    fonteSubtitulo,
-                    brushBranco,
-                    new RectangleF(x, y + 62, largura, 25),
-                    centralizado
-                );
+                    g.DrawString(
+                        "ORÇAMENTO",
+                        fonteTitulo,
+                        brushBranco,
+                        areaTitulo,
+                        centralizado
+                    );
+                }
 
-                y += 130;
+                y = barraY + barraAltura + 28;
 
+                // =====================================================
+                // DADOS DO CLIENTE
+                // =====================================================
                 g.DrawString("Dados do cliente", fonteSubtitulo, brushRose, x + 20, y);
                 y += 28;
 
@@ -1218,8 +1250,11 @@ namespace PrimeiraTela
                 g.DrawString("Entrega:", fonteTextoBold, brushTexto, x + 20, y);
                 g.DrawString(dataEntregaOrcamentoPdf.ToString("dd/MM/yyyy - HH:mm"), fonteTexto, brushTextoClaro, x + 95, y);
 
-                y += 45;
+                y += 40;
 
+                // =====================================================
+                // TABELA
+                // =====================================================
                 int alturaCabecalhoTabela = 32;
                 int alturaLinha = 34;
 
@@ -1295,24 +1330,10 @@ namespace PrimeiraTela
                 Rectangle totalBox = new Rectangle(tabelaX + tabelaLargura - 250, y, 250, 50);
                 g.FillRectangle(brushRose, totalBox);
 
-                g.DrawString(
-                    "Total do pedido",
-                    fonteTextoBold,
-                    brushBranco,
-                    totalBox.X + 15,
-                    totalBox.Y + 8
-                );
+                g.DrawString("Total do pedido", fonteTextoBold, brushBranco, totalBox.X + 15, totalBox.Y + 8);
+                g.DrawString(totalOrcamentoPdf.ToString("C2", new CultureInfo("pt-BR")), fonteTotal, brushBranco, totalBox.X + 15, totalBox.Y + 25);
 
-                g.DrawString(
-                    totalOrcamentoPdf.ToString("C2", new CultureInfo("pt-BR")),
-                    fonteTotal,
-                    brushBranco,
-                    totalBox.X + 15,
-                    totalBox.Y + 25
-                );
-
-                y += 85;
-
+                // Rodapé
                 g.DrawLine(penLinha, x + 20, margem.Bottom - 45, x + largura - 20, margem.Bottom - 45);
 
                 g.DrawString(
@@ -1327,7 +1348,7 @@ namespace PrimeiraTela
                     "Valores sujeitos à confirmação.",
                     fonteTexto,
                     brushTextoClaro,
-                    x + largura - 230,
+                    x + largura - 190,
                     margem.Bottom - 32
                 );
 
@@ -1380,87 +1401,70 @@ namespace PrimeiraTela
 
         private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void txtTelefone_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtDataeHora_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtDataeHora_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtQuantidade_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtProduto_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtValor_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void lbClienteResumo_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void NovoAgendamento_Load(object sender, EventArgs e)
@@ -1470,7 +1474,6 @@ namespace PrimeiraTela
 
         private void dtpDataEntrega_ValueChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
