@@ -263,7 +263,7 @@
             txtCpf.BackColor = Color.White;
             txtCpf.BorderStyle = BorderStyle.FixedSingle;
             txtCpf.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCpf.ForeColor = Color.FromArgb(191, 167, 157);
+            txtCpf.ForeColor = Color.FromArgb(126, 99, 92);
             txtCpf.Location = new Point(45, 197);
             txtCpf.MaxLength = 12;
             txtCpf.Name = "txtCpf";
@@ -317,7 +317,7 @@
             txtConfirmarSenha.BackColor = Color.White;
             txtConfirmarSenha.BorderStyle = BorderStyle.FixedSingle;
             txtConfirmarSenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtConfirmarSenha.ForeColor = Color.FromArgb(191, 167, 157);
+            txtConfirmarSenha.ForeColor = Color.FromArgb(126, 99, 92);
             txtConfirmarSenha.Location = new Point(45, 416);
             txtConfirmarSenha.Name = "txtConfirmarSenha";
             txtConfirmarSenha.Size = new Size(430, 29);
@@ -331,7 +331,7 @@
             txtNovaSenha.BackColor = Color.White;
             txtNovaSenha.BorderStyle = BorderStyle.FixedSingle;
             txtNovaSenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNovaSenha.ForeColor = Color.FromArgb(191, 167, 157);
+            txtNovaSenha.ForeColor = Color.FromArgb(126, 99, 92);
             txtNovaSenha.Location = new Point(45, 301);
             txtNovaSenha.MaxLength = 12;
             txtNovaSenha.Name = "txtNovaSenha";
