@@ -272,6 +272,7 @@
             txtCpf.Text = "Digite seu CPF";
             txtCpf.Click += txtCpf_Click;
             txtCpf.Enter += txtCpf_Enter;
+            txtCpf.KeyPress += txtCpf_KeyPress;
             // 
             // label1
             // 
