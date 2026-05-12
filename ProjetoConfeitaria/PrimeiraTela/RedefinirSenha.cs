@@ -15,6 +15,20 @@ namespace PrimeiraTela
     {
 
         private bool senhaVisivel = false;
+        private bool confirmarSenhaVisivel = false;
+
+
+
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir apenas números e tecla Backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // bloqueia a tecla
+            }
+        }
+
 
         public FrmRedefinirSenha()
         {
@@ -194,11 +208,12 @@ namespace PrimeiraTela
 
         private void picOlhosenha2_Click(object sender, EventArgs e)
         {
-            senhaVisivel = !senhaVisivel;
 
-            txtConfirmarSenha.UseSystemPasswordChar = !senhaVisivel;
+            confirmarSenhaVisivel = !confirmarSenhaVisivel;
 
-            if (senhaVisivel)
+            txtConfirmarSenha.UseSystemPasswordChar = !confirmarSenhaVisivel;
+
+            if (confirmarSenhaVisivel)
             {
                 picOlhosenha2.Image = Properties.Resources.olho_fechado;
             }
@@ -206,6 +221,7 @@ namespace PrimeiraTela
             {
                 picOlhosenha2.Image = Properties.Resources.olho_aberto;
             }
+
 
         }
 
