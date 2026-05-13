@@ -75,6 +75,9 @@ namespace PrimeiraTela
                 status.Items.Add("Agendado");
                 status.Items.Add("Em produção");
                 status.Items.Add("Atrasado");
+
+                status.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+                status.FlatStyle = FlatStyle.Flat;
             }
 
             dgvPedidos.Columns["colcliente"].DataPropertyName = "NomeCliente";
@@ -96,6 +99,15 @@ namespace PrimeiraTela
 
             dgvPedidos.DataError -= dgvPedidos_DataError;
             dgvPedidos.DataError += dgvPedidos_DataError;
+
+            dgvPedidos.DataBindingComplete -= dgvPedidos_DataBindingComplete;
+            dgvPedidos.DataBindingComplete += dgvPedidos_DataBindingComplete;
+
+            dgvPedidos.CellFormatting -= dgvPedidos_CellFormatting;
+            dgvPedidos.CellFormatting += dgvPedidos_CellFormatting;
+
+            dgvPedidos.EditingControlShowing -= dgvPedidos_EditingControlShowing;
+            dgvPedidos.EditingControlShowing += dgvPedidos_EditingControlShowing;
 
             btnbuscarpedido.Click -= btnbuscarpedido_Click;
             btnbuscarpedido.Click += btnbuscarpedido_Click;
@@ -289,12 +301,8 @@ namespace PrimeiraTela
 
                     dgvPedidos.DataSource = dt;
 
-                    dgvPedidos.ClearSelection();
-
-                    if (dgvPedidos.Rows.Count > 0)
-                    {
-                        dgvPedidos.CurrentCell = null;
-                    }
+                    AplicarCoresApenasNoStatus();
+                    LimparSelecaoGridDepois();
                 }
                 catch (Exception ex)
                 {
@@ -602,7 +610,6 @@ namespace PrimeiraTela
             }
 
             int idCategoria = 0;
-
             int.TryParse(cbCategoriaEditar.SelectedValue.ToString(), out idCategoria);
 
             if (idCategoria <= 0)
@@ -1088,18 +1095,25 @@ namespace PrimeiraTela
             if (dgvPedidos.Columns[e.ColumnIndex].Name != "colstatus")
                 return;
 
-            DataRowView linha = dgvPedidos.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            DataGridViewRow row = dgvPedidos.Rows[e.RowIndex];
+
+            DataRowView linha = row.DataBoundItem as DataRowView;
 
             if (linha == null)
                 return;
 
             int idPedido = Convert.ToInt32(linha["id_pedido"]);
-            string novoStatus = dgvPedidos.Rows[e.RowIndex].Cells["colstatus"].Value?.ToString();
+            string novoStatus = row.Cells["colstatus"].Value?.ToString();
 
             if (string.IsNullOrWhiteSpace(novoStatus))
                 return;
 
+            AplicarCorApenasNoStatus(row);
+            dgvPedidos.InvalidateCell(row.Cells["colstatus"]);
+
             AtualizarStatusPedido(idPedido, novoStatus);
+
+            LimparSelecaoGridDepois();
         }
 
         private void AtualizarStatusPedido(int idPedido, string novoStatus)
@@ -1124,14 +1138,154 @@ namespace PrimeiraTela
                         cmd.Parameters.AddWithValue("@id_pedido", idPedido);
                         cmd.ExecuteNonQuery();
                     }
-
-                    CarregarPedidos();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao atualizar status do pedido: " + ex.Message);
                 }
             }
+        }
+
+        private void dgvPedidos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            AplicarCoresApenasNoStatus();
+            LimparSelecaoGridDepois();
+        }
+
+        private void dgvPedidos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (dgvPedidos.Columns[e.ColumnIndex].Name != "colstatus")
+                return;
+
+            DataGridViewRow row = dgvPedidos.Rows[e.RowIndex];
+            string status = ObterStatusDaLinha(row);
+
+            if (string.IsNullOrWhiteSpace(status))
+                return;
+
+            Color corFundo = CorFundoStatus(status);
+            Color corFonte = dgvPedidos.Columns["colstatus"].DefaultCellStyle.ForeColor;
+
+            e.CellStyle.BackColor = corFundo;
+            e.CellStyle.SelectionBackColor = corFundo;
+            e.CellStyle.ForeColor = corFonte;
+            e.CellStyle.SelectionForeColor = corFonte;
+        }
+
+        private void dgvPedidos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvPedidos.CurrentCell == null)
+                return;
+
+            if (dgvPedidos.Columns[dgvPedidos.CurrentCell.ColumnIndex].Name != "colstatus")
+                return;
+
+            ComboBox combo = e.Control as ComboBox;
+
+            if (combo == null)
+                return;
+
+            string status = dgvPedidos.CurrentCell.Value?.ToString();
+
+            combo.BackColor = CorFundoStatus(status);
+            combo.ForeColor = dgvPedidos.Columns["colstatus"].DefaultCellStyle.ForeColor;
+
+            combo.SelectionLength = 0;
+            combo.SelectionStart = combo.Text.Length;
+        }
+
+        private void AplicarCoresApenasNoStatus()
+        {
+            foreach (DataGridViewRow row in dgvPedidos.Rows)
+            {
+                AplicarCorApenasNoStatus(row);
+            }
+        }
+
+        private void AplicarCorApenasNoStatus(DataGridViewRow row)
+        {
+            if (row == null || row.IsNewRow)
+                return;
+
+            if (!dgvPedidos.Columns.Contains("colstatus"))
+                return;
+
+            string status = ObterStatusDaLinha(row);
+
+            if (string.IsNullOrWhiteSpace(status))
+                return;
+
+            Color corFundo = CorFundoStatus(status);
+            Color corFonte = dgvPedidos.Columns["colstatus"].DefaultCellStyle.ForeColor;
+
+            DataGridViewCell cellStatus = row.Cells["colstatus"];
+
+            cellStatus.Style.BackColor = corFundo;
+            cellStatus.Style.SelectionBackColor = corFundo;
+            cellStatus.Style.ForeColor = corFonte;
+            cellStatus.Style.SelectionForeColor = corFonte;
+        }
+
+        private string ObterStatusDaLinha(DataGridViewRow row)
+        {
+            if (row == null || row.IsNewRow)
+                return "";
+
+            if (!dgvPedidos.Columns.Contains("colstatus"))
+                return "";
+
+            if (row.Cells["colstatus"].Value == null)
+                return "";
+
+            return row.Cells["colstatus"].Value.ToString().Trim();
+        }
+
+        private Color CorFundoStatus(string status)
+        {
+            status = (status ?? "").Trim().ToLower();
+
+            if (status == "em produção" || status == "em producao")
+                return Color.FromArgb(239, 213, 181);
+
+            if (status == "agendado" || status == "agendados")
+                return Color.FromArgb(231, 221, 219);
+
+            if (status == "atrasado" || status == "atrasados")
+                return Color.FromArgb(243, 214, 219);
+
+            return Color.FromArgb(247, 242, 241);
+        }
+
+        private void LimparSelecaoGridDepois()
+        {
+            if (dgvPedidos == null || dgvPedidos.IsDisposed)
+                return;
+
+            BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    if (dgvPedidos == null || dgvPedidos.IsDisposed)
+                        return;
+
+                    dgvPedidos.ClearSelection();
+
+                    if (!dgvPedidos.IsCurrentCellInEditMode)
+                    {
+                        dgvPedidos.CurrentCell = null;
+                    }
+
+                    dgvPedidos.Invalidate();
+                }
+                catch
+                {
+                    dgvPedidos.ClearSelection();
+                    dgvPedidos.Invalidate();
+                }
+            }));
         }
 
         private void dgvPedidos_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -1252,8 +1406,5 @@ namespace PrimeiraTela
         {
 
         }
-
-
-
     }
 }
