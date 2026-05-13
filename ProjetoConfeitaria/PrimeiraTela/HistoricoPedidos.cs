@@ -91,8 +91,6 @@ namespace PrimeiraTela
             foreach (DataGridViewColumn coluna in dgvPedidos.Columns)
             {
                 coluna.ReadOnly = true;
-
-                // Mantém a setinha/ordenação no cabeçalho da coluna.
                 coluna.SortMode = DataGridViewColumnSortMode.Automatic;
             }
 
@@ -397,7 +395,13 @@ namespace PrimeiraTela
         {
             if (dgvPedidos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um registro para remover.");
+                MessageBox.Show("Selecione um pedido para voltar aos pedidos atuais.");
+                return;
+            }
+
+            if (filtroAtual == "ClienteRecorrente")
+            {
+                MessageBox.Show("No filtro Cliente recorrente não é possível voltar um pedido específico. Use o filtro Todos e selecione o pedido desejado.");
                 return;
             }
 
@@ -413,38 +417,130 @@ namespace PrimeiraTela
 
             string nomeCliente = linha["NomeCliente"].ToString();
             string telefoneCliente = linha["TelefoneCliente"].ToString();
-
-            if (filtroAtual == "ClienteRecorrente")
-            {
-                DialogResult respostaCliente = MessageBox.Show(
-                    "Deseja remover todo o histórico do cliente " + nomeCliente + "?",
-                    "Confirmar remoção",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (respostaCliente != DialogResult.Yes)
-                    return;
-
-                RemoverHistoricoCliente(nomeCliente, telefoneCliente);
-                CarregarHistorico();
-                return;
-            }
-
             string dataHoraEntrega = linha["DataHoraEntrega"].ToString();
 
             DialogResult resposta = MessageBox.Show(
-                "Deseja remover este pedido do histórico?",
-                "Confirmar remoção",
+                "Deseja voltar este pedido para Pedidos Atuais?",
+                "Confirmar retorno",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
+                MessageBoxIcon.Question
             );
 
             if (resposta != DialogResult.Yes)
                 return;
 
-            RemoverPedidoHistorico(nomeCliente, telefoneCliente, dataHoraEntrega);
+            VoltarPedidoParaPedidosAtuais(nomeCliente, telefoneCliente, dataHoraEntrega);
             CarregarHistorico();
+        }
+
+        private void VoltarPedidoParaPedidosAtuais(string nomeCliente, string telefoneCliente, string dataHoraEntrega)
+        {
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                con.Open();
+
+                MySqlTransaction transacao = con.BeginTransaction();
+
+                try
+                {
+                    string novoStatus = CalcularStatusRetorno(dataHoraEntrega);
+
+                    string sqlAtualizarPedido = @"
+                        UPDATE pedidos
+                        SET Status = @status
+                        WHERE NomeCliente = @nome
+                        AND TelefoneCliente = @telefone
+                        AND DataHoraEntrega = @dataHora
+                        AND Status = 'Concluído';
+                    ";
+
+                    int pedidosAtualizados = 0;
+
+                    using (MySqlCommand cmdAtualizar = new MySqlCommand(sqlAtualizarPedido, con, transacao))
+                    {
+                        cmdAtualizar.Parameters.AddWithValue("@status", novoStatus);
+                        cmdAtualizar.Parameters.AddWithValue("@nome", nomeCliente);
+                        cmdAtualizar.Parameters.AddWithValue("@telefone", telefoneCliente);
+                        cmdAtualizar.Parameters.AddWithValue("@dataHora", dataHoraEntrega);
+
+                        pedidosAtualizados = cmdAtualizar.ExecuteNonQuery();
+                    }
+
+                    if (pedidosAtualizados == 0)
+                    {
+                        transacao.Rollback();
+
+                        MessageBox.Show(
+                            "Não foi encontrado um pedido concluído correspondente para voltar aos Pedidos Atuais.",
+                            "Pedido não encontrado",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+
+                        return;
+                    }
+
+                    string sqlRemoverHistorico = @"
+                        DELETE FROM historico
+                        WHERE NomeCliente = @nome
+                        AND TelefoneCliente = @telefone
+                        AND DataHoraEntrega = @dataHora;
+                    ";
+
+                    using (MySqlCommand cmdRemover = new MySqlCommand(sqlRemoverHistorico, con, transacao))
+                    {
+                        cmdRemover.Parameters.AddWithValue("@nome", nomeCliente);
+                        cmdRemover.Parameters.AddWithValue("@telefone", telefoneCliente);
+                        cmdRemover.Parameters.AddWithValue("@dataHora", dataHoraEntrega);
+                        cmdRemover.ExecuteNonQuery();
+                    }
+
+                    transacao.Commit();
+
+                    MessageBox.Show("Pedido voltou para Pedidos Atuais com sucesso.");
+                }
+                catch (Exception ex)
+                {
+                    transacao.Rollback();
+                    MessageBox.Show("Erro ao voltar pedido para Pedidos Atuais: " + ex.Message);
+                }
+            }
+        }
+
+        private string CalcularStatusRetorno(string dataHoraEntrega)
+        {
+            DateTime dataValidada;
+
+            string[] formatosPermitidos =
+            {
+                "dd/MM/yyyy - HH:mm",
+                "dd/MM/yyyy HH:mm",
+                "dd/MM/yyyy - H:mm",
+                "dd/MM/yyyy H:mm",
+                "dd/MM/yyyy - HH'h'",
+                "dd/MM/yyyy HH'h'",
+                "dd/MM/yyyy - H'h'",
+                "dd/MM/yyyy H'h'",
+                "dd/MM/yyyy - HH'h'mm",
+                "dd/MM/yyyy HH'h'mm"
+            };
+
+            if (DateTime.TryParseExact(
+                    dataHoraEntrega,
+                    formatosPermitidos,
+                    new CultureInfo("pt-BR"),
+                    DateTimeStyles.None,
+                    out dataValidada))
+            {
+                if (dataValidada < DateTime.Now)
+                    return "Atrasado";
+
+                return "Agendado";
+            }
+
+            return "Agendado";
         }
 
         private void RemoverPedidoHistorico(string nomeCliente, string telefoneCliente, string dataHoraEntrega)

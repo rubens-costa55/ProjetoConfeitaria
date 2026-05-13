@@ -124,6 +124,9 @@ namespace PrimeiraTela
             btnatrasado.Click -= btnatrasado_Click;
             btnatrasado.Click += btnatrasado_Click;
 
+            btnremover.Click -= btnremover_Click;
+            btnremover.Click += btnremover_Click;
+
             txtbuscar.Enter -= txtbuscar_Enter;
             txtbuscar.Enter += txtbuscar_Enter;
 
@@ -1072,6 +1075,105 @@ namespace PrimeiraTela
                 {
                     transacao.Rollback();
                     MessageBox.Show("Erro ao concluir pedido: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnremover_Click(object sender, EventArgs e)
+        {
+            if (dgvPedidos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Selecione um pedido para remover.",
+                    "Pedido não selecionado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            DataGridViewRow rowSelecionada = dgvPedidos.SelectedRows[0];
+
+            DataRowView linha = rowSelecionada.DataBoundItem as DataRowView;
+
+            if (linha == null)
+            {
+                MessageBox.Show(
+                    "Não foi possível obter os dados do pedido selecionado.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                return;
+            }
+
+            int idPedido = Convert.ToInt32(linha["id_pedido"]);
+            string nomeCliente = linha["NomeCliente"].ToString();
+
+            DialogResult resposta = MessageBox.Show(
+                "Deseja remover o pedido de " + nomeCliente + " dos pedidos atuais?",
+                "Confirmar remoção",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resposta != DialogResult.Yes)
+                return;
+
+            RemoverPedidoAtual(idPedido);
+        }
+
+        private void RemoverPedidoAtual(int idPedido)
+        {
+            conexao conexao = new conexao();
+
+            using (MySqlConnection con = conexao.Conectar())
+            {
+                con.Open();
+
+                MySqlTransaction transacao = con.BeginTransaction();
+
+                try
+                {
+                    string sqlExcluirItens = @"
+                        DELETE FROM itens_pedido
+                        WHERE id_pedido = @id_pedido;
+                    ";
+
+                    using (MySqlCommand cmdItens = new MySqlCommand(sqlExcluirItens, con, transacao))
+                    {
+                        cmdItens.Parameters.AddWithValue("@id_pedido", idPedido);
+                        cmdItens.ExecuteNonQuery();
+                    }
+
+                    string sqlExcluirPedido = @"
+                        DELETE FROM pedidos
+                        WHERE id_pedido = @id_pedido;
+                    ";
+
+                    using (MySqlCommand cmdPedido = new MySqlCommand(sqlExcluirPedido, con, transacao))
+                    {
+                        cmdPedido.Parameters.AddWithValue("@id_pedido", idPedido);
+                        cmdPedido.ExecuteNonQuery();
+                    }
+
+                    transacao.Commit();
+
+                    MessageBox.Show(
+                        "Pedido removido com sucesso.",
+                        "Removido",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    CarregarPedidos();
+                }
+                catch (Exception ex)
+                {
+                    transacao.Rollback();
+                    MessageBox.Show("Erro ao remover pedido: " + ex.Message);
                 }
             }
         }
