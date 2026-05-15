@@ -15,6 +15,8 @@ namespace PrimeiraTela
         {
           return new MySqlConnection(conect);
 
-         }
+
+
+        }
     }
 }

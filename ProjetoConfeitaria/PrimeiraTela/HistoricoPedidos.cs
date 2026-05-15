@@ -108,7 +108,6 @@ namespace PrimeiraTela
             cbFiltrosHistorico.Items.Add("Todos");
             cbFiltrosHistorico.Items.Add("Últimos 30 dias");
             cbFiltrosHistorico.Items.Add("Este mês");
-            cbFiltrosHistorico.Items.Add("Cliente recorrente");
             cbFiltrosHistorico.Items.Add("Maior valor");
 
             cbFiltrosHistorico.SelectedIndex = 0;

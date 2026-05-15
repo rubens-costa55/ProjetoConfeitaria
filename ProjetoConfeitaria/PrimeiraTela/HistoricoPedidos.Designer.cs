@@ -411,7 +411,7 @@
             cbFiltrosHistorico.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFiltrosHistorico.ForeColor = Color.FromArgb(123, 97, 88);
             cbFiltrosHistorico.FormattingEnabled = true;
-            cbFiltrosHistorico.Items.AddRange(new object[] { "Todos", "", "Últimos 30 dias", "", "Este mês", "", "Cliente recorrente", "", "Maior valor" });
+            cbFiltrosHistorico.Items.AddRange(new object[] { "Todos", "", "Últimos 30 dias", "", "Este mês", "", "Maior valor" });
             cbFiltrosHistorico.Location = new Point(16, 23);
             cbFiltrosHistorico.Name = "cbFiltrosHistorico";
             cbFiltrosHistorico.Size = new Size(288, 25);
@@ -460,7 +460,7 @@
             // btnremover
             // 
             btnremover.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnremover.BackColor = Color.Brown;
+            btnremover.BackColor = Color.FromArgb(201, 142, 124);
             btnremover.Cursor = Cursors.Hand;
             btnremover.FlatStyle = FlatStyle.Flat;
             btnremover.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);

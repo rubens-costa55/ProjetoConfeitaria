@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -77,11 +78,63 @@ namespace PrimeiraTela
 
             dgvprodutos.AllowUserToAddRows = false;
             dgvprodutos.AllowUserToDeleteRows = false;
+            dgvprodutos.AllowUserToResizeRows = false;
+            dgvprodutos.AllowUserToResizeColumns = false;
+
             dgvprodutos.ReadOnly = true;
             dgvprodutos.MultiSelect = false;
             dgvprodutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvprodutos.RowHeadersVisible = false;
             dgvprodutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvprodutos.EnableHeadersVisualStyles = false;
+            dgvprodutos.BorderStyle = BorderStyle.None;
+            dgvprodutos.BackgroundColor = Color.FromArgb(252, 250, 249);
+            dgvprodutos.GridColor = Color.FromArgb(228, 206, 199);
+            dgvprodutos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvprodutos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgvprodutos.ColumnHeadersHeight = 35;
+            dgvprodutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvprodutos.RowTemplate.Height = 32;
+
+            Color fundoLinha = Color.FromArgb(252, 250, 249);
+            Color fundoLinhaAlternada = Color.FromArgb(255, 253, 252);
+            Color fundoSelecionado = Color.FromArgb(243, 232, 228);
+            Color texto = Color.FromArgb(111, 84, 75);
+            Color fundoCabecalho = Color.FromArgb(239, 229, 226);
+            Color textoCabecalho = Color.FromArgb(111, 84, 75);
+
+            dgvprodutos.DefaultCellStyle.BackColor = fundoLinha;
+            dgvprodutos.DefaultCellStyle.ForeColor = texto;
+            dgvprodutos.DefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvprodutos.DefaultCellStyle.SelectionForeColor = texto;
+            dgvprodutos.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgvprodutos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgvprodutos.DefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
+
+            dgvprodutos.RowsDefaultCellStyle.BackColor = fundoLinha;
+            dgvprodutos.RowsDefaultCellStyle.ForeColor = texto;
+            dgvprodutos.RowsDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvprodutos.RowsDefaultCellStyle.SelectionForeColor = texto;
+
+            dgvprodutos.AlternatingRowsDefaultCellStyle.BackColor = fundoLinhaAlternada;
+            dgvprodutos.AlternatingRowsDefaultCellStyle.ForeColor = texto;
+            dgvprodutos.AlternatingRowsDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvprodutos.AlternatingRowsDefaultCellStyle.SelectionForeColor = texto;
+
+            dgvprodutos.ColumnHeadersDefaultCellStyle.BackColor = fundoCabecalho;
+            dgvprodutos.ColumnHeadersDefaultCellStyle.ForeColor = textoCabecalho;
+            dgvprodutos.ColumnHeadersDefaultCellStyle.SelectionBackColor = fundoCabecalho;
+            dgvprodutos.ColumnHeadersDefaultCellStyle.SelectionForeColor = textoCabecalho;
+            dgvprodutos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dgvprodutos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgvprodutos.ColumnHeadersDefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
+
+            dgvprodutos.RowHeadersDefaultCellStyle.BackColor = fundoLinha;
+            dgvprodutos.RowHeadersDefaultCellStyle.ForeColor = texto;
+            dgvprodutos.RowHeadersDefaultCellStyle.SelectionBackColor = fundoSelecionado;
+            dgvprodutos.RowHeadersDefaultCellStyle.SelectionForeColor = texto;
 
             DataGridViewTextBoxColumn colId = new DataGridViewTextBoxColumn();
             colId.Name = "id_produto";
@@ -111,6 +164,19 @@ namespace PrimeiraTela
             colCategoria.DataPropertyName = "nome_categoria";
             colCategoria.FillWeight = 35;
             dgvprodutos.Columns.Add(colCategoria);
+
+            foreach (DataGridViewColumn coluna in dgvprodutos.Columns)
+            {
+                coluna.ReadOnly = true;
+                coluna.SortMode = DataGridViewColumnSortMode.Automatic;
+                coluna.DefaultCellStyle.BackColor = fundoLinha;
+                coluna.DefaultCellStyle.ForeColor = texto;
+                coluna.DefaultCellStyle.SelectionBackColor = fundoSelecionado;
+                coluna.DefaultCellStyle.SelectionForeColor = texto;
+            }
+
+            dgvprodutos.ClearSelection();
+            dgvprodutos.CurrentCell = null;
         }
 
         private void CarregarCategoriasCadastro()
@@ -265,6 +331,12 @@ namespace PrimeiraTela
                     adapter.Fill(dt);
 
                     dgvprodutos.DataSource = dt;
+                    dgvprodutos.ClearSelection();
+
+                    if (dgvprodutos.Rows.Count > 0)
+                    {
+                        dgvprodutos.CurrentCell = null;
+                    }
                 }
                 catch (Exception ex)
                 {

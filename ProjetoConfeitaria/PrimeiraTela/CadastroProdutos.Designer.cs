@@ -505,15 +505,18 @@
             // 
             dgvprodutos.AllowUserToAddRows = false;
             dgvprodutos.AllowUserToDeleteRows = false;
+            dgvprodutos.AllowUserToResizeColumns = false;
             dgvprodutos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvprodutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvprodutos.BackgroundColor = Color.FromArgb(255, 253, 252);
+            dgvprodutos.BackgroundColor = Color.FromArgb(252, 250, 249);
+            dgvprodutos.BorderStyle = BorderStyle.None;
+            dgvprodutos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvprodutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvprodutos.GridColor = Color.Black;
+            dgvprodutos.EnableHeadersVisualStyles = false;
+            dgvprodutos.GridColor = Color.FromArgb(228, 206, 199);
             dgvprodutos.Location = new Point(20, 245);
             dgvprodutos.MultiSelect = false;
             dgvprodutos.Name = "dgvprodutos";
-            dgvprodutos.ReadOnly = true;
             dgvprodutos.RowHeadersVisible = false;
             dgvprodutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvprodutos.Size = new Size(344, 252);
@@ -549,7 +552,7 @@
             panelNovaCategoria.Controls.Add(lblNomeCategoria);
             panelNovaCategoria.Controls.Add(lblTituloCategoria);
             panelNovaCategoria.ForeColor = Color.FromArgb(252, 250, 249);
-            panelNovaCategoria.Location = new Point(1031, 48);
+            panelNovaCategoria.Location = new Point(652, 34);
             panelNovaCategoria.Name = "panelNovaCategoria";
             panelNovaCategoria.Size = new Size(497, 437);
             panelNovaCategoria.TabIndex = 5;

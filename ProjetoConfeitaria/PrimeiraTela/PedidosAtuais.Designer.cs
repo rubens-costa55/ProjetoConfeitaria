@@ -569,7 +569,7 @@
             panelEditarPedido.Controls.Add(txtClienteEditar);
             panelEditarPedido.Controls.Add(label1);
             panelEditarPedido.Controls.Add(lblTituloEditarPedido);
-            panelEditarPedido.Location = new Point(933, 136);
+            panelEditarPedido.Location = new Point(731, 45);
             panelEditarPedido.Name = "panelEditarPedido";
             panelEditarPedido.Size = new Size(603, 409);
             panelEditarPedido.TabIndex = 13;
