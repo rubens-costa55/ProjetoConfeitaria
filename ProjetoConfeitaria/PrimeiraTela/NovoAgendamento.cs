@@ -1205,9 +1205,8 @@ namespace PrimeiraTela
 
                 g.FillRectangle(brushFundoClaro, x, y, largura, margem.Height);
 
-                // =====================================================
-                // TOPO COM LOGO PEQUENA SEM DISTORCER
-                // =====================================================
+                // TOPO COM LOGO
+               
                 int topoInfoY = y + 5;
 
                 Rectangle areaLogoTopo = new Rectangle(x + 10, topoInfoY + 2, 48, 48);
@@ -1285,9 +1284,8 @@ namespace PrimeiraTela
                     );
                 }
 
-                // =====================================================
-                // BARRA ROSA SOMENTE COM O TÍTULO ORÇAMENTO
-                // =====================================================
+                // TÍTULO ORÇAMENTO
+
                 int barraY = y + 95;
                 int barraAltura = 82;
 
@@ -1310,9 +1308,8 @@ namespace PrimeiraTela
 
                 y = barraY + barraAltura + 28;
 
-                // =====================================================
                 // DADOS DO CLIENTE
-                // =====================================================
+
                 g.DrawString("Dados do cliente", fonteSubtitulo, brushRose, x + 20, y);
                 y += 28;
 
@@ -1329,9 +1326,7 @@ namespace PrimeiraTela
 
                 y += 40;
 
-                // =====================================================
                 // TABELA DE PRODUTOS
-                // =====================================================
                 int alturaCabecalhoTabela = 32;
                 int alturaLinha = 34;
 
@@ -1404,9 +1399,8 @@ namespace PrimeiraTela
 
                 y += 35;
 
-                // =====================================================
                 // TOTAL DO PEDIDO
-                // =====================================================
+                
                 Rectangle totalBox = new Rectangle(tabelaX + tabelaLargura - 250, y, 250, 50);
                 g.FillRectangle(brushRose, totalBox);
 
@@ -1426,9 +1420,9 @@ namespace PrimeiraTela
                     totalBox.Y + 25
                 );
 
-                // =====================================================
+                
                 // RODAPÉ
-                // =====================================================
+               
                 g.DrawLine(penLinha, x + 20, margem.Bottom - 45, x + largura - 20, margem.Bottom - 45);
 
                 g.DrawString(
