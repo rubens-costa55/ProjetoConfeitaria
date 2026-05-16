@@ -243,7 +243,7 @@
             btnPedidosAtuaisNA.Name = "btnPedidosAtuaisNA";
             btnPedidosAtuaisNA.Size = new Size(220, 70);
             btnPedidosAtuaisNA.TabIndex = 6;
-            btnPedidosAtuaisNA.Text = "Pedidos Atuais";
+            btnPedidosAtuaisNA.Text = "Pedidos";
             btnPedidosAtuaisNA.UseVisualStyleBackColor = false;
             btnPedidosAtuaisNA.Click += btnPedidosAtuaisNA_Click;
             // 
@@ -275,7 +275,7 @@
             button1.Name = "button1";
             button1.Size = new Size(220, 70);
             button1.TabIndex = 4;
-            button1.Text = "Novo\r\nAgendamento";
+            button1.Text = "Novo Pedido";
             button1.UseVisualStyleBackColor = false;
             // 
             // panel2

@@ -70,7 +70,7 @@ namespace PrimeiraTela
         private void btnListPedidosAtuais_Click(object sender, EventArgs e)
         {
             new PedidosAtuais().Show();
-            this.Hide(); 
+            this.Hide();
         }
 
         private void TituloPrincipal_Click(object sender, EventArgs e)

@@ -246,6 +246,7 @@
             // lblSair
             // 
             lblSair.AutoSize = true;
+            lblSair.Cursor = Cursors.Hand;
             lblSair.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSair.ForeColor = Color.FromArgb(201, 137, 120);
             lblSair.Location = new Point(1486, 9);

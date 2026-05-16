@@ -112,7 +112,7 @@
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 5;
-            btnPedidosAtuais.Text = "Pedidos Atuais";
+            btnPedidosAtuais.Text = "Pedidos";
             btnPedidosAtuais.UseVisualStyleBackColor = false;
             btnPedidosAtuais.Click += btnPedidosAtuais_Click;
             // 
@@ -128,7 +128,7 @@
             btnNovoAgendamento.Name = "btnNovoAgendamento";
             btnNovoAgendamento.Size = new Size(220, 70);
             btnNovoAgendamento.TabIndex = 4;
-            btnNovoAgendamento.Text = "Novo Agendamento";
+            btnNovoAgendamento.Text = "Novo Pedido";
             btnNovoAgendamento.UseVisualStyleBackColor = false;
             btnNovoAgendamento.Click += btnNovoAgendamento_Click;
             // 
@@ -179,7 +179,7 @@
             label2.Name = "label2";
             label2.Size = new Size(248, 45);
             label2.TabIndex = 1;
-            label2.Text = "Novo Agendamento";
+            label2.Text = "Novo Pedido";
             // 
             // pictureBox2
             // 

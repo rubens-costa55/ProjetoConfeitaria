@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistoricoPedidos));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelSidebar = new Panel();
             pictureBox3 = new PictureBox();
             button2 = new Button();
@@ -127,7 +127,7 @@
             button2.Name = "button2";
             button2.Size = new Size(220, 70);
             button2.TabIndex = 17;
-            button2.Text = "Novo\r\nAgendamento";
+            button2.Text = "Novo Pedido";
             button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox4
@@ -238,7 +238,7 @@
             btnHistorico.Name = "btnHistorico";
             btnHistorico.Size = new Size(220, 70);
             btnHistorico.TabIndex = 4;
-            btnHistorico.Text = "Histórico\r\nClientes";
+            btnHistorico.Text = "Histórico";
             btnHistorico.UseVisualStyleBackColor = false;
             // 
             // btnPedidosAtuais
@@ -253,7 +253,7 @@
             btnPedidosAtuais.Name = "btnPedidosAtuais";
             btnPedidosAtuais.Size = new Size(220, 70);
             btnPedidosAtuais.TabIndex = 3;
-            btnPedidosAtuais.Text = "Pedidos Atuais";
+            btnPedidosAtuais.Text = "Pedidos";
             btnPedidosAtuais.UseVisualStyleBackColor = false;
             btnPedidosAtuais.Click += btnPedidosAtuais_Click;
             // 
@@ -337,25 +337,25 @@
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(239, 229, 226);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(95, 75, 69);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(239, 229, 226);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(95, 75, 69);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPedidos.ColumnHeadersHeight = 42;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colcliente, colpedido, colentrega, colvalor });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(252, 250, 249);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 232, 228);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(111, 84, 75);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(252, 250, 249);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 232, 228);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(111, 84, 75);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.GridColor = Color.FromArgb(231, 211, 204);
             dgvPedidos.Location = new Point(30, 27);

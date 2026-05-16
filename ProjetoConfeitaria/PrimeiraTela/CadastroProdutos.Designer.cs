@@ -202,7 +202,7 @@
             button2.Name = "button2";
             button2.Size = new Size(220, 70);
             button2.TabIndex = 16;
-            button2.Text = "Novo\r\nAgendamento";
+            button2.Text = "Novo Pedido";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -265,7 +265,7 @@
             btnPedidosAtuaisNA.Name = "btnPedidosAtuaisNA";
             btnPedidosAtuaisNA.Size = new Size(220, 70);
             btnPedidosAtuaisNA.TabIndex = 13;
-            btnPedidosAtuaisNA.Text = "Pedidos Atuais";
+            btnPedidosAtuaisNA.Text = "Pedidos";
             btnPedidosAtuaisNA.UseVisualStyleBackColor = false;
             btnPedidosAtuaisNA.Click += btnPedidosAtuaisNA_Click;
             // 
